@@ -11,3 +11,5 @@ Bot de comandos variados
 ## Objetivos del trabajo
 
 Queremos crear un codigo que permita realizar distintas experiencias recreativas elegidas previamente por el usuario
+
+Github, por favor, cuentame
