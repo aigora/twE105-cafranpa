@@ -4,9 +4,9 @@ Bot de comandos variados
 
 ## Integrantes del equipo
 
-Francisco Delgado Lopez [@fdelgadol]
-Candela Belen Estevez Romero [@cbestevez]
-Pablo Blazquez Gervas [@pabloblazquezgervas]
+-Francisco Delgado Lopez [@fdelgadol]
+-Candela Belen Estevez Romero [@cbestevez]
+-Pablo Blazquez Gervas [@pabloblazquezgervas]
 
 ## Objetivos del trabajo
 
