@@ -1,11 +1,13 @@
 # Título del trabajo
 
-Descripción breve del proyecto a realizar (2-3 frases).
+Bot de comandos variados
 
 ## Integrantes del equipo
 
-Nombres, apellidos, y usuario GitHub de los integrantes del equipo.
+Francisco Delgado Lopez [fdelgadol]
+Candela Belen Estevez Romero [cbestevez]
+Pablo Blazquez Gervas [pabloblazquezgervas]
 
 ## Objetivos del trabajo
 
-Lista de los objetivos que se persiguen con el trabajo propuesto.
+Queremos crear un codigo que permita realizar distintas experiencias recreativas elegidas previamente por el usuario
