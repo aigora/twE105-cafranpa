@@ -19,5 +19,6 @@ Algunas de las cosas que queremos hacer, serian:
 	3) Una calculadora
 	4) Un programa que cunte chistes malos
 	5) Un programa de "ayuda" para informar al usuario e los distintos comandos
+	6) Un programa que simula un combate
 
 A medida que demos temario, y que se nos ocurran ideas, iremos expandiendo la lista.
