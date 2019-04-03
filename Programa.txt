@@ -16,7 +16,6 @@ int danhoel(int b, int h);
 
 int pcn(int b);
 //Explicacion a porque hay otra funcion golpe mas abajo
-int golpel(int b, int h);
 
 int main() 
 {
@@ -26,6 +25,8 @@ int yo, el, defensayo, defensael;
 int danho1, danho2, espada, garras, pocion=3, n, curas, w;
 
 char s;
+
+srand(time(NULL));
 
 do	
 {	
@@ -39,7 +40,7 @@ do
 		//Asignamos los valores, calculados con las funciones, que estan definidas al final
 		espada=golpe(espada, 8);
 		
-		garras=golpel(garras, 5);
+		garras=golpe(garras, 5);
 		
 		danho1=danhoyo(danho1, 5);
 		
@@ -215,29 +216,18 @@ return 0;
 
 int golpe(int b, int h)
 {
-	srand(time(NULL));
+	
+	
 	b= rand() % 20 + 1;
 	b+=h;
 	return b;
 }
 
-//Anteriormente, los valores "espada" y "garra", por cualquier motivo, siempre salian con una diferencia de 3
-//Creo que la funcion estaba generando el mismo numero aleatorio, y sumandoselo a los dos
-
-int golpel(int b, int h)
-{
-	srand(time(NULL));
-	b= rand() % 21 + 2;
-	b+=h-1;
-	return b;
-}
-
-
 
 int danhoel(int b, int h)
 {
 	int f,j;
-	srand(time(NULL));
+	
 	f= rand() % 8 + 1;
 	j= rand() % 8 + 1;
 	b=f+j+h;
@@ -247,7 +237,7 @@ int danhoel(int b, int h)
 int danhoyo(int b, int h)
 {
 	int f,j;
-	srand(time(NULL));
+	
 	f = rand() % 10 + 1;
 	j= rand() % 10 + 1;
 	b=j+f+h;
@@ -258,7 +248,7 @@ int danhoyo(int b, int h)
 int pcn(int b)
 {
 	int f, j;
-	srand(time(NULL));
+	
 	f= rand() % 8 + 1;
 	j= rand() % 8 + 1;
 	b=f+j+4;
