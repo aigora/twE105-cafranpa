@@ -20,6 +20,6 @@ Algunas de las cosas que queremos hacer, serian:
 	4) Un programa que cuente chistes malos
 	5) Un programa que simula un combate
 	6) Podriamos hacer qu el bot le pida al usuraio ciertos datos, almacenandolos en ficheros
-	7) Una bola de cristal, te dia cual es tu fortuna
+	7) Una bola de cristal, te dira cual es tu fortuna
 
 A medida que demos temario, y que se nos ocurran ideas, iremos expandiendo la lista.
