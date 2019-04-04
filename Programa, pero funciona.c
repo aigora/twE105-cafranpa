@@ -1,6 +1,6 @@
-Aqui os dejo el programa que sirve para el combate
+//Aqui os dejo el programa que sirve para el combate
 
-Recordad que todavia necesitamos hacer la estructura del programa normal, y que habra que mejorar y adaptar el que os voy a pasar
+//Recordad que todavia necesitamos hacer la estructura del programa normal, y que habra que mejorar y adaptar el que os voy a pasar
 
 #include <stdio.h>
 #include <time.h>
@@ -72,7 +72,7 @@ do
 			{
 			scanf("%i", &n);
 			}
-			while(n<1&&n>4);
+			while(n<1||n>4);
 			
 			switch (n)
 			{
