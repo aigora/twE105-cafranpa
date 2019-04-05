@@ -19,13 +19,13 @@ int pcn(int b);
 
 int main() 
 {
-//Aqui esta la "vida" y "defensa"
+//Aqui esta la "vida" y "defensa" y el resto de variables
 int yo, el, defensayo, defensael;
 
 int danho1, danho2, espada, garras, pocion=3, n, curas, w;
 
 char s;
-
+//Generamos una semilla para los numeros aleatorios
 srand(time(NULL));
 
 do	
@@ -52,6 +52,7 @@ do
 		
 		defensael=18;
 		
+		//ESto esta relacionado con el turno del monstruo, pero por ahora no funciona
 		if((w==4||w==5))
 		garras+=10;
 		if(w==6)
@@ -62,12 +63,15 @@ do
 		printf("\n\n");
 		system("pause");
 		printf("\n\n");
+
+		//Turno del jugador
 		if(yo>0)
 		{
+			//El usuario ve las opciones, y escoge una
 			printf("Es tu turno, que quieres hacer? Tienes %i puntos de vida y %i puntos de defensa\n", yo, defensayo);
 			
 			printf("(1)Atacar\n(2)Intentar esquivar\n(3)Tomar una pocion. Te quedan %i\n(4)Intentar defenderte\n", pocion);
-			
+			//Nos asegura que escoge un numero entre los parametros dados
 			do
 			{
 			scanf("%i", &n);
@@ -76,6 +80,7 @@ do
 			
 			switch (n)
 			{
+				//Ataque
 				case 1:
 					if((espada<defensael)&&(espada-8!=20))
 					printf("Intentas atacar, pero no le das porque has sacado un %i\n ", espada);
@@ -95,6 +100,7 @@ do
 					}
 				break;
 				
+				//Esquiva
 				case 2: 
 					defensayo+=5;
 					
@@ -102,6 +108,7 @@ do
 					
 				break;
 				
+				//Curas
 				case 3:
 					if(pocion>0)
 					{
@@ -117,7 +124,7 @@ do
 						printf("Pierdes tu turno buscando pociones, pero no encuentras ninguna\n");
 						
 						break;
-						
+				//Defensa	
 				case 4:
 					danho2=danho2/2;
 					
@@ -133,8 +140,11 @@ do
 		system("pause");
 		printf("\n\n");
 		
+		//Turno del monstruo
 		if(el>0)
 		{
+			//El monstruo escogera que hacer generando un numero aleatorio. Algunas de sus opciones aumentan su daño y
+			//unteria el turno siguiente.Esto previene que el monstruo escoja dos de esas opciones seguidas
 			if((w==4)||(w==5)||(w==6))
 			{
 				
@@ -158,11 +168,12 @@ do
 			
 			else
 			{
-				srand(time(NULL));
+				//Genera un numero aleatorio que dictara las acciones del monstruo
 				w= rand() % 6 + 1;
 			
 				switch(w)
 				{
+					//Ataque
 					case 1:
 					case 2:
 					case 3:
@@ -184,11 +195,13 @@ do
 						}
 						break;
 				
+					//Mejora de punteria
 					case 4:
 					case 5:
 						printf("El monstruo esta concentrandose en apuntar");
 						break;
 				
+					//Aumento de daño
 					case 6:
 						printf("El monstruo se esta preparando para hacer un ataque muy fuerte");
 						break;
@@ -202,6 +215,8 @@ do
 			
 		}
 	}
+	
+	
 	printf("\n Has %s!, Intentarlo otra vez (s)? \n ", yo>0? "ganado":"perdido");
 	
 	scanf("%s", &s);
