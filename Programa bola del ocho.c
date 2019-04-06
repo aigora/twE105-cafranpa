@@ -31,7 +31,11 @@ void futuro()
 	printf("Adelante, preguntame lo que quieras conocer\n");
 	scanf("%300[^\n]", r);
 	printf("has dicho %s\n", r);
-	printf("Quieres preguntarme algo mas?(pulsa s)\n");
+	printf("Quieres preguntarme algo mas?\n");
+	printf("(Si quiere volver a jugra, pulse s. Si no pulse cualquier otra tecla)");
 	scanf("%s",&answ);
-    printf("has escrito %c", answ);
+    if(answ=='s')
+    futuro();
+    else
+    printf("Espero haberte servido mucho\n");
 }
