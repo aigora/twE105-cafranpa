@@ -26,12 +26,12 @@ int main()
 }
 void futuro()
 {
-	char answ, preg;
+	char answ, r[300];
 	printf("Veo que tienes agallas\n");
-	printf("Adelante, preguntame lo que quieras\n");
-	scanf("%c", &preg);
-	printf("Quieres preguntarme algo más?(pulsa s)\n");
-	scanf("%c",&answ);
+	printf("Adelante, preguntame lo que quieras conocer\n");
+	scanf("%300[^\n]", r);
+	printf("has dicho %s\n", r);
+	printf("Quieres preguntarme algo mas?(pulsa s)\n");
+	scanf("%s",&answ);
     printf("has escrito %c", answ);
-
 }
