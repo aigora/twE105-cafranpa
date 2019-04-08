@@ -2,6 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 void futuro();
+void prediccion();
 int main()
 {
 	char ans;
@@ -26,16 +27,132 @@ int main()
 }
 void futuro()
 {
-	char answ, r[300];
+	char r[300];
+	int i=0;
 	printf("Veo que tienes agallas\n");
-	printf("Adelante, preguntame lo que quieras conocer\n");
-	scanf("%300[^\n]", r);
-	printf("has dicho %s\n", r);
-	printf("Quieres preguntarme algo mas?\n");
-	printf("(Si quiere volver a jugra, pulse s. Si no pulse cualquier otra tecla)");
-	scanf("%s",&answ);
-    if(answ=='s')
+	system("pause");
+	printf("Adelante, preguntame lo que quieras conocer(es necesario terminar con una '?')\n");
+	scanf("%300[^?]", r);
+	prediccion();
+	system("pause");
+	printf("Quieres preguntarme algo mas?(1/cualquier otra tecla)\n");
+	scanf("%i",&i);
+    if(i==1)
     futuro();
     else
     printf("Espero haberte servido mucho\n");
+}
+void prediccion()
+{
+	srand(time(NULL));
+	int i;
+	i=rand()%21+1;
+	switch (i)
+	{
+		case 1:
+		{
+			printf("En mi opinión, sí\n");
+			break;
+		}	
+		case 2:	
+		{
+			printf("Es cierto\n");
+			break;
+		}		
+		case 3:
+		{
+			printf("Es decididamente asi\n");
+			break;			
+		}	
+		case 4:
+		{
+			printf("Probablemente\n");
+			break;			
+		}	
+		case 5:
+		{
+			printf("Buen proposito\n");
+			break;			
+		}	
+		case 6:
+		{
+			printf("Todo apunta a que sí\n");
+			break;			
+		}					
+		case 7:
+		{
+			printf("Sin duda\n");
+			break;			
+		}			
+		case 8:
+		{
+			printf("Sí\n");
+			break;			
+		}			
+		case 9:
+		{
+			printf("Sí, definitivamente\n");
+			break;			
+		}			
+		case 10:
+		{
+			printf("Debes confiar en ello\n");
+			break;			
+		}			
+		case 11:
+		{
+			printf("Respuesta vaga, vuelve a intentarlo\n");
+			break;			
+		}			
+		case 12:
+		{
+			printf("Pregunta en otro momento\n");
+			break;			
+		}			
+		case 13:
+		{
+			printf("Será mejor que no te lo diga ahora\n");
+			break;			
+		}			
+		case 14:
+		{
+			printf("No puedo predecirlo ahora\n");
+			break;			
+		}
+		case 15:
+		{
+			printf("Concentrate y vuelve a preguntar\n");
+			break;			
+		}			
+		case 16:
+		{
+			printf("Puede ser\n");
+			break;			
+		}		
+		case 17:
+		{
+			printf("No cuentes con ello\n");
+			break;			
+		}			
+		case 18:
+		{
+			printf("Mi respuesta es no\n");
+			break;			
+		}			
+		case 19:
+		{
+			printf("Mis fuentes dicen que no\n");
+			break;			
+		}
+		case 20:
+		{
+			printf("Mis perspectivas no son buenas\n");
+			break;			
+		}	
+		case 21:
+		{
+			printf("Muy dudoso\n");
+			break;			
+		}				
+	}
 }
