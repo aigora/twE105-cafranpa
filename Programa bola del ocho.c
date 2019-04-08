@@ -50,7 +50,7 @@ void prediccion()
 	{
 		case 1:
 		{
-			printf("En mi opinión, sí\n");
+			printf("En mi opinion, si\n");
 			break;
 		}	
 		case 2:	
@@ -75,7 +75,7 @@ void prediccion()
 		}	
 		case 6:
 		{
-			printf("Todo apunta a que sí\n");
+			printf("Todo apunta a que si\n");
 			break;			
 		}					
 		case 7:
@@ -85,12 +85,12 @@ void prediccion()
 		}			
 		case 8:
 		{
-			printf("Sí\n");
+			printf("Si\n");
 			break;			
 		}			
 		case 9:
 		{
-			printf("Sí, definitivamente\n");
+			printf("Si, definitivamente\n");
 			break;			
 		}			
 		case 10:
@@ -110,7 +110,7 @@ void prediccion()
 		}			
 		case 13:
 		{
-			printf("Será mejor que no te lo diga ahora\n");
+			printf("Sera mejor que no te lo diga ahora\n");
 			break;			
 		}			
 		case 14:
