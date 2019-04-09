@@ -7,6 +7,7 @@ typedef struct
 	int y;
 }posicion;
 void enterrar(posicion *tesoro);
+void busqueda(posicion *tesoro, posicion *usuario);
 int main()
 {
 	posicion tesoro, usuario;
@@ -18,11 +19,10 @@ int main()
 	printf("Comienzas en el origen de coordenadas\n");
 	system("pause");
 	printf("Tu objetivo, como habras podido deducir, es encontrar el tesoro\n");
-	
-	/* Este programa estará basado en una busqueda del tesoro en base a funciones con punteros 
-	y a estructuras que alberguen la posicion del tesoro y del usuario.
-	Los punteros ayudaran a modificar las estructuras con las funciones gracias al 
-	paso por referencia*/
+	system("pause");
+	printf("Para ello te voy a dar 1 minuto\n");
+	printf("Buena suerte\n");
+	busqueda(&tesoro, &usuario);
 	return 0;
 }
 void enterrar(posicion *tesoro)
@@ -31,4 +31,8 @@ void enterrar(posicion *tesoro)
 	srand(time(NULL));
 	res->x=rand() % 100+0;
 	res->y=rand() % 100+0;
+}
+void busqueda(posicion *tesoro, posicion *usuario)
+{
+	
 }
