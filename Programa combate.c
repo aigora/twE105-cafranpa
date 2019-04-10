@@ -19,7 +19,8 @@ char s;
 srand(time(NULL));
 do	
 {	
-	yo=65;
+	printf("Instrucciones:\nTanto tu como el monstruo teneis 4 'habilidades', por ponerles un nombre.\nLos puntos de ataque, los puntos de danho, los puntos de vida y la defensa.\nLos puntos de ataque y de danho se generan aleatoreamente cada turno.\nSi tus puntos de ataque son iguales o superiores a la defensa del enemigo, le\nquitaras 'x' puntos de danho  sus puntos de vida\n\n");
+	yo=70;
 	el=80;
 	printf("Aparece un enemigo, preparate para el combate \n");
 	//Se repite hasta que uno de los dos valores baje a 0 o menos
@@ -36,8 +37,13 @@ do
 		//Esto esta relacionado con el turno del monstruo, pero por ahora no funciona
 		if((w==4||w==5))
 		garras+=10;
-		if(w==6)
+		else if(w==6)
 		danho2=danho2*2;
+		else
+		{
+		garras=golpe(garras, 5);
+		danho2=danho2*2;
+		}
 		printf("\n\n");
 		system("pause");
 		printf("\n\n");
@@ -45,7 +51,7 @@ do
 		if(yo>0)
 		{
 			//El usuario ve las opciones, y escoge una
-			printf("Es tu turno, que quieres hacer? Tienes %i puntos de vida, %i puntos de ataque y %i puntos de defensa\n", yo, espada, defensayo);
+			printf("Es tu turno, que quieres hacer? Tienes %i puntos de vida y %i puntos de defensa\n", yo, defensayo);
 			printf("Y el enemigo tiene %i puntos de vida, %i puntos de ataque y %i puntos de defensa\n", el, garras, defensael);
 			printf("(1)Atacar\n(2)Intentar esquivar\n(3)Tomar una pocion. Te quedan %i\n(4)Intentar defenderte\n", pocion);
 			//Nos asegura que escoge un numero entre los parametros dados
@@ -103,9 +109,11 @@ do
 		if(el>0)
 		{
 			//El monstruo escogera que hacer generando un numero aleatorio. Algunas de sus opciones aumentan su daño y
-			//unteria el turno siguiente.Esto previene que el monstruo escoja dos de esas opciones seguidas
+			//punteria el turno siguiente.Esto previene que el monstruo escoja dos de esas opciones seguidas
 			if((w==4)||(w==5)||(w==6))
 			{
+				//Generamos otra vez un numero aleatorio para evitar entrar en bucle, el siguiente sera un ataque si o si
+				w= rand() % 3 + 1;
 				if((garras<defensayo)&&(garras-5!=20))
 						printf("\n\n\n\nIntenta atacarte, pero le esquivas porque ha sacado un %i\n ", garras);
 					else if(garras-5==20)
@@ -147,15 +155,17 @@ do
 					//Mejora de punteria
 					case 4:
 					case 5:
-						printf("El monstruo esta concentrandose en apuntar");
+						printf("El monstruo esta concentrandose en apuntar\n");
 						break;
 					//Aumento de daño
 					case 6:
-						printf("El monstruo se esta preparando para hacer un ataque muy fuerte");
+						printf("El monstruo se esta preparando para hacer un ataque muy fuerte\n");
 						break;
 				}
 			}
 		}
+		system("pause");
+		system("cls");
 	}
 	printf("\n Has %s!,(s)? \n ", yo>0? "ganado, quieres jugar otra vez":"perdido, quieres la revancha");
 	scanf("%s", &s);
