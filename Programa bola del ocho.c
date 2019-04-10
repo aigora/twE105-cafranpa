@@ -39,7 +39,7 @@ void futuro()
     if(ans=='s')//no funciona
     futuro();
     else
-    printf("Espero haberte servido mucho\n");
+    printf("Espero haberte servido de mucho\n");
 }
 void prediccion()
 {
