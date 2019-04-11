@@ -8,7 +8,7 @@ typedef struct
 }posicion;
 void enterrar(posicion *tesoro);
 void busqueda(posicion *tesoro, posicion *usuario);
-void proximidad(posicion *tesoro, posicion *usuario);
+int proximidad(posicion *tesoro, posicion *usuario);
 void avancevertical(int n, posicion *usuario);
 void avancehorizontal(int n, posicion *usuario);
 int main()
@@ -19,7 +19,7 @@ int main()
 	printf("Bienvenido a 'la busqueda del tesoro'\n");
 	sleep(3);
 	system("cls");
-	printf("Se ha enterrado un tesoro en un mapa de 100*100\n");
+	printf("Se ha enterrado un tesoro en un mapa de 10*10\n");
 	sleep(3);
 	system("cls");
 	printf("Comienzas en el origen de coordenadas\n");
@@ -30,7 +30,7 @@ int main()
 	system("cls");
 	printf("Para ello te voy a dar 20 rondas\n");
 	printf("En cada una de ellas podras mover tu personaje cuantas unidades quieras\n");
-	printf("Para ello tienes que pulsar una de las teclas direccionales, y el numero de unidades que quieras avanzar\n");
+	printf("Para ello tienes que pulsar una de las teclas direccionales(wasd), y el numero de unidades que quieras avanzar\n");
 	printf("(Pulse enter cuando hayas entendido las instrucciones)\n");
 	system("pause");
 	system("cls");
@@ -51,22 +51,38 @@ void enterrar(posicion *tesoro)
 {
 	posicion *res=tesoro;
 	srand(time(NULL));
-	res->x=rand() % 100+0;
-	res->y=rand() % 100+0;
+	res->x=rand() % 10+0;
+	res->y=rand() % 10+0;
 }
 void busqueda(posicion *tesoro, posicion *usuario)
 {
 	posicion *t=tesoro,*u=usuario;
 	u->x=u->y=0;
-	int i=1,n;
-	char l,ans;
+	int i=1,n,b;
+	char l,ans,bans;
 	do
 	{
 		printf("Ronda %i\n",i);
 		sleep(2);
-		proximidad(tesoro,usuario);
+		b=proximidad(tesoro,usuario);
+		if(b==0)
+		{
+			printf("Has ganado el juego\n");
+			printf("Te gustaria volver a jugar?(s/pulsa cualquier tecla)\n");
+			scanf(" %c",&bans);
+			if(bans=='s')
+			{
+				enterrar(tesoro);
+				busqueda(tesoro,usuario);
+			}
+			else
+			{
+				printf("Gracias por jugar\n");
+				exit(-1);
+			}
+		}
 		printf("usuario:\n\tx:%i\n\ty:%i\n",u->x,u->y);
-		scanf("%c%i[^\n]",&l,&n);
+		scanf(" %c%i[^\n]",&l,&n);
 		switch(l)
 		{
 			case 'w':
@@ -86,7 +102,7 @@ void busqueda(posicion *tesoro, posicion *usuario)
 			}
 			case 'a':
 			{
-				avancehorizontal(n,usuario);
+				avancehorizontal(-n,usuario);
 				break;				
 			}		
 		}
@@ -102,21 +118,26 @@ void busqueda(posicion *tesoro, posicion *usuario)
 		busqueda(tesoro, usuario);
 	}
 }
-void proximidad(posicion *tesoro, posicion *usuario)
+int proximidad(posicion *tesoro, posicion *usuario)
 {
-	posicion *t=tesoro,*u=usuario;	
-	if((abs(u->x-t->x)<=5)&&(abs(u->y-t->y)<=5))
+	posicion *t=tesoro,*u=usuario;
+	if((abs(u->x-t->x)==0)&&(abs(u->y-t->y)==0))
+	return 0;
+	else if((abs(u->x-t->x)<=1)&&(abs(u->y-t->y)<=1))
+	printf("Estas al lado del tesoro\n");	
+	else if((abs(u->x-t->x)<=2)&&(abs(u->y-t->y)<=2))
 	printf("Estas muy cerca del tesoro\n");
-	else if(((abs(u->x-t->x)<=20)&&(abs(u->y-t->y)<=5))||((abs(u->x-t->x)<=5)&&(abs(u->y-t->y)<=20))||((abs(u->x-t->x)<=20)&&(abs(u->y-t->y)<=20)))
+	else if(((abs(u->x-t->x)<=3)&&(abs(u->y-t->y)<=2))||((abs(u->x-t->x)<=2)&&(abs(u->y-t->y)<=3))||((abs(u->x-t->x)<=3)&&(abs(u->y-t->y)<=3)))
 	printf("Estas acercandote\n");
 	else
 	printf("Estas bastante lejos del tesoro\n");
+	return -1;
 }
 void avancevertical(int n, posicion *usuario)
 {
 	posicion *u=usuario;
 	u->y+=n;
-	if(u->y>100)
+	if(u->y>10)
 	{
 		printf("Error:te has salido del tablero\n");
 		exit(1);
@@ -126,7 +147,7 @@ void avancehorizontal(int n, posicion *usuario)
 {
 	posicion *u=usuario;
 	u->x+=n;
-	if(u->x>100)
+	if(u->x>10)
 	{
 		printf("Error:te has salido del tablero\n");
 		exit(1);
