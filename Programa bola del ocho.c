@@ -27,19 +27,20 @@ int main()
 }
 void futuro()
 {
-	char r[300], ans;
+	char ans='s';
 	printf("Veo que tienes agallas\n");
 	system("pause");
 	printf("Adelante, preguntame lo que quieras conocer(es necesario terminar con una '?')\n");
-	scanf("%300[^?]", r);//funciona pero con un apaño
+	scanf(" %[^\n]");
 	prediccion();
 	system("pause");
+	system("cls");
 	printf("Quieres preguntarme algo mas?(s/cualquier otra tecla)\n");
-	scanf("%s", &ans);
-    if(ans=='s')//no funciona
+	scanf(" %c", &ans);
+    if(ans=='s')
     futuro();
     else
-    printf("Espero haberte servido de mucho\n");
+    printf("Espero haberte servido de mucho, nos veremos en otro momento\n");
 }
 void prediccion()
 {
