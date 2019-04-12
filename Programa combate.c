@@ -167,7 +167,7 @@ do
 		system("pause");
 		system("cls");
 	}
-	printf("\n Has %s!,(s)? \n ", yo>0? "ganado, quieres jugar otra vez":"perdido, quieres la revancha");
+	printf("\n Has %s (s)? \n ", yo>0? "ganado, quieres jugar otra vez":"perdido, quieres la revancha");
 	scanf("%s", &s);
 }
 while(s=='s');	
