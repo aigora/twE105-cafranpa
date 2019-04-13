@@ -8,12 +8,12 @@ int main()
 	char ans;
 	printf("Hola, bienvenido a la bola del ocho\n");
 	printf("Crees que estas preparado para conocer tu fortuna?(s/n)\n");
-	scanf("%s", &ans);
+	scanf(" %c", &ans);
 	while((ans!='s')&&(ans!='n'))
 	{
 		printf("lo siento no te he entendido\n");
 		printf("Crees que estas preparado para conocer tu fortuna?(si o no)\n");
-		scanf("%s", &ans);
+		scanf(" %c", &ans);
 	}
 	if(ans=='s')
 	futuro();
@@ -31,7 +31,7 @@ void futuro()
 	printf("Veo que tienes agallas\n");
 	system("pause");
 	printf("Adelante, preguntame lo que quieras conocer(es necesario terminar con una '?')\n");
-	scanf(" %[^\n]");
+	scanf(" %c");
 	prediccion();
 	system("pause");
 	system("cls");

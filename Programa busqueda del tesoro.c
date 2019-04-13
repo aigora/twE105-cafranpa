@@ -137,7 +137,7 @@ void avancevertical(int n, posicion *usuario)
 {
 	posicion *u=usuario;
 	u->y+=n;
-	if(u->y>10)
+	if((u->y>10)||(u->y<0))
 	{
 		printf("Error:te has salido del tablero\n");
 		exit(1);
@@ -147,7 +147,7 @@ void avancehorizontal(int n, posicion *usuario)
 {
 	posicion *u=usuario;
 	u->x+=n;
-	if(u->x>10)
+	if((u->x>10)||(u->x<0))
 	{
 		printf("Error:te has salido del tablero\n");
 		exit(1);
