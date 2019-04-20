@@ -6,12 +6,14 @@
 int golpe(int b, int h);
 int main()
 {
-  do//https://www.europapress.es/desconecta/memes/noticia-cunadismo-nivel-chistes-malos-contar-noche-nochevieja-20161230171716.html chistes
-  {	
-  	int i=0, w, d;
-  	char  eleccion[11], c[11] = "Chiste", a[11] = "Adivinanza", s;
+//https://www.europapress.es/desconecta/memes/noticia-cunadismo-nivel-chistes-malos-contar-noche-nochevieja-20161230171716.html chistes
+    int i=0, w, d;
+  	char  eleccion[11], c[11] = "Chiste", a[11] = "Adivinanza", s, respuesta[20], a1[]="dedos", a2[]="paso de zebra", a3[]="tijeras";
   	srand(time(NULL));
-  	printf ("Bienvenido al programa cunhado. Por favor, escribe lo que prefieras:\nChiste\nAdivinanza\n");
+  do
+  {	
+  	system("cls");
+  	printf ("\nBienvenido al programa cunhado. Por favor, escribe lo que prefieras:\nChiste\nAdivinanza\n");
   	scanf ("%10s", eleccion);
   	while ((strcmp(c, eleccion)!=0)&&(strcmp(a, eleccion)!=0))
   	{
@@ -24,11 +26,14 @@ int main()
   		printf("Has escogido los Chistes! Aqui estan todos");
   		sleep(3);
   		printf("\n(1)El de Voldemort\n(2)El de cavar\n(3)El del banco\n(4)El de papa noel\n(5)El de la roca\n(6)El de ET\n(7)El de ingles\n(8)Otro de ingles\n(9)El de la pintura\n(10)El de la pelicula\n(11)El del amor\n(12)El de las fresas\n(13)El del alcohol\n(14)El del adjetivo\n(15)El de los seguros\n(16)El del barco\n(17)El de historia\n(18)El de informatica\n(19)El ultimo de ingles\n(20)El de la foca\n(21)No puedo elegir\n");
-  		scanf("%i", w);
+  		do
+		scanf("%i", &w);
+		while(w<1||w>21);
   		if (w==21)
   		{
-  			golpe(w,0);
+  			w=golpe(w,0);
 		}
+		system("cls");
 		switch(w)
 		{
 			case 1:
@@ -74,26 +79,76 @@ int main()
 				printf("-Papa, que significa inodoro?\n+Que no huele\n-Con razon se llama el primo Isidoro\n");
 			break;
 			case 15:
-				
+				printf("+Hola, es esta la agencia de seguros?\n-Si\n+Seguro?\n-Siiii\n+Seguro, seguro?\n-Que si conho, que queria?\n+Asegurarme\n");
 			break;
 			case 16:
+				printf("+Capitan, su mujer esta asomada por la ventana del barco\n-Escotillan\n+Me parecia feo decirselo, pero si, mucho\n");
 			break;
 			case 17:
+				printf("+Espero que hayas estudiado para el examen\n-Por suspuesto\n+Hablame del tercer Reich\n-El de la mirra?\n");
 			break;
 			case 18:
+				printf("Están 1023 terabytes en una fiesta, llega uno más y dice...\nNos hacemos un peta?\n");
 			break;
 			case 19:
+				printf("+Nivel de ingles?\n-Alto\n+Como es 'La proxima semana'\n-The Colacao\n+Huh?\n-Ah, no... The Nesquick\n+Esta bien, vaya a prepararse uno\n");
 			break;
 			case 20:
+				printf("+Que le dice a la foca de su madre?\n-I love you, mother foca\n");
 			break;
 		}
 	}
 	else
 	{
-		
-	}
+		printf("Has elegido las adivinanzas! Te voy a ir poniendo adivinanzas, cada vez mas dificiles. Ganaras si las adivinas todas antes de quedarte sin intentos. Escribe en minusculas\n");
+		sleep(3);
+		printf("Primera adivinanza:\nCinco hermanos muy unidos que no se pueden mirar, cuando riñen aunque quieras no los puedes separar.");
+		d=5;
+		do
+		{
+			printf("\nTe quedan %i intentos\n", d);
+			scanf ("%20s", respuesta);
+			d--;
+		}
+		while (strcmp(a1, respuesta) != 0&&d>0);
+		if (d>0)
+		{
+			system("cls");
+			printf("Segunda adivinanza:\nSoy animal en el campo, soy pintura en la ciudad y mi nombre como dice Braulio en esta calle esta.");
+			d=5;
+			do
+			{
+				printf("\nTe quedan %i intentos\n", d);
+				scanf(" %20[^\n]", respuesta);
+				d--;
+			}
+			while (strcmp(a2, respuesta) != 0&&d>0);
+			if(d>0)
+			{
+				system("cls");
+				printf("Ultima adivinanza:\nDos hermanas diligentes que caminan al compas, con el pico por delante y los ojos por detras.");
+				d=5;
+				do
+				{
+					printf("\nTe quedan %i intentos\n", d);
+					scanf(" %20s", respuesta);
+					d--;
+				}	
+				while (strcmp(a3, respuesta) != 0&&d>0);
+				if(d=0)
+				d=-1;
+					
+			}
+			else
+			d=-1;
+		}
+		else
+		d=-1;
+	}	
+	printf("\nHas %s!, Repetimos (s)? \n ", d!=-1? "ganado":"perdido");
+	scanf(" %c", &s);
   }
-  while(0==0);
+  while(s=='s');
   
 }
 
