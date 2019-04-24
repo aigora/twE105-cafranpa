@@ -20,10 +20,13 @@ int main()
 	printf("Buenos dias!! Bienvenido a nuestro programa. Te presentamos el 'PROCRASTINADOR 3000'\n");
     printf("Antes de todo cuentame como te llamas\n");
     scanf("%[^\n]", us.nombre);
+    system("cls");
     printf("Y ahora tu edad\n");
     scanf("%i[^\n]",&us.edad);
+    system("cls");
     printf("Y por ultimo tu sexo\n");
-    scanf("%30[^\n]", us.sexo);
+    scanf("%[^\n]", us.sexo);
+    system("cls");
     printf("Muy bien ");
     while(us.nombre[i]!='\0')
     {
@@ -32,7 +35,7 @@ int main()
 	}
 	printf(" vamos a divertirnos un rato\n");
   //Aqui vamos a comenzar el switch case, pidiendo al usuario que escoja entre 6 opciones, cada una asignada con un numero
-   printf("Escoge entre una de las siguientes opciones:\n1)'Bola de ocho':Hazme una pregunta de si o no y te dare una respuesta\n2)Generador de numeros aleatorios\n3)Calculdora\n4)Un programa que cuenta chistes malos, y adivinanzas\n5)Un combate por turnos\n6)cuñado\n");
+   printf("Escoge entre una de las siguientes opciones:\n1)'Bola de ocho':Hazme una pregunta de si o no y te dare una respuesta\n2)Busqueda del tesoro\n3)Calculdora\n4)Un programa que cuenta chistes malos, y adivinanzas\n5)Un combate por turnos\n6)cunhado\n");
   	do
   	{
   		scanf(" %i",&op);
@@ -41,10 +44,12 @@ int main()
   	switch(op)
     	{
     		case 1:
-      			printf("1)'Bola de ocho':Hazme una pregunta de si o no y te dare una respuesta\n");
+    			system("cls");
+      			boladelocho();
      			break;
     		case 2:
-      			printf("2)Generador de numeros aleatorios\n");
+      			system("cls");
+      			busquedadeltesoro();
       			break;
     		case 3:
       			printf("3)Calculdora\n");
@@ -57,6 +62,7 @@ int main()
      			combate();
       			break;
 			case 6:
+				system("cls");
       			cunhado();
       			break;
     	}
