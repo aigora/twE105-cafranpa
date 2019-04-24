@@ -19,7 +19,7 @@ int main()
 	printf("Bienvenido a 'la busqueda del tesoro'\n");
 	sleep(3);
 	system("cls");
-	printf("Se ha enterrado un tesoro en un mapa de 10*10\n");
+	printf("Se ha enterrado un tesoro en un mapa de 11*11\n");
 	sleep(3);
 	system("cls");
 	printf("Comienzas en el origen de coordenadas\n");
