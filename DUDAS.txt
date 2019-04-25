@@ -1,0 +1,3 @@
+-scanf(incompatibilidades al poner varios)
+-Ficheros y variables(es posible almacenar variables en ficheros?)
+-Como realizar una asignacion dinamica de memoria en ficheros
