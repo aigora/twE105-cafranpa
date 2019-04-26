@@ -35,7 +35,7 @@ int main()
 	}
 	printf(" vamos a divertirnos un rato\n");
     //Aqui vamos a comenzar el switch case, pidiendo al usuario que escoja entre 6 opciones, cada una asignada con un numero
-    printf("Escoge entre una de las siguientes opciones:\n1)'Bola de ocho':Hazme una pregunta de si o no y te dare una respuesta\n2)Busqueda del tesoro\n3)Calculdora\n4)Un programa que cuenta chistes malos, y adivinanzas\n5)Un combate por turnos\n6)cunhado\n");  
+    printf("Escoge entre una de las siguientes opciones:\n1)'Bola de ocho':Hazme una pregunta de si o no y te dare una respuesta\n2)Busqueda del tesoro\n3)Calculdora\n4)Un combate por turnos\n5)cunhado\n");  
   	do
   	{
   		scanf(" %i",&op);
@@ -54,14 +54,11 @@ int main()
     		case 3:
       			printf("3)Calculdora\n");
       			break;
-    		case 4:
-      			printf("4)Un programa que cuenta chistes malos, y adivinanzas\n");
-      			break;
-			case 5:
+			case 4:
 				system("cls");
      			combate();
       			break;
-			case 6:
+			case 5:
 				system("cls");
       			cunhado();
       			break;
