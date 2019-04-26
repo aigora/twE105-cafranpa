@@ -72,11 +72,13 @@ void busqueda(posicion *tesoro, posicion *usuario)
 			scanf(" %c",&bans);
 			if(bans=='s')
 			{
+				system("cls");
 				enterrar(tesoro);
 				busqueda(tesoro,usuario);
 			}
 			else
 			{
+				system("cls");
 				printf("Gracias por jugar\n");
 				exit(-1);
 			}

@@ -111,7 +111,7 @@ int main()
 			d--;
 		}
 		while (strcmp(a1, respuesta) != 0&&d>0);
-		if (d>0)
+		if (d>=0)
 		{
 			system("cls");
 			printf("Segunda adivinanza:\nSoy animal en el campo, soy pintura en la ciudad y mi nombre como dice Braulio en esta calle esta.");
@@ -119,11 +119,11 @@ int main()
 			do
 			{
 				printf("\nTe quedan %i intentos\n", d);
-				scanf(" %20[^\n]", respuesta);
+				scanf(" %20[^\n]\n", respuesta);
 				d--;
 			}
 			while (strcmp(a2, respuesta) != 0&&d>0);
-			if(d>0)
+			if(d>=0)
 			{
 				system("cls");
 				printf("Ultima adivinanza:\nDos hermanas diligentes que caminan al compas, con el pico por delante y los ojos por detras.");
@@ -131,11 +131,11 @@ int main()
 				do
 				{
 					printf("\nTe quedan %i intentos\n", d);
-					scanf(" %20s", respuesta);
+					scanf(" %20s\n", respuesta);
 					d--;
 				}	
 				while (strcmp(a3, respuesta) != 0&&d>0);
-				if(d=0)
+				if(d<0)
 				d=-1;
 					
 			}
