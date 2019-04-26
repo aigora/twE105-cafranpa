@@ -6,22 +6,21 @@
 int golpe(int b, int h);
 int main()
 {
-//https://www.europapress.es/desconecta/memes/noticia-cunadismo-nivel-chistes-malos-contar-noche-nochevieja-20161230171716.html chistes
-    int i=0, w, d;
-  	char  eleccion[11], c[11] = "Chiste", a[11] = "Adivinanza", s, respuesta[20], a1[]="dedos", a2[]="paso de zebra", a3[]="tijeras";
+    int i=0, w, d, f;
+  	char  eleccion[11], s, respuesta[20], a1[]="DEDOS", a2[]="PASO DE ZEBRA", a3[]="TIJERAS";
   	srand(time(NULL));
   do
   {	
   	system("cls");
-  	printf ("\nBienvenido al programa cunhado. Por favor, escribe lo que prefieras:\nChiste\nAdivinanza\n");
-  	scanf ("%10s", eleccion);
-  	while ((strcmp(c, eleccion)!=0)&&(strcmp(a, eleccion)!=0))
+  	printf ("\nBienvenido al programa cunhado. Por favor, escribe lo que prefieras:\n1)Chiste\n2)Adivinanza\n");
+  	scanf ("%i", &f);
+  	while (f<1|f>2)
   	{
-  		printf("Esa respuesta no es valida. Asegurate que no te olvidas las mayusculas.\n");
-  		scanf ("%10s", eleccion);
+  		printf("Escribe un 1 o un 2, por favor.\n");
+  		scanf ("%i", &f);
   	}
   	system("cls");
-  	if (strcmp(a, eleccion)!=0)
+  	if (f!=2)
   	{
   		printf("Has escogido los Chistes! Aqui estan todos");
   		sleep(3);
@@ -100,14 +99,15 @@ int main()
 	}
 	else
 	{
-		printf("Has elegido las adivinanzas! Te voy a ir poniendo adivinanzas, cada vez mas dificiles. Ganaras si las adivinas todas antes de quedarte sin intentos. Escribe en minusculas\n");
+		printf("Has elegido las adivinanzas! Te voy a ir poniendo adivinanzas, cada vez mas dificiles. Ganaras si las adivinas todas antes de quedarte sin intentos.\n");
 		sleep(3);
 		printf("Primera adivinanza:\nCinco hermanos muy unidos que no se pueden mirar, cuando riñen aunque quieras no los puedes separar.");
 		d=5;
 		do
 		{
 			printf("\nTe quedan %i intentos\n", d);
-			scanf ("%20s", respuesta);
+			scanf (" %20s", respuesta);
+			_strupr(respuesta);
 			d--;
 		}
 		while (strcmp(a1, respuesta) != 0&&d>0);
@@ -120,6 +120,7 @@ int main()
 			{
 				printf("\nTe quedan %i intentos\n", d);
 				scanf(" %20[^\n]\n", respuesta);
+				_strupr(respuesta);
 				d--;
 			}
 			while (strcmp(a2, respuesta) != 0&&d>0);
@@ -132,6 +133,7 @@ int main()
 				{
 					printf("\nTe quedan %i intentos\n", d);
 					scanf(" %20s\n", respuesta);
+					_strupr(respuesta);	
 					d--;
 				}	
 				while (strcmp(a3, respuesta) != 0&&d>0);
