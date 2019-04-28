@@ -22,10 +22,10 @@ int main()
     scanf("%[^\n]", us.nombre);
     system("cls");
     printf("Y ahora tu edad\n");
-    scanf("%i[^\n]",&us.edad);
+    scanf("%i",&us.edad);
     system("cls");
     printf("Y por ultimo tu sexo\n");
-    scanf("%[^\n]", us.sexo);
+    scanf(" %c", &us.sexo);
     system("cls");
     printf("Muy bien ");
     while(us.nombre[i]!='\0')
@@ -38,7 +38,7 @@ int main()
     printf("Escoge entre una de las siguientes opciones:\n1)'Bola de ocho':Hazme una pregunta de si o no y te dare una respuesta\n2)Busqueda del tesoro\n3)Calculdora\n4)Un programa que cuenta chistes malos, y adivinanzas\n5)Un combate por turnos\n6)cunhado\n");  
   	do
   	{
-  		scanf(" %i",&op);
+  		scanf("%i",&op);
   	}
   	while(op<1||op>7);
   	switch(op)
@@ -67,7 +67,7 @@ int main()
       			break;
     	}
     printf("Desea repetir el programa? Pulse 's'\n");
-    scanf("%s",&s);
+    scanf(" %c",&s);
   }
  while(s=='s');
 return 0;
