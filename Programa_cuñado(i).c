@@ -6,15 +6,16 @@
 int golpe(int b, int h);
 int main()
 {
+	FILE *pf;
     int i=0, w, d, f;
-  	char  eleccion[11], s, respuesta[20], a1[]="DEDOS", a2[]="PASO DE ZEBRA", a3[]="TIJERAS";
+  	char  eleccion[11], s, respuesta[20], a1[]="DEDOS", a2[]="PASO DE ZEBRA", a3[]="TIJERAS", chistes[300];
   	srand(time(NULL));
   do
   {	
   	system("cls");
   	printf ("\nBienvenido al programa cunhado. Por favor, escribe lo que prefieras:\n1)Chiste\n2)Adivinanza\n");
   	scanf ("%i", &f);
-  	while (f<1|f>2)
+  	while (f!=1&&f!=2)
   	{
   		printf("Escribe un 1 o un 2, por favor.\n");
   		scanf ("%i", &f);
@@ -23,6 +24,17 @@ int main()
   	if (f!=2)
   	{
   		printf("Has escogido los Chistes! Aqui estan todos");
+  		
+  		
+  		
+  		
+  		pf = fopen("chistes.txt", "r");
+		fscanf(pf, "%299[^\n]", chistes);
+		fclose(pf);
+  		printf("%s", chistes);
+  		
+  		
+  		
   		sleep(3);
   		printf("\n(1)El de Voldemort\n(2)El de cavar\n(3)El del banco\n(4)El de papa noel\n(5)El de la roca\n(6)El de ET\n(7)El de ingles\n(8)Otro de ingles\n(9)El de la pintura\n(10)El de la pelicula\n(11)El del amor\n(12)El de las fresas\n(13)El del alcohol\n(14)El del adjetivo\n(15)El de los seguros\n(16)El del barco\n(17)El de historia\n(18)El de informatica\n(19)El ultimo de ingles\n(20)El de la foca\n(21)No puedo elegir\n");
   		do
