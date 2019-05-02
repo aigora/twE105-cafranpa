@@ -2,7 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 void futuro();
-void prediccion();
+int prediccion();
 int main()
 {
 	char ans;
@@ -31,7 +31,7 @@ void futuro()
 	printf("Veo que tienes agallas\n");
 	system("pause");
 	printf("Adelante, preguntame lo que quieras conocer(es necesario terminar con una '?')\n");
-	scanf(" %c");
+	scanf(" %c[^?]");
 	prediccion();
 	system("pause");
 	system("cls");
@@ -42,117 +42,22 @@ void futuro()
     else
     printf("Espero haberte servido de mucho, nos veremos en otro momento\n");
 }
-void prediccion()
+int prediccion()
 {
+	FILE *pf;
+	char res[21][30];
 	srand(time(NULL));
-	int i;
+	int i,j;
 	i=rand()%21+1;
-	switch (i)
+	pf=fopen("bola_del_8.txt","r");
+	if(pf==NULL)
 	{
-		case 1:
-		{
-			printf("En mi opinion, si\n");
-			break;
-		}	
-		case 2:	
-		{
-			printf("Es cierto\n");
-			break;
-		}		
-		case 3:
-		{
-			printf("Es decididamente asi\n");
-			break;			
-		}	
-		case 4:
-		{
-			printf("Probablemente\n");
-			break;			
-		}	
-		case 5:
-		{
-			printf("Buen proposito\n");
-			break;			
-		}	
-		case 6:
-		{
-			printf("Todo apunta a que si\n");
-			break;			
-		}					
-		case 7:
-		{
-			printf("Sin duda\n");
-			break;			
-		}			
-		case 8:
-		{
-			printf("Si\n");
-			break;			
-		}			
-		case 9:
-		{
-			printf("Si, definitivamente\n");
-			break;			
-		}			
-		case 10:
-		{
-			printf("Debes confiar en ello\n");
-			break;			
-		}			
-		case 11:
-		{
-			printf("Respuesta vaga, vuelve a intentarlo\n");
-			break;			
-		}			
-		case 12:
-		{
-			printf("Pregunta en otro momento\n");
-			break;			
-		}			
-		case 13:
-		{
-			printf("Sera mejor que no te lo diga ahora\n");
-			break;			
-		}			
-		case 14:
-		{
-			printf("No puedo predecirlo ahora\n");
-			break;			
-		}
-		case 15:
-		{
-			printf("Concentrate y vuelve a preguntar\n");
-			break;			
-		}			
-		case 16:
-		{
-			printf("Puede ser\n");
-			break;			
-		}		
-		case 17:
-		{
-			printf("No cuentes con ello\n");
-			break;			
-		}			
-		case 18:
-		{
-			printf("Mi respuesta es no\n");
-			break;			
-		}			
-		case 19:
-		{
-			printf("Mis fuentes dicen que no\n");
-			break;			
-		}
-		case 20:
-		{
-			printf("Mis perspectivas no son buenas\n");
-			break;			
-		}	
-		case 21:
-		{
-			printf("Muy dudoso\n");
-			break;			
-		}				
+		printf("error: no se ha podido abrir el fichero\n");
+		return 0;
 	}
+	for(j=0;j<=21;j++)
+	{
+		fscanf(pf,"\n%[^\n]\n",res[j]);
+	}
+	printf("%s\n",res[i]);
 }
