@@ -1,7 +1,10 @@
 #include<stdio.h>
 #include <time.h>
 #include <stdlib.h>
-void futuro();
+typedef struct{
+	char string[40];
+}string;
+void futuro(char ans);
 int prediccion();
 int main()
 {
@@ -16,7 +19,7 @@ int main()
 		scanf(" %c", &ans);
 	}
 	if(ans=='s')
-	futuro();
+	futuro(ans);
 	else if(ans=='n')
 	{
 		printf("Te entiendo, el futuro no es para mentes fragiles\n");
@@ -25,39 +28,38 @@ int main()
     }
     return 0;
 }
-void futuro()
+void futuro(char ans)
 {
-	char ans='s';
 	printf("Veo que tienes agallas\n");
-	system("pause");
-	printf("Adelante, preguntame lo que quieras conocer(es necesario terminar con una '?')\n");
-	scanf(" %c[^?]");
+	printf("Adelante, preguntame lo que quieras conocer\n");
+	scanf(" %[^\n]");
 	prediccion();
 	system("pause");
 	system("cls");
 	printf("Quieres preguntarme algo mas?(s/cualquier otra tecla)\n");
 	scanf(" %c", &ans);
     if(ans=='s')
-    futuro();
+    futuro(ans);
     else
     printf("Espero haberte servido de mucho, nos veremos en otro momento\n");
 }
 int prediccion()
 {
 	FILE *pf;
-	char res[21][30];
+	string res[21];
 	srand(time(NULL));
 	int i,j;
-	i=rand()%21+1;
+	i=rand()%20+1;
 	pf=fopen("bola_del_8.txt","r");
 	if(pf==NULL)
 	{
 		printf("error: no se ha podido abrir el fichero\n");
 		return 0;
 	}
-	for(j=0;j<=21;j++)
+	for(j=0;j<21;j++)
 	{
-		fscanf(pf,"\n%[^\n]\n",res[j]);
+		fscanf(pf," %40[^\n]",res[j].string);	
 	}
-	printf("%s\n",res[i]);
+	printf("%s\n",res[i].string);
+	fclose(pf);
 }
