@@ -6,6 +6,7 @@ typedef struct{
 }string;
 void futuro(char ans);
 int prediccion();
+int lecturafichero(FILE *pf, string *res, int n);
 int main()
 {
 	char ans;
@@ -47,19 +48,27 @@ int prediccion()
 {
 	FILE *pf;
 	string res[21];
+	int i;
 	srand(time(NULL));
-	int i,j;
-	i=rand()%20+1;
+	i=rand()%20+0;
+	lecturafichero(*pf, res, 21);
+	printf("%s\n",res[i].string);
+	return 1;
+}
+int lecturafichero(FILE *pf, string *res, int n)
+{
+	int i;
+	char x;
 	pf=fopen("bola_del_8.txt","r");
 	if(pf==NULL)
 	{
 		printf("error: no se ha podido abrir el fichero\n");
 		return 0;
 	}
-	for(j=0;j<21;j++)
+	for(i=0;i<n;i++)
 	{
-		fscanf(pf," %40[^\n]",res[j].string);	
+		fscanf(pf," %400[^\n]",res[i].string);	
 	}
-	printf("%s\n",res[i].string);
 	fclose(pf);
+	return 1;	
 }
