@@ -7,10 +7,10 @@ typedef struct
 	int y;
 }posicion;
 void enterrar(posicion *tesoro);
-void busqueda(posicion *tesoro, posicion *usuario);
+int busqueda(posicion *tesoro, posicion *usuario);
 int proximidad(posicion *tesoro, posicion *usuario);
-void avancevertical(int n, posicion *usuario);
-void avancehorizontal(int n, posicion *usuario);
+int avancevertical(int n, posicion *usuario);
+int avancehorizontal(int n, posicion *usuario);
 int main()
 {
 	int cnt;
@@ -54,7 +54,7 @@ void enterrar(posicion *tesoro)
 	res->x=rand() % 10+0;
 	res->y=rand() % 10+0;
 }
-void busqueda(posicion *tesoro, posicion *usuario)
+int busqueda(posicion *tesoro, posicion *usuario)
 {
 	posicion *t=tesoro,*u=usuario;
 	u->x=u->y=0;
@@ -80,7 +80,7 @@ void busqueda(posicion *tesoro, posicion *usuario)
 			{
 				system("cls");
 				printf("Gracias por jugar\n");
-				exit(-1);
+				return 0;
 			}
 		}
 		printf("usuario:\n\tx:%i\n\ty:%i\n",u->x,u->y);
@@ -95,7 +95,7 @@ void busqueda(posicion *tesoro, posicion *usuario)
 			case 'd':
 			{
 				avancehorizontal(n,usuario);
-				break;//hacer funcion void avancehorizontal(int n, posicion *usuario)
+				break;
 			}
 			case 's':
 			{
@@ -112,8 +112,8 @@ void busqueda(posicion *tesoro, posicion *usuario)
 	}
 	while(i<=20);
 	printf("Se ha acabado el juego\n");
-	printf("QUieres jugar otra vez?(s/n)\n");
-	scanf("%s",&ans);
+	printf("Quieres jugar otra vez?(s/n)\n");
+	scanf(" %c",&ans);
 	if(ans=='s')
 	{
 		enterrar(tesoro);
@@ -133,25 +133,29 @@ int proximidad(posicion *tesoro, posicion *usuario)
 	printf("Estas acercandote\n");
 	else
 	printf("Estas bastante lejos del tesoro\n");
-	return -1;
+	return 1;
 }
-void avancevertical(int n, posicion *usuario)
+int avancevertical(int n, posicion *usuario)
 {
 	posicion *u=usuario;
 	u->y+=n;
 	if((u->y>10)||(u->y<0))
 	{
 		printf("Error:te has salido del tablero\n");
-		exit(1);
+		u->y-=n;
+		return 0;
 	}
+	return 1;
 }
-void avancehorizontal(int n, posicion *usuario)
+int avancehorizontal(int n, posicion *usuario)
 {
 	posicion *u=usuario;
 	u->x+=n;
 	if((u->x>10)||(u->x<0))
 	{
 		printf("Error:te has salido del tablero\n");
-		exit(1);
+		u->x-=n;
+		return 0;
 	}
+	return 1;
 }
