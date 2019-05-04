@@ -7,8 +7,9 @@ int golpe(int b, int h);
 int main()
 {
 	FILE *pf;
-    int i=0, w, d, f;
-  	char  eleccion[11], s, respuesta[20], a1[]="DEDOS", a2[]="PASO DE ZEBRA", a3[]="TIJERAS", chistes[300];
+	char chistes[21][30];
+    int i=0, w, d, f, x, y;
+  	char  eleccion[11], s, respuesta[20], a1[]="DEDOS", a2[]="PASO DE ZEBRA", a3[]="TIJERAS";
   	srand(time(NULL));
   do
   {	
@@ -23,21 +24,20 @@ int main()
   	system("cls");
   	if (f!=2)
   	{
-  		printf("Has escogido los Chistes! Aqui estan todos");
-  		
-  		
-  		
-  		
-  		pf = fopen("chistes.txt", "r");
-		fscanf(pf, "%299[^\n]", chistes);
-		fclose(pf);
-  		printf("%s", chistes);
-  		
-  		
-  		
+  		printf("Has escogido los Chistes! Aqui estan todos\n");
   		sleep(3);
-  		printf("\n(1)El de Voldemort\n(2)El de cavar\n(3)El del banco\n(4)El de papa noel\n(5)El de la roca\n(6)El de ET\n(7)El de ingles\n(8)Otro de ingles\n(9)El de la pintura\n(10)El de la pelicula\n(11)El del amor\n(12)El de las fresas\n(13)El del alcohol\n(14)El del adjetivo\n(15)El de los seguros\n(16)El del barco\n(17)El de historia\n(18)El de informatica\n(19)El ultimo de ingles\n(20)El de la foca\n(21)No puedo elegir\n");
-  		do
+		pf=fopen("chistes.txt","r");
+		if(pf==NULL)
+		{
+			printf("error: no se ha podido abrir el fichero\n");
+			return 0;
+		}
+		for(y=0;y<30;y++)
+		{
+			fscanf(pf,"\n%[^\n]\n",chistes[y]);
+		}
+		for(x=0;x<21;x++)
+		printf("%s\n",chistes[x]);
 		scanf("%i", &w);
 		while(w<1||w>21);
   		if (w==21)
