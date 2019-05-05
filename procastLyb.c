@@ -2,24 +2,7 @@
 #include<math.h>
 #include<stdlib.h>
 #include<string.h>
-typedef struct{
-	char name[20];
-	int bola, combate, cunhado, recetario, tesoro;
-}usuario;
-int ingreso(usuario *iz);
-void registro(usuario iz, int io);
-int main()
-{
-	usuario iz;
-	int i;
-	i=ingreso(&iz);
-	system("cls");
-	printf("%s:\n\tbola del 8cho:%i\n\tcombate:%i\n\tcunhado:%i\n\trecetario:%i\n\ttesoro:%i\n",
-		iz.name,iz.bola,iz.combate,iz.cunhado,iz.recetario,iz.tesoro);
-	printf("%s:\n\tbola del 8cho:%i\n\tcombate:%i\n\tcunhado:%i\n\trecetario:%i\n\ttesoro:%i\n",
-		iz.name,iz.bola,iz.combate,iz.cunhado,iz.recetario,iz.tesoro);
-	registro(iz,i);	
-}
+#include"procastLyb.h"
 int ingreso(usuario *iz)
 {
 	FILE *p; usuario usuario[4];
