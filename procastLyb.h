@@ -14,7 +14,10 @@ void futuro(char ans);
 int prediccion();
 int lecturafichero(FILE *pf, string *res, int n);
 //Usados en Combate por turnos
-//...
+int golpe(int b, int h);
+int danhoyo(int b, int h);
+int danhoel(int b, int h);
+int pcn(int b);
 //Usados en Cunhado
 //...
 //Usados en Recetario

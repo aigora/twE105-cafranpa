@@ -34,7 +34,7 @@ int main()
 				iz.bola++;
 				break;
 			case 2:
-				//...
+				combate();
 				iz.combate++;
 				break;
 			case 3:
