@@ -12,7 +12,7 @@ int main()
 	printf("Antes de empezar, procede con la seleccion de usuario\n");
 	system("pause");
 	system("cls");
-	i=ingreso(&iz);//linea 7
+	i=ingreso(&iz);//linea 7 procastLyb.c
 	sleep(1);
 	system("cls");
 	printf("Muy bien %s, como habras podido intuir, soy un bot que te ayudara a pasar el rato\n",iz.name);
@@ -30,7 +30,7 @@ int main()
 		switch(vg)
 		{
 			case 1:
-				//...
+				boladelocho();
 				iz.bola++;
 				break;
 			case 2:
@@ -54,7 +54,7 @@ int main()
 				res='r';
 				break;				
 		}
-		registro(iz,i);
+		registro(iz,i);//linea 70 procastLyb.c
 		system("cls");
 		printf("Eso fue divertido, quieres elegir otro programa(o), o quieres salir del programa(s)?(o/s)\n");
 		do
@@ -63,6 +63,7 @@ int main()
 			if(res=='o')
 			{
 				res='r';
+				system("cls");
 				printf("Muy bien, aqui tienes los programas:\n");
 				printf("\t1:Bola del ocho\n\t2:Combate por turnos\n\t3:Cunhado digital\n\t4:Recetario para celiacos\n\t5:Busqueda del tesoro\n");		
 			}

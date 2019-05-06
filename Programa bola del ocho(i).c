@@ -7,9 +7,9 @@ typedef struct{
 void futuro(char ans);
 int prediccion();
 int lecturafichero(FILE *pf, string *res, int n);
-int main()
 {
 	char ans;
+	system("cls");
 	printf("Hola, bienvenido a la bola del ocho\n");
 	printf("Crees que estas preparado para conocer tu fortuna?(s/n)\n");
 	scanf(" %c", &ans);
@@ -32,6 +32,7 @@ int main()
 void futuro(char ans)
 {
 	printf("Veo que tienes agallas\n");
+int main()
 	printf("Adelante, preguntame lo que quieras conocer\n");
 	scanf(" %[^\n]");
 	prediccion();
@@ -51,7 +52,7 @@ int prediccion()
 	int i;
 	srand(time(NULL));
 	i=rand()%20+0;
-	lecturafichero(*pf, res, 21);
+	lecturafichero(pf, res, 21);
 	printf("%s\n",res[i].string);
 	return 1;
 }
