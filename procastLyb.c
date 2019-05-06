@@ -3,6 +3,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include"procastLyb.h"
+//usados en Procrastinador 3000(programa central)
 int ingreso(usuario *iz)
 {
 	FILE *p; usuario usuario[4];
@@ -21,7 +22,7 @@ int ingreso(usuario *iz)
 		printf("%i: %s:\n\tbola del 8cho:%i\n\tcombate:%i\n\tcunhado:%i\n\trecetario:%i\n\ttesoro:%i\n",
 			i+1,usuario[i].name,usuario[i].bola,usuario[i].combate,usuario[i].cunhado,usuario[i].recetario,usuario[i].tesoro);
 	}
-	printf("Quieres seleccionar alguno de ellos, o por el contrario quieres reescribir los datos?(s/r)\n");
+	printf("Quieres seleccionar alguno de ellos, o por el contrario quieres reescribir alguno de ellos?(s/r)\n");
 	do
 	{
 		scanf(" %c",&res);
