@@ -46,7 +46,7 @@ int main()
 				iz.recetario++;
 				break;
 			case 5:
-				//...
+				busquedatesoro();
 				iz.tesoro++;
 				break;
 			default:

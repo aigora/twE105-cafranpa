@@ -13,3 +13,20 @@ typedef struct{
 void futuro(char ans);
 int prediccion();
 int lecturafichero(FILE *pf, string *res, int n);
+//Usados en Combate por turnos
+//...
+//Usados en Cunhado
+//...
+//Usados en Recetario
+//...
+//Usados en Busqueda del tesoro
+typedef struct
+{
+	int x;
+	int y;
+}posicion;
+void enterrar(posicion *tesoro);
+int busqueda(posicion *tesoro, posicion *usuario);
+int proximidad(posicion *tesoro, posicion *usuario);
+int avancevertical(int n, posicion *usuario);
+int avancehorizontal(int n, posicion *usuario);

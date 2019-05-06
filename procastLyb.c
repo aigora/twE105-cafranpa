@@ -111,6 +111,44 @@ int boladelocho()
     }
     return 0;
 }
+//...
+int busquedatesoro()
+{
+	int cnt;
+	posicion tesoro, usuario;
+	system("cls");
+	enterrar(&tesoro);
+	printf("Bienvenido a 'la busqueda del tesoro'\n");
+	sleep(3);
+	system("cls");
+	printf("Se ha enterrado un tesoro en un mapa de 11*11\n");
+	sleep(3);
+	system("cls");
+	printf("Comienzas en el origen de coordenadas\n");
+	sleep(3);
+	system("cls");
+	printf("Tu objetivo, como habras podido deducir, es encontrar el tesoro\n");
+	sleep(3);
+	system("cls");
+	printf("Para ello te voy a dar 20 rondas\n");
+	printf("En cada una de ellas podras mover tu personaje cuantas unidades quieras\n");
+	printf("Para ello tienes que pulsar una de las teclas direccionales(wasd), y el numero de unidades que quieras avanzar\n");
+	printf("(Pulse enter cuando hayas entendido las instrucciones)\n");
+	system("pause");
+	system("cls");
+	printf("Buena suerte(pulse cuando estes preparado)\n");
+	system("pause");
+	system("cls");
+	for(cnt = 3; cnt >= 1; cnt--)
+	{
+	system("cls");
+	printf("\n %d \n", cnt);
+	sleep(1);
+	} 
+	system("cls");
+	busqueda(&tesoro, &usuario);
+	return 0;
+}
 //Usados en Bola del 8cho
 void futuro(char ans)
 {
@@ -154,4 +192,123 @@ int lecturafichero(FILE *pf, string *res, int n)
 	}
 	fclose(pf);
 	return 1;	
+}
+//Usados en Combate por turnos
+//...
+//Usados en Cunhado
+//...
+//Usados en Recetario
+//...
+//Usados en Busqueda del tesoro
+void enterrar(posicion *tesoro)
+{
+	posicion *res=tesoro;
+	srand(time(NULL));
+	res->x=rand() % 10+0;
+	res->y=rand() % 10+0;
+}
+int busqueda(posicion *tesoro, posicion *usuario)
+{
+	posicion *t=tesoro,*u=usuario;
+	u->x=u->y=0;
+	int i=1,n,b;
+	char l,ans,bans;
+	do
+	{
+		printf("Ronda %i\n",i);
+		sleep(2);
+		b=proximidad(tesoro,usuario);
+		if(b==0)
+		{
+			printf("Has ganado el juego\n");
+			printf("Te gustaria volver a jugar?(s/pulsa cualquier tecla)\n");
+			scanf(" %c",&bans);
+			if(bans=='s')
+			{
+				system("cls");
+				enterrar(tesoro);
+				busqueda(tesoro,usuario);
+			}
+			else
+			{
+				system("cls");
+				printf("Gracias por jugar\n");
+				return 0;
+			}
+		}
+		printf("usuario:\n\tx:%i\n\ty:%i\n",u->x,u->y);
+		scanf(" %c%i[^\n]",&l,&n);
+		switch(l)
+		{
+			case 'w':
+			{
+				avancevertical(n,usuario);
+				break;		
+			}
+			case 'd':
+			{
+				avancehorizontal(n,usuario);
+				break;
+			}
+			case 's':
+			{
+				avancevertical(-n,usuario);
+				break;		
+			}
+			case 'a':
+			{
+				avancehorizontal(-n,usuario);
+				break;				
+			}		
+		}
+		i++;
+	}
+	while(i<=20);
+	printf("Se ha acabado el juego\n");
+	printf("Quieres jugar otra vez?(s/n)\n");
+	scanf(" %c",&ans);
+	if(ans=='s')
+	{
+		enterrar(tesoro);
+		busqueda(tesoro, usuario);
+	}
+}
+int proximidad(posicion *tesoro, posicion *usuario)
+{
+	posicion *t=tesoro,*u=usuario;
+	if((abs(u->x-t->x)==0)&&(abs(u->y-t->y)==0))
+	return 0;
+	else if((abs(u->x-t->x)<=1)&&(abs(u->y-t->y)<=1))
+	printf("Estas al lado del tesoro\n");	
+	else if((abs(u->x-t->x)<=2)&&(abs(u->y-t->y)<=2))
+	printf("Estas muy cerca del tesoro\n");
+	else if(((abs(u->x-t->x)<=3)&&(abs(u->y-t->y)<=2))||((abs(u->x-t->x)<=2)&&(abs(u->y-t->y)<=3))||((abs(u->x-t->x)<=3)&&(abs(u->y-t->y)<=3)))
+	printf("Estas acercandote\n");
+	else
+	printf("Estas bastante lejos del tesoro\n");
+	return 1;
+}
+int avancevertical(int n, posicion *usuario)
+{
+	posicion *u=usuario;
+	u->y+=n;
+	if((u->y>10)||(u->y<0))
+	{
+		printf("Error:te has salido del tablero\n");
+		u->y-=n;
+		return 0;
+	}
+	return 1;
+}
+int avancehorizontal(int n, posicion *usuario)
+{
+	posicion *u=usuario;
+	u->x+=n;
+	if((u->x>10)||(u->x<0))
+	{
+		printf("Error:te has salido del tablero\n");
+		u->x-=n;
+		return 0;
+	}
+	return 1;
 }
