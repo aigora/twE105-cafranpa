@@ -30,16 +30,12 @@ do
 		curas=pcn(curas);
 		defensayo=15;
 		defensael=18;
-		//Esto esta relacionado con el turno del monstruo, pero por ahora no funciona
 		if((w==4||w==5))
 		garras+=10;
 		else if(w==6)
 		danho2=danho2*2;
 		else
-		{
 		garras=golpe(garras, 5);
-		danho2=danho2*2;
-		}
 		printf("\n\n");
 		system("pause");
 		printf("\n\n");
@@ -48,7 +44,7 @@ do
 		{
 			//El usuario ve las opciones, y escoge una
 			printf("Es tu turno, que quieres hacer? Tienes %i puntos de vida y %i puntos de defensa\n", yo, defensayo);
-			printf("Y el enemigo tiene %i puntos de vida, %i puntos de ataque y %i puntos de defensa\n", el, garras, defensael);
+			printf("Y el enemigo tiene %i puntos de vida y %i puntos de defensa\n", el, defensael);
 			printf("(1)Atacar\n(2)Intentar esquivar\n(3)Tomar una pocion. Te quedan %i\n(4)Intentar defenderte\n", pocion);
 			//Nos asegura que escoge un numero entre los parametros dados
 			do
