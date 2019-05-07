@@ -38,6 +38,7 @@ int main()
 		}
 		for(x=0;x<21;x++)
 		printf("%s\n",chistes[x]);
+		fclose(pf);
 		do
 		scanf("%i", &w);
 		while(w<1||w>21);
