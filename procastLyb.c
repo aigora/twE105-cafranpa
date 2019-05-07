@@ -102,7 +102,7 @@ int boladelocho()
 		scanf(" %c", &ans);
 	}
 	if(ans=='s')
-	futuro(ans);
+	futuro();
 	else if(ans=='n')
 	{
 		printf("Te entiendo, el futuro no es para mentes fragiles\n");
@@ -116,11 +116,12 @@ void combate()
 	int yo, el, defensayo, defensael;
 	int danho1, danho2, espada, garras, pocion=3, n, curas, w;
 	char s;
+	system("cls");
 	//Generamos una semilla para los numeros aleatorios
 	srand(time(NULL));
 	do	
 	{	
-		printf("Instrucciones:\nTanto tu como el monstruo teneis 4 'habilidades', por ponerles un nombre.\nLos puntos de ataque, los puntos de danho, los puntos de vida y la defensa.\nLos puntos de ataque y de danho se generan aleatoreamente cada turno.\nSi tus puntos de ataque son iguales o superiores a la defensa del enemigo, le\nquitaras 'x' puntos de danho  sus puntos de vida\n\n");
+		printf("Instrucciones:\nTanto tu como el monstruo teneis 4 'habilidades', por ponerles un nombre.\nLos puntos de ataque, los puntos de danho, los puntos de vida y la defensa.\nLos puntos de ataque y de danho se generan aleatoriamente cada turno.\nSi tus puntos de ataque son iguales o superiores a la defensa del enemigo, le\nquitaras 'x' puntos de danho  sus puntos de vida\n\n");
 		yo=70;
 		el=80;
 		printf("Aparece un enemigo, preparate para el combate \n");
@@ -308,8 +309,9 @@ int busquedatesoro()
 	return 0;
 }
 //Usados en Bola del 8cho
-void futuro(char ans)
+void futuro()
 {
+	char ans;
 	printf("Veo que tienes agallas\n");
 	printf("Adelante, preguntame lo que quieras conocer\n");
 	scanf(" %[^\n]");
@@ -319,11 +321,11 @@ void futuro(char ans)
 	printf("Quieres preguntarme algo mas?(s/cualquier otra tecla)\n");
 	scanf(" %c", &ans);
     if(ans=='s')
-    futuro(ans);
+    futuro();
     else
     printf("Espero haberte servido de mucho, nos veremos en otro momento\n");
 }
-int prediccion()
+void prediccion()
 {
 	FILE *pf;
 	string res[21];
@@ -332,7 +334,6 @@ int prediccion()
 	i=rand()%20+0;
 	lecturafichero(pf, res, 21);
 	printf("%s\n",res[i].string);
-	return 1;
 }
 int lecturafichero(FILE *pf, string *res, int n)
 {
