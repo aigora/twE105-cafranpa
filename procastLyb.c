@@ -282,6 +282,7 @@ void recetario()
 	char select1; //Variable entera para elegir entre dulce o salado//
 	char select2_s, select2_d; //Variable entera para elegir entre desayuno, almuerzo, etc.(salado); y variable entera para elegir entre desayuno, almuerzo, etc.(dulce)//
 	char select3; //Variable entera para elegir que receta desea el usuario//
+	system("cls");
 	printf("Aqui te traemos un recetario donde podras descubrir recetas faciles y rapidas (para culquier hora del dia) dedicadas especialmente a gente celiaca\n");
 	//MENU CELIACO//
 	printf("La celiaquia es una patologia intestinal cronica que cada vez es mas comun en nuestra sociedad.\nSe produce por una mala absorcion de alimentos con gluten,\nproteina que se encuentra en la harina de diversos cereales como el trigo, cebada, avena o centeno.\nPor tanto, una persona diagnosticada con celiaquia debe consumir alimentos sin gluten.\n");
@@ -682,6 +683,7 @@ void fc_s_D_b () //Funcion para imprimir en pantalla la receta codigo'c_s_D_b'//
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/salado/c_s_D_b.txt","r"); //Fichero que abre la receta c_s_D_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -691,6 +693,7 @@ void fc_s_D_c ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/salado/c_s_D_c.txt","r"); //Fichero que abre la receta c_s_D_c//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -700,6 +703,7 @@ void fc_s_m_a ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/salado/c_s_m_a.txt","r"); //Fichero que abre la receta c_s_m_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -709,6 +713,7 @@ void fc_s_m_b ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/salado/c_s_m_b.txt","r"); //Fichero que abre la receta c_s_m_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -718,6 +723,7 @@ void fc_s_m_c ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/salado/c_s_m_c.txt","r"); //Fichero que abre la receta c_s_m_c//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -727,6 +733,7 @@ void fc_s_m_d ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/salado/c_s_m_c.txt","r"); //Fichero que abre la receta c_s_m_d//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -736,6 +743,7 @@ void fc_s_a_a ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/salado/c_s_a_a.txt","r"); //Fichero que abre la receta c_s_a_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -745,6 +753,7 @@ void fc_s_a_b ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/salado/c_s_a_b.txt","r"); //Fichero que abre la receta c_s_a_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -754,6 +763,7 @@ void fc_s_a_c ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/salado/c_s_a_c.txt","r"); //Fichero que abre la receta c_s_a_c//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -763,6 +773,7 @@ void fc_s_a_d ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/salado/c_s_a_d.txt","r"); //Fichero que abre la receta c_s_a_d//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -772,6 +783,7 @@ void fc_s_M_a ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/salado/c_s_M_a_dos.txt","r"); //Fichero que abre la receta c_s_M_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -781,6 +793,7 @@ void fc_s_M_b ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/salado/c_s_M_b_dos.txt","r"); //Fichero que abre la receta c_s_M_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -790,6 +803,7 @@ void fc_s_c_a ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/salado/c_s_c_a.txt","r"); //Fichero que abre la receta c_s_c_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -799,6 +813,7 @@ void fc_s_c_b ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/salado/c_s_c_b.txt","r"); //Fichero que abre la receta c_s_c_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -808,6 +823,7 @@ void fc_s_c_c ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/salado/c_s_c_c.txt","r"); //Fichero que abre la receta c_s_c_c//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -817,6 +833,7 @@ void fc_s_c_d ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/salado/c_s_c_d.txt","r"); //Fichero que abre la receta c_s_c_d//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -828,6 +845,7 @@ void fc_d_D_a ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/dulce/c_d_D_a.txt","r"); //Fichero que abre la receta c_d_D_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -837,6 +855,7 @@ void fc_d_D_b ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/dulce/c_d_D_b.txt","r"); //Fichero que abre la receta c_d_D_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -846,6 +865,7 @@ void fc_d_D_c ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/dulce/c_d_D_c.txt","r"); //Fichero que abre la receta c_d_D_c//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -855,6 +875,7 @@ void fc_d_m_a ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/dulce/c_d_m_a.txt","r"); //Fichero que abre la receta c_d_m_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -864,6 +885,7 @@ void fc_d_m_b ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/dulce/c_d_m_b.txt","r"); //Fichero que abre la receta c_d_m_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -873,6 +895,7 @@ void fc_d_a_a ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/dulce/c_d_a_a.txt","r"); //Fichero que abre la receta c_d_a_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -882,6 +905,7 @@ void fc_d_a_b ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/dulce/c_d_a_b.txt","r"); //Fichero que abre la receta c_d_a_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -891,6 +915,7 @@ void fc_d_M_a ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/dulce/c_d_M_a_dos.txt","r"); //Fichero que abre la receta c_d_M_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -900,6 +925,7 @@ void fc_d_M_b ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/dulce/c_d_M_b_dos.txt","r"); //Fichero que abre la receta c_d_M_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -909,6 +935,7 @@ void fc_d_c_a ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/dulce/c_d_c_a.txt","r"); //Fichero que abre la receta c_d_c_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
@@ -918,6 +945,7 @@ void fc_d_c_b ()
 {
 	FILE *p;
 	char aux;
+	system("cls");
 	p=fopen("recetas/dulce/c_d_c_b.txt","r"); //Fichero que abre la receta c_d_c_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
