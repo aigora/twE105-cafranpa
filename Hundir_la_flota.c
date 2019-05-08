@@ -191,6 +191,7 @@ int main()
 			}
 		}
 		while (submarino>0||destructor>0);
+		//DESDE AQUÍ
 		printf("\nMuy bien, ahora que ya tienes tu tablero listo, es hora de jugar\n");
 		printf("\nEste tablero es en el cual se iran apuntando tus disparos, si son agua, tocado, undido, etc.\n");
 		imprime_tablero(tableroi);
@@ -279,6 +280,7 @@ int main()
 				}	
 		}
 		while (u!=81);
+		//HASTA AQUÍ
 			
 				
 	scanf(" %c", &s);
