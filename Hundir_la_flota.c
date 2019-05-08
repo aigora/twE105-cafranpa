@@ -147,7 +147,43 @@ int main()
 					}
 					else
 							printf("Me temo que no te quedan mas destructores\n\n");
-					break;
+				break;
+				case 2:
+					if(submarino>0)
+					{
+						printf("Has escogido el submarino. Como solo ocupan un espacio, no necesitas dar mas que coordenadas x e y\n");
+						imprime_tablero(tablero1);
+						do
+						{
+							if(tablero1[y][x]!='-')
+							{
+								system("cls");
+								printf("\nAsegurate de que en las coordenadas que has escogido no hay ya un barco\n");
+								imprime_tablero(tablero1);
+							}
+							printf("\n\nPor favor, escoge una coordenada en la que poner tu submarino.\n");
+							printf("\nDime un numero x (1-9):\n");
+							do
+							scanf("%i", &x);
+							while((x<1)||(x>9));
+							printf("\nAhora dime un numero y (1-9):\n");
+							do
+							scanf("%i", &y);
+							while((y<1)||(y>9));
+							x=x-1;
+							y=y-1;	
+						}
+						while(tablero1[y][x]!='-');
+						tablero1[y][x]='S';
+						tablero2[y][x]=3;
+						imprime_tablero(tablero1);
+						imprime_num(tablero2);
+						submarino--;
+					}
+					else
+						printf("No te quedan mas submarinos");
+				break;
+					
 					
 			}
 		}
