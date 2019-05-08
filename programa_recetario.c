@@ -331,334 +331,105 @@ return 0;
 
 
 //DEFINICION DE LAS FUNCIONES EMPLEADAS EN ESTE PROGRAMA://
-//Funcion para que el programa recorra la cadena de caracteres y la imprime en pantalla(uso bucle FOR)//
-void leeCadena(char *cadena)
-{
-	int i;
-	i=0;
-	while(cadena[i]!='\0')
-	{
-		printf("%c", cadena[i]);
-		i++;
-	}
-
-}
 
 //Definicion de las funciones tipoMenu: 'CELIACO SALADO'//
-//Funcion para imprimir en pantalla la receta codigo'c_s_D_a'//
-void fc_s_D_a ()
+
+void fc_s_D_a () //Funcion para imprimir en pantalla la receta codigo'c_s_D_a'//
 {
-char c_s_D_a[] = //Usamos \ para escribir varias lineas
-"INGREDIENTES:\n\
-5 patatas\n\
-sal\n\
-aceite de oliva\n\
-agua\n\
-8 cucharadas Harina de garbanzo\n\
-PREPARACION:\n\
-1)Pelar las patatas y cortarlas en laminas.\n\
-2)En un bol mezclar la harina de garbanzos con el agua hasta conseguir una consistencia parecida a la del huevo.\n\
-3)Freir en una sarten antiadherente las patatas.\n\
-4)Cuando las patatas esten mas o menos hechas, agregarle la harina de garbanzo, dejar que cuaje. Salar a gusto.\n";
-leeCadena(c_s_D_a);
+	FILE *p;
+	char aux;
+	p=fopen("recetas/salado/c_s_D_a.txt","r");
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
 }
 
-//Funcion para imprimir en pantalla la receta codigo'fc_s_D_b'//
-void fc_s_D_b ()
+void fc_s_D_b () //Funcion para imprimir en pantalla la receta codigo'c_s_D_b'//
 {
-char c_s_D_b[] = //Usamos \ para escribir varias lineas
-"INGREDIENTES:\n\
-mantequilla\n\
-cacahuetes\n\
-queso\n\
-sal\n\
-pan de molde(sin gluten)\n\
-platano\n\
-8 cucharadas Harina de garbanzo\n\
-PREPARACION:\n\
-1)Primero haremos la crema de cacahuete: corta la mantequilla en trozos pequeños e introdúcelos en la batidora junto a los cacahuetes\n\
-y el queso de untar que ayudará a conseguir la cremosidad. Añade sal. Tritura hasta que te quede una textura fina.\n\
-2)Tuesta las rebanadas de pan de molde. Puedes hacerlo en la tostadora o si no tienes,\n\
-directamente en la sartén que previamente habrás untado con un poco de mantequilla o un hilo de aceite de oliva.\n\
-También se podría dejar el pan sin tostar, pero será más difícil untar y no conseguirás esa textura crujiente\n\
-tan característica de las tostadas.\n\
-3)Cuando ya tengas listas las tostadas, unta rápidamente la crema de cacahuete sin dejar que se enfríen.\n\
-4)Pela el plátano y córtalo en rodajas finas. Añádelas a tus tostadas por encima de la crema de cacahuete,\n\
-colocándolas en fila. También puedes cortar el plátano en pequeños trozos para conseguir una presentación diferente.\n\
-PRESENTACION:\n\
-A modo decorativo,  puedes añadir pequeños trozos de cacahuete por encima\n\
-e incluso un poco de azúcar que contrastará con el toque salado de la crema de cacahuete y potenciará su sabor.\n\
-SUGERENCIA:\n\
-Se puede hacer crema de cacahuete de sobra y guardarla en un tarro para poder utilizarla siempre que queramos ya preparada.\n\
-También puedes darle otros usos, como para tartas o para untar las galletas. También podría valer para decorar nuestras muffins\n\
-si la metemos en una manga pastelera. El queso cremoso le dará una textura perfecta a tus tostadas de crema de cacahuete.\n\
-ALTERNATIVAS:\n\
-Si la crema de cacahuete no te termina de convencer, puedes sustituirla por una crema de cacao y avellanas.\n\
-En cambio, si es el plátano el que no te gusta, con la crema de cacahuete puedes añadir fresas en rodajas\n\
-que también darán ese toque de dulzor que buscamos.";
-leeCadena(c_s_D_b);
+	FILE *p;
+	char aux;
+	p=fopen("recetas/salado/c_s_D_b.txt","r"); //Fichero que abre la receta c_s_D_b//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
 }
 
-//Funcion para imprimir en pantalla la receta codigo'fc_s_D_c'//
+//Funcion para imprimir en pantalla la receta codigo'c_s_D_c'//
 void fc_s_D_c ()
 {
-char c_s_D_c[] = //Usamos \ para escribir varias lineas
-"INGREDIENTES PARA LA MASA DE TORTITAS:\n\
-1 taza de trigo sarraceno.\n\
-1/2 taza de leche vegetal\n\
-1 pizca de vainilla (se puede comprar en vainas, y triturarla con la masa)\n\
-1 pizca de cardamomo (opcional), se puede cambiar por clavo.\n\
-1/2 cdta. de canela.\n\
-1 cda. de melaza (o miel para los que no seáis veganos, o incluso miel de dátiles)\n\
-Aceite de oliva virgen extra\n\
-INGREDIENTES PARA LA CREMA DE CHOCOLATE:\n\
-130 g de pulpa de leche de almendras (o cualquier otra pulpa de leche vegetal)\n\
-50 g de dátiles (se puede añadir más si se quiere más dulce)\n\
-160 g de leche vegetal\n\
-25 g de cacao puro en polvo, sin azúcar y sin añadidos.\n\
-PREPARACION DE LAS TORTITAS:\n\
-Echamos el trigo sarraceno en remojo durante 3 horas.\n\
-Cuando pasa el tiempo, escurrimos el trigo sarraceno y lo echamos en la batidora,\n\
-junto con el resto de ingredientes (leche vegetal, vainilla, cardamomo, canela, endulzante) y batimos hasta que quede una masa homogénea;\n\
-Ponemos un poquito de aceite en la sartén a fuego medio – alto (luego lo bajamos un poco para que se haga por dentro).\n\
-Y cuando digo un poquito de aceite, es unas gotitas, solo para extender con la ayuda de un pincel de silicona o servilleta de papel,\n\
-que estas tortitas no son fritas, son a la plancha, y suave, para que sigan siendo sanotas!\n\
-Echamos con la ayuda de una cuchara un poco de la masa. En mi caso, echo una cuchara colmada y extiendo un poco,\n\
-ayudándome de la cuchara. Esperamos un par de minutos a que se dore por debajo y le damos la vuelta, hasta que estén hechas.\n\
-Y listas están las tortitas!!\n\
-PREPARACION DE LA CREMA DE CHOCOLATE:\n\
-Echamos todos los ingredientes en la batidora, y a triturar hasta obtener la textura que os guste! Y… ya está!!";
-leeCadena(c_s_D_c);
+	FILE *p;
+	char aux;
+	p=fopen("recetas/salado/c_s_D_c.txt","r"); //Fichero que abre la receta c_s_D_c//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
 }
 
-//Funcion para imprimir en pantalla la receta codigo'fc_s_m_a'//
+//Funcion para imprimir en pantalla la receta codigo'c_s_m_a'//
 void fc_s_m_a ()
 {
-char c_s_m_a[] = //Usamos \ para escribir varias lineas
-"INGREDIENTES:\n\
-4 tomates de pera grandes\n\
-1 pimiento verde\n\
-1 pepino\n\
-1 cebolla mediana\n\
-3 dientes de ajo\n\
-1 manzana\n\
-1 taza de agua\n\
-2 cucharadas de aceite de oliva virgen extra\n\
-1 cucharada de vinagre\n\
-1 cucharadita de sal\n\
-pimienta\n\
-La cebolla que vamos a utilizar en esta receta es cebolla dulce porque su sabor suave, dulce y escaso de picor, hace que sea ideal para esta bebida.\n\
-El agua es mejor que esté muy fría si lo preparamos para tomarlo en el momento.\n\
-La manzana se puede sustituir por una rebanada de pan.\n\
-Vamos a utilizar vinagre de Jerez.\n\
-PREPARACION:\n\
-Preparamos los ingredientes, para ello lavamos y secamos bien los tomates, el pimiento, el pepino y la manzana.\n\
-Yo no les suelo quitar la piel porque luego lo cuelo.\n\
-Cortamos los tomates en cuartos y los echamos en el vaso de la batidora.\n\
-Quitamos los extremos del pepino, lo cortamos en trozos y añadimos al vaso.\n\
-Quitamos las semillas al pimiento y la parte blanca de su interior, lo cortamos en trozos y lo agregamos al vaso.\n\
-Quitamos la piel a las cebollas, las partimos en cuartos y las agregamos. Quitamos la piel de los ajos y los añadimos.\n\
-Si no queremos que el ajo se repita, es mejor quitarle el centro antes de añadirlo al vaso.\n\
-Vertemos una taza de agua, el aove, el vinagre y salpimentamos. Batimos hasta conseguir una crema ligera.\n\
-Lo reservamos en la nevera hasta la hora de servir.\n\
-PRESENTACION:\n\
-Removemos bien y lo servimos en una jarra a la que le podemos añadir unos hielos.\n\
-Lo colocamos en el centro de la mesa y que cada uno se sirva en su vaso.";
-leeCadena(c_s_m_a);
+	FILE *p;
+	char aux;
+	p=fopen("recetas/salado/c_s_m_a.txt","r"); //Fichero que abre la receta c_s_m_a//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
 }
 
-//Funcion para imprimir en pantalla la receta codigo'fc_s_m_b'//
+//Funcion para imprimir en pantalla la receta codigo'c_s_m_b'//
 void fc_s_m_b ()
 {
-char c_s_m_b[] = //Usamos \ para escribir varias lineas
-"INGREDIENTES:\n\
-Un bote de garbanzos cocidos (peso de 570 g y escurridos unos 400g).\n\
-Miel: 1/3 cup.\n\
-Mantequilla de cacahuete: 1/2 cup. Te animo a hacerla con esta receta.\n\
-Chips de chocolate negro: al gusto, yo use como 2 cups.\n\
-Levadura: 1/4 cdita.\n\
-Una pizca de sal.\n\
-2 cucharaditas de esencia de vainilla.\n\
-ELABORACION:\n\
-En un bol echamos los garbanzos previamente escurridos y lavados.\n\
-echa,os la miel, la mantequilla de cacahuete, la vainilla, la sal y la levadura y batimos todo muy bien hasta que quede una mezcla homogenea.\n\
-echamos los chips de chocolate a nuestra mezcla y removemos todo bien para que se repartan por toda la masa.\n\
-Forramos una bandeja o una fuente con papel de horno y vertemos nuestra mezcla.\n\
-La repartimos bien para que quede del mismo grosor en todas las partes.\n\
-Precalentamos el horno a 180ºC y horneamos durante 20 minutos.\n\
-Los sacamos y los dejamos enfriar durante unos 10 o 15 minutos y ¡listo!\n\
-Es un dulce que dura mucho ya que una porción chiquitita sacia bastante asi que puedes guardarlo en el frigorifico durante 3-4 días.\n\
-Recuerda cubrirlo con papel transparente o similar y tendras un trozo listo y jugoso siempre que te apetezca.\n\
-Si quieres que el brownie sea entero de chocolate puedes echar un par de cucharadas de cacao puro desgrasado a la masa.\n\
-Tambien puedes incorporar tus frutos secos favoritos.";
-leeCadena(c_s_m_b);
+	FILE *p;
+	char aux;
+	p=fopen("recetas/salado/c_s_m_b.txt","r"); //Fichero que abre la receta c_s_m_b//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
 }
 
-//Funcion para imprimir en pantalla la receta codigo'fc_s_m_c'//
+//Funcion para imprimir en pantalla la receta codigo'c_s_m_c'//
 void fc_s_m_c ()
 {
-char c_s_m_c[] = //Usamos \ para escribir varias lineas
-"INGREDIENTES:\n\
-350 gr harina premezcla universal\n\
-1 Cda polvo para hornear\n\
-1 Cda aceite\n\
-1 Cda azucar\n\
-1 huevo\n\
-Pizca sal\n\
-Agua cantidad necesaria para la mezcla\n\
-INGREDIENTES PARA EL CHICLE DE MANDIOCA:\n\
-1 Cda fecula de mandioca\n\
-100 cc agua\n\
-Aceite para freir\n\
-PREPARACION:\n\
-En un recipiente, calentamos los 100cc de agua y la cucharada de fécula de mandioca y revolver constantemente hasta que quede algo chiclosa.\n\
-Dejar calentar solo unos minutos y dejar enfriar\n\
-En un bol, colocamos la premezcla y hacemos un hueco en el centro y ponemos el huevo, el azúcar, la pizca de sal,\n\
-el polvo para hornear y agregamos la mezcla preparada anteriormente con la fécula de mandioca\n\
-y preparamos la masa mientras vamos agregando la cantidad de agua necesaria\n\
-Una vez lograda la masa, tomamos porciones, hacemos bollitos y estiramos la masa\n\
-Calentamos el aceite y una vez ya preparadas las tortas fritas, la llevamos a fritar\n\
-A disfrutar.";
-leeCadena(c_s_m_c);
+	FILE *p;
+	char aux;
+	p=fopen("recetas/salado/c_s_m_c.txt","r"); //Fichero que abre la receta c_s_m_c//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'fc_s_m_d'//
 void fc_s_m_d ()
 {
-char c_s_m_d[] = //Usamos \ para escribir varias lineas
-"INGREDIENTES:\n\
-2 tazas de harina premezcla\n\
-1 taza de leche en polvo seca.\n\
-½ sobre de levadura de cerveza\n\
-1 cucharada de las de te de sal.\n\
-Chorrito de miel\n\
-2 cucharadas gordas de queso rallado\n\
-2 cucharadas de aceite\n\
-1 cucharita de manteca\n\
-½ tz. de agua tibia.\n\
-PREPARACION:\n\
-En una batidora con pala, los secos, la miel, el aceite, el queso, manteca, y mezclar.\n\
-Incorporar el agua y hacer tres rollos y trenzar, colocar en una budinera apenas engrasada\n\
-y dejar levar en algun lugar templado dentro de una bolsa de nylon unos 45´.\n\
-Pintar con leche apenas con unos granitos de azucar disueltos. Cocinar a horno precalentado a 180*C.\n\
-Enfriar sobre rejilla. Comer crujiente!!";
-leeCadena(c_s_m_d);
+	FILE *p;
+	char aux;
+	p=fopen("recetas/salado/c_s_m_c.txt","r"); //Fichero que abre la receta c_s_m_d//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'fc_s_a_a'//
 void fc_s_a_a ()
 {
-char c_s_a_a[] = //Usamos \ para escribir varias lineas
-"INGREDIENTES:\n\
-12 placas de canelones sin gluten\n\
-Pan rallado sin gluten\n\
-Sofrito de tomate\n\
-INGREDIENTES PARA EL RELLENO:\n\
-4 cucharadas de aceite de oliva\n\
-500 gramos de muslo de pollo\n\
-200 gramos de butifarra blanca\n\
-200 gramos de cebolla\n\
-10 gramos de ajo\n\
-70 gramos de tomate\n\
-Un chorro de vino rancio\n\
-30 gramos de pasas\n\
-30 gramos de almendras tostadas\n\
-15 gramos de piñones tostados\n\
-30 gramos de orejones\n\
-Sal y pimienta\n\
-INGREDIENTES PARA LA BECHAMEL:\n\
-500 mililitros de bebida de arroz\n\
-40 gramos de almidón de maíz\n\
-20 gramos de aceite de oliva\n\
-Sal, pimienta y nuez moscada\n\
-PREPARACION:\n\
-1. Hervir las placas de canelon tal y como indica el fabricante.\n\
-Enfriarlas, poner un poco de aceite para que no se peguen y reservarlas tapadas con un plato.\n\
-2. Hidratar los frutos secos en un cazo cubiertos de agua.\n\
-3. Para hacer el relleno, tomar una cazuela con aceite y asar el pollo y la morcilla troceada.\n\
-4. Incorporar la cebolla y el ajo picados. Sofreir un poco y añadir el tomate rallado.\n\
-5. Tapar y dejar cocer unos minutos. Poner el vino rancio y dejar evaporar. Salpimentar.\n\
-6. Incorporar a la cazuela los piñones enteros y las almendras.\n\
-7. Por ultimo, echar las pasas y los orejones, con un poco de agua que ayudará a terminar de cocer el asado.\n\
-Una vez la carne tierna, reservar.\n\
-8. Deshuesar la carne de pollo.\n\
-9. Picar el asado en una batidora durante muy poco tiempo para que no quede un pure. Ratificar de sal y pimienta.\n\
-10. Para la bechamel, mezclar una parte de la bebida de arroz fria con el almidon para que se deshaga.\n\
-11. Mezclar con el resto de la bebida de arroz y calentar en un cazo para que hierva, remover constantemente.\n\
-Incorporar el aceite y los condimentos.\n\
-12. Mezclar una parte de la bechamel con el relleno.\n\
-13. Disponer las laminas de canelon en una superficie llana,\n\
-rellenar con un poco de la masa del relleno y cerrar para darle forma de tubo.\n\
-14. Mojar los canelones con la bechamel y gratinar con pan rallado sin gluten.\n\
-15. En el plato, servir los canelones en el centro y salsear un poco de sofrito de tomate alrededor.";
-leeCadena(c_s_a_a);
+	FILE *p;
+	char aux;
+	p=fopen("recetas/salado/c_s_a_a.txt","r"); //Fichero que abre la receta c_s_a_a//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
 }
 
-//Funcion para imprimir en pantalla la receta codigo'fc_s_a_b'//
+//Funcion para imprimir en pantalla la receta codigo'c_s_a_b'//
 void fc_s_a_b ()
 {
-char c_s_a_b[] = //Usamos \ para escribir varias lineas
-"INGREDIENTES:\n\
-Pan rallado sin gluten\n\
-Aceite de oliva\n\
-Harina refinada de maiz\n\
-50 gr. de mantequilla\n\
-1/2 l. de leche\n\
-Sal\n\
-Pimienta negra\n\
-PREPARACION:\n\
-1. Vamos a esmerarnos para conseguir una deliciosa bechamel para estas croquetas sin gluten.\n\
-Ponemos un recipiente con mantequilla al fuego, un poquito de aceite de oliva y dejamos que la mantequilla se derrita.\n\
-2. A continuacion vamos incorporando la harina de maiz y removemos, para que se deshaga, sin grumos.\n\
-Dejamos que cueza un par de minutos y echamos la leche. Salpimentamos a voluntad y bajamos el fuego.\n\
-Dejamos que la bechamel de las croquetas sin gluten se cocine despacio, hasta que espese.\n\
-3. Hacemos un sofrito con cebollita y cuando comience a transparentar, añadimos el pollo desmenuzado en trocitos muy pequeños.\n\
-Ponemos un poco de perejil fresco picado y salpimentamos.\n\
-4. Cuando el pollo este hecho, incorporamos todo a la bechamel y dejamos que todos los ingredientes juntos se cocinen otros cinco minutillos.\n\
-No pareis de mover, para que no se nos pegue la masa de las croquetas sin gluten.\n\
-5. Apartamos, dejamos que se enfrie y metemos en la nevera. Lo ideal es un día enterito,\n\
-pero con unas cuantas horas ya estara fuerte para poder modelar la masa.\n\
-6. Tomamos pedazos de la masa y formamos las croquetas sin gluten.\n\
-Las pasamos por huevo y el pan rallado sin gluten y las freiremos en abundante aceite bien caliente.\n\
-Sacamos y dejamos que despidan el exceso de aceite sobre papel de cocina y... a disfrutar!";
-leeCadena(c_s_a_b);
+	FILE *p;
+	char aux;
+	p=fopen("recetas/salado/c_s_a_b.txt","r"); //Fichero que abre la receta c_s_a_b//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
 }
 
-//Funcion para imprimir en pantalla la receta codigo'fc_s_a_c'//
+//Funcion para imprimir en pantalla la receta codigo'c_s_a_c'//
 void fc_s_a_c ()
 {
-char c_s_a_c[] = //Usamos \ para escribir varias lineas
-"INGREDIENTES PARA LA MASA:\n\
-400 gr. de harina sin gluten\n\
-50 ml. de agua\n\
-50 ml. de aceite de oliva\n\
-50 ml. de vino blanco\n\
-1 huevo\n\
-3 cucharadas de mantequilla\n\
-1 sobre de levadura en polvo\n\
-1 cucharadita de sal\n\
-INGREDIENTES PARA EL RELLENO:\n\
-300 gr. de carne de cerdo picada\n\
-1 cebolla\n\
-1 tomate\n\
-3 cucharadas de salsa de tomate frito\n\
-Aceite de oliva virgen extra\n\
-Sal\n\
-PREPARACION:\n\
-1. La masa es lo primero que vamos a hacer para preparar estas empanadillas sin gluten,\n\
-asi que tamizamos la harina y la colocamos en un bol grande en el que podamos trabajar bien.\n\
-2. A continuacion, echamos el agua, el aceite de oliva blanco. Incorporamos tambien el huevo,\n\
-la mantequilla derretida al microondas, la sal y, por último, la levadura en polvo.\n\
-3. Mezclamos la masa de las empanadillas sin gluten hasta obtener una masa homogenea y sin grumos,\n\
-ademas de que se despegue de las manos. Dejamos reposar la masa durante una hora.\n\
-4. En una cazuela grande agregamos un poco de aceite de oliva y pochamos la cebolla con una pizca de sal.\n\
-Incorporamos el tomate cortado en dados y la carne de cerdo picada.\n\
-5. Regamos el relleno de las empanadillas sin gluten con la salsa de tomate frito y cocinamos a fuego fuerte hasta que espese.\n\
-6. Estiramos la masa y con un cortapastas sacamos circulos.\n\
-Colocamos en el centro de cada circulo un poco del relleno y las cerramos, apretando bien en los bordes.\n\
-7. Freimos las empanadas sin gluten en abundante aceite caliente\n\
-y las colocamos en un plato con papel absorbente para eliminar el aceite sobrante antes de servir.";
-leeCadena(c_s_a_c);
+	FILE *p;
+	char aux;
+	p=fopen("recetas/salado/c_s_a_c.txt","r"); //Fichero que abre la receta c_s_a_c//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'fc_s_a_d'//
@@ -991,7 +762,7 @@ leeCadena(c_d_a_a);
 //Funcion para imprimir en pantalla la receta codigo'c_d_a_b'//
 void fc_d_a_b ()
 {
-char c_d_a_b[] = //Usamos \ para escribir varias lineas
+char c_d_a_b[] = //Usamos \ para escribir varias lineas//
 "INGREDIENTES:\n\
 1 lomo de cerdo de aproximadamente 1 kg\n\, 4 dientes de ajo picados\n\, 2 cucharadas de mostaza de dijon\n\, Aceite de oliva\n\
 El zumo y la cascara de 3 limones\n\, 2 ramitos de romero\n\, sal y pimienta\n\
@@ -1069,7 +840,7 @@ Canela molida 15 g\n\
 PREPARACION:\n\
 Poner a calentar la nata y la leche junto con la rama de canela y la corteza de limon en una olla,\n\
 cuando empiece a hervir, incorporar el arroz, y dejar cocer removiendo frecuentemente durante 40 minutos o hasta que el arroz este blando.\n\
-Incorporamos el azucar y cocer durante ocho minutos mas sin parar de remover. Verter en una fuente, cubrir con papel film transparente y dejar enfriar,\n\";
+Incorporamos el azucar y cocer durante ocho minutos mas sin parar de remover. Verter en una fuente, cubrir con papel film transparente y dejar enfriar,";
 leeCadena(c_d_c_a);
 }
 
