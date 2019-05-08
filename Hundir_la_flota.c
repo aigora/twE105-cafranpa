@@ -6,6 +6,7 @@ void imprime_num(int M[9][9]);
 void vaciar_tablero(char M[9][9], char p);
 void vaciar_num(int M[9][9], int p);
 void enemigo_barcos(int M[9][9]);
+void turno_jugador(int m[9][9], char ti[9][9], char t1[9][9]);
 int main()
 {
 	srand(time(NULL));
@@ -191,97 +192,8 @@ int main()
 			}
 		}
 		while (submarino>0||destructor>0);
-		//DESDE AQUÍ
-		printf("\nMuy bien, ahora que ya tienes tu tablero listo, es hora de jugar\n");
-		printf("\nEste tablero es en el cual se iran apuntando tus disparos, si son agua, tocado, undido, etc.\n");
-		imprime_tablero(tableroi);
-		system("pause");
-		do
-		{
-			system("cls");
-			imprime_tablero(tablero1);
-			imprime_tablero(tableroi);
-			printf("\nEscoge una coordenada xy donde creas que estara el barco enemigo.\n");
-			printf("\nDime un numero x (1-9):\n");
-			do
-			scanf("%i", &x);
-			while((x<1)||(x>9));
-			printf("\nAhora dime un numero y (1-9):\n");
-			do
-			scanf("%i", &y);
-			while((y<1)||(y>9));
-			x=x-1;
-			y=y-1;
-			sleep(2);
-			if (tablero[y][x]==0)
-			{
-				printf("Agua!\n");
-				tableroi[y][x]='A';
-				imprime_tablero(tableroi);
-			}
-			else if (tablero[y][x]==3)
-			{
-				printf("Hundido!\n");
-				tableroi[y][x]='H';
-				tablero[y][x]=0;
-				imprime_tablero(tableroi);
-			}
-			else if (tablero[y][x]==1)
-			{
-				z=0;
-				tablero[y][x]=0;
-				for(i = 0; i < 9; i++)					
-				{
-					for(j = 0; j < 9; j++)
-						if(tablero[i][j]==1)
-							z++;
-				}
-				if (z==0)
-				{
-					printf("Hundido!\n");
-					tableroi[y][x]='H';
-					imprime_tablero(tableroi);
-				}
-				else 
-				{
-					printf("Tocado!\n");
-					tableroi[y][x]='T';
-					imprime_tablero(tableroi);
-				}
-			}
-			else
-			{
-				z=0;
-				tablero[y][x]=0;
-				for(i = 0; i < 9; i++)
-				{
-					for(j = 0; j < 9; j++)
-						if(tablero[i][j]==2)
-							z++;
-				}
-				if (z==0)
-				{
-					printf("Hundido!\n");
-					tableroi[y][x]='H';
-					imprime_tablero(tableroi);
-				}
-				else 
-				{
-					printf("Tocado!\n");
-					tableroi[y][x]='T';
-					imprime_tablero(tableroi);
-				}
-			}
-		for(i = 0; i < 9; i++)
-				{
-					for(j = 0; j < 9; j++)
-						if(tablero[i][j]==0)
-							u++;
-				}	
-		}
-		while (u!=81);
-		//HASTA AQUÍ
-			
+		turno_jugador(tablero, tableroi, tablero1);
+				
 				
 	scanf(" %c", &s);
 	}
@@ -444,4 +356,108 @@ void enemigo_barcos(int M[9][9])
 			}
 		}
 		while (submarino>=0&&destructor>=0);
+}
+void turno_jugador(int m[9][9], char ti[9][9], char t1[9][9])
+{
+	int x, y, z, u, i, j;
+	printf("\nMuy bien, ahora que ya tienes tu tablero listo, es hora de jugar\n");
+	printf("\nEste tablero es en el cual se iran apuntando tus disparos, si son agua, tocado, undido, etc.\n");
+	imprime_tablero(ti);
+	system("pause");
+	do
+	{
+		system("cls");
+		imprime_tablero(t1);
+		imprime_tablero(ti);
+		printf("\nEscoge una coordenada xy donde creas que estara el barco enemigo.\n");
+		printf("\nDime un numero x (1-9):\n");
+		do
+		scanf("%i", &x);
+		while((x<1)||(x>9));
+		printf("\nAhora dime un numero y (1-9):\n");
+		do
+		scanf("%i", &y);
+		while((y<1)||(y>9));
+		x=x-1;
+		y=y-1;
+		sleep(2);
+		if (m[y][x]==0)
+			{
+				system("cls");
+				printf("Agua!\n");
+				sleep(2);
+				ti[y][x]='A';
+				imprime_tablero(ti);
+			}
+			else if (m[y][x]==3)
+			{
+				system("cls");
+				printf("Hundido!\n");
+				sleep(2);
+				ti[y][x]='H';
+				m[y][x]=0;
+				imprime_tablero(ti);
+			}
+			else if (m[y][x]==1)
+			{
+				z=0;
+				m[y][x]=0;
+				for(i = 0; i < 9; i++)					
+				{
+					for(j = 0; j < 9; j++)
+						if(m[i][j]==1)
+							z++;
+				}
+				if (z==0)
+				{
+					system("cls");
+					printf("Hundido!\n");
+					sleep(2);
+					ti[y][x]='H';
+					imprime_tablero(ti);
+				}
+				else 
+				{
+					system("cls");
+					printf("Tocado!\n");
+					sleep(2);
+					ti[y][x]='T';
+					imprime_tablero(ti);
+				}
+			}
+			else
+			{
+				z=0;
+				m[y][x]=0;
+				for(i = 0; i < 9; i++)
+				{
+					for(j = 0; j < 9; j++)
+						if(m[i][j]==2)
+							z++;
+				}
+				if (z==0)
+				{
+					system("cls");
+					printf("Hundido!\n");
+					sleep(2);
+					ti[y][x]='H';
+					imprime_tablero(ti);
+				}
+				else 
+				{
+					system("cls");
+					printf("Tocado!\n");
+					sleep(2);
+					ti[y][x]='T';
+					imprime_tablero(ti);
+				}
+			}
+		for(i = 0; i < 9; i++)
+				{
+					for(j = 0; j < 9; j++)
+						if(m[i][j]==0)
+							u++;
+				}	
+		}
+		while (u!=81);
 }
