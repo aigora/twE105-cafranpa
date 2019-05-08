@@ -5,10 +5,12 @@ void imprime_tablero(char M[9][9]);
 void imprime_num(int M[9][9]);
 void vaciar_tablero(char M[9][9], char p);
 void vaciar_num(int M[9][9], int p);
+void enemigo_barcos(int M[9][9]);
 int main()
 {
+	srand(time(NULL));
 	char tablero1[9][9], s, d;
-	int destructor, submarino, barco, y, x, direccion, tablero2[9][9];
+	int destructor, submarino, barco, y, x, direccion, tablero2[9][9], x1, x2, tablero[9][9];
 	do
 	{
 		//darle distintos valores a los destructores, cada turno, comprobar si ha dado o no, y recorrer la matriz contando caracters. si hay 0 caracteres que representan al barco, esta hundido
@@ -17,7 +19,9 @@ int main()
 		direccion=0;
 		system("cls");
 		vaciar_tablero(tablero1, '-');
+		vaciar_num(tablero, 0);
 		vaciar_num(tablero2, 0);
+		enemigo_barcos(tablero);
 		printf("Bienvenido al programa de 'Hundir la flota'\n");
 		printf("Permite que te explique las normas:\n");
 		sleep(1);
@@ -25,8 +29,11 @@ int main()
 		imprime_tablero(tablero1);
 		sleep(2);
 		printf("Lo mejor sera que decidas que tipo de barco quieres colocar primero:\n");
+		sleep(3);
+		system("cls");
 		do
 		{
+			imprime_num(tablero);
 			printf("1)Destructor: Ocupa 2 espacios, tienes %i\n2)Submarino: Ocupa 1 espacio, tienes %i\n", destructor, submarino);
 			do
 			scanf("%i", &barco);
@@ -142,7 +149,6 @@ int main()
 						else 
 							tablero2[y][x]=2;
 						imprime_tablero(tablero1);
-						imprime_num(tablero2);
 						destructor--;
 					}
 					else
@@ -177,14 +183,11 @@ int main()
 						tablero1[y][x]='S';
 						tablero2[y][x]=3;
 						imprime_tablero(tablero1);
-						imprime_num(tablero2);
 						submarino--;
 					}
 					else
 						printf("No te quedan mas submarinos");
-				break;
-					
-					
+				break;		
 			}
 		}
 		while (submarino>=0&&destructor>=0);
@@ -235,3 +238,120 @@ for(i = 0; i < 9; i++)
 	M[i][j]=p;
 }
 }	
+void enemigo_barcos(int M[9][9])
+{
+	int destructor=2, submarino=2, barco, direccion, dir, x, y;
+	char d;
+	do
+		{
+			if (destructor>0)
+				barco=1;
+			if (destructor==0&&submarino>0)
+				barco=2;
+			switch(barco)
+			{
+				case 1:
+						do
+						{
+							x= rand() % 8 + 0;
+							y= rand() % 8 + 0;
+						}
+						while(M[y][x]!=0);
+						if(destructor==2)
+							M[y][x]=1;
+						else 
+							M[y][x]=2;
+						do
+						{
+							direccion=0;
+							dir= rand() % 4 + 1;
+							switch(dir)
+							{
+								case 1:
+									d='w';
+								break;
+								case 2:
+									d='a';
+								break;
+								case 3:
+									d='s';
+								break;
+								case 4:
+									d='d';
+								break;
+							}
+							if((d=='d')&&(x+1>8))
+								direccion=-1;
+							else if((d=='a')&&(x-1<0))
+								direccion=-1;
+							else if ((d=='w')&&(y-1<0))
+								direccion=-1;
+							else if ((d=='s')&&(y+1>8))
+								direccion=-1;
+							else if (d=='d')
+							{
+								if (M[y][x+1]!=0)
+									direccion=-1;
+								else
+								{
+									if(destructor==2)
+										M[y][x+1]=1;
+								else 
+										M[y][x+1]=2;
+								}	
+							}	
+							else if (d=='a')
+							{
+								if (M[y][x-1]!=0)
+									direccion=-1;
+								else
+								{
+									if(destructor==2)
+										M[y][x-1]=1;
+									else 
+										M[y][x-1]=2;
+								}	
+							}		
+							else if (d=='w')
+							{
+								if (M[y-1][x]!=0)
+									direccion=-1;
+								else
+								{
+									if(destructor==2)
+										M[y-1][x]=1;
+									else 
+										M[y-1][x]=2;
+								}
+							}	
+							else
+							{
+								if (M[y+1][x]!=0)
+									direccion=-1;
+								else
+								{
+									if(destructor==2)
+										M[y+1][x]=1;
+									else 
+										M[y+1][x]=2;
+								}
+									
+							}
+						}
+						while(direccion!=0);
+						destructor--;
+				break;
+				case 2:
+						do
+						{
+							x= rand() % 8 + 0;
+							y= rand() % 8 + 0;
+						}
+						while(M[y][x]!=0);
+						M[y][x]=3;
+						submarino--;
+				break;		
+			}
+		}
+		while (submarino>=0&&destructor>=0);
+}
