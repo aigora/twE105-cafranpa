@@ -6,11 +6,14 @@ void imprime_num(int M[9][9]);
 void vaciar_tablero(char M[9][9], char p);
 void vaciar_num(int M[9][9], int p);
 void enemigo_barcos(int M[9][9]);
+void turno_jugador(int m[9][9], char ti[9][9], char t1[9][9], int *u);
+void turno_bot(int t0[9][9], int t2[9][9], char t1[9][9], int *u);
+void turno(int t[9][9], char ti[9][9], char t1[9][9], int t0[9][9], int t2[9][9]);
 int main()
 {
 	srand(time(NULL));
 	char tablero1[9][9], tableroi[9][9], s, d;
-	int destructor, submarino, barco, y, x, direccion, tablero2[9][9], tablero[9][9], i, j, z, u;
+	int destructor, submarino, barco, y, x, direccion, tablero2[9][9], tablero[9][9], tabler0[9][9], i, j, z, u;
 	do
 	{
 		//darle distintos valores a los destructores, cada turno, comprobar si ha dado o no, y recorrer la matriz contando caracters. si hay 0 caracteres que representan al barco, esta hundido
@@ -22,6 +25,7 @@ int main()
 		vaciar_tablero(tablero1, '-');
 		vaciar_num(tablero, 0);
 		vaciar_num(tablero2, 0);
+		vaciar_num(tabler0, 0);
 		enemigo_barcos(tablero);
 		printf("Bienvenido al programa de 'Hundir la flota'\n");
 		printf("Permite que te explique las normas:\n");
@@ -191,97 +195,11 @@ int main()
 			}
 		}
 		while (submarino>0||destructor>0);
-		//DESDE AQUÍ
 		printf("\nMuy bien, ahora que ya tienes tu tablero listo, es hora de jugar\n");
 		printf("\nEste tablero es en el cual se iran apuntando tus disparos, si son agua, tocado, undido, etc.\n");
 		imprime_tablero(tableroi);
 		system("pause");
-		do
-		{
-			system("cls");
-			imprime_tablero(tablero1);
-			imprime_tablero(tableroi);
-			printf("\nEscoge una coordenada xy donde creas que estara el barco enemigo.\n");
-			printf("\nDime un numero x (1-9):\n");
-			do
-			scanf("%i", &x);
-			while((x<1)||(x>9));
-			printf("\nAhora dime un numero y (1-9):\n");
-			do
-			scanf("%i", &y);
-			while((y<1)||(y>9));
-			x=x-1;
-			y=y-1;
-			sleep(2);
-			if (tablero[y][x]==0)
-			{
-				printf("Agua!\n");
-				tableroi[y][x]='A';
-				imprime_tablero(tableroi);
-			}
-			else if (tablero[y][x]==3)
-			{
-				printf("Hundido!\n");
-				tableroi[y][x]='H';
-				tablero[y][x]=0;
-				imprime_tablero(tableroi);
-			}
-			else if (tablero[y][x]==1)
-			{
-				z=0;
-				tablero[y][x]=0;
-				for(i = 0; i < 9; i++)					
-				{
-					for(j = 0; j < 9; j++)
-						if(tablero[i][j]==1)
-							z++;
-				}
-				if (z==0)
-				{
-					printf("Hundido!\n");
-					tableroi[y][x]='H';
-					imprime_tablero(tableroi);
-				}
-				else 
-				{
-					printf("Tocado!\n");
-					tableroi[y][x]='T';
-					imprime_tablero(tableroi);
-				}
-			}
-			else
-			{
-				z=0;
-				tablero[y][x]=0;
-				for(i = 0; i < 9; i++)
-				{
-					for(j = 0; j < 9; j++)
-						if(tablero[i][j]==2)
-							z++;
-				}
-				if (z==0)
-				{
-					printf("Hundido!\n");
-					tableroi[y][x]='H';
-					imprime_tablero(tableroi);
-				}
-				else 
-				{
-					printf("Tocado!\n");
-					tableroi[y][x]='T';
-					imprime_tablero(tableroi);
-				}
-			}
-		for(i = 0; i < 9; i++)
-				{
-					for(j = 0; j < 9; j++)
-						if(tablero[i][j]==0)
-							u++;
-				}	
-		}
-		while (u!=81);
-		//HASTA AQUÍ
-			
+		turno(tablero, tableroi, tablero1, tabler0, tablero2);	
 				
 	scanf(" %c", &s);
 	}
@@ -444,4 +362,171 @@ void enemigo_barcos(int M[9][9])
 			}
 		}
 		while (submarino>=0&&destructor>=0);
+}
+void turno_jugador(int m[9][9], char ti[9][9], char t1[9][9], int *u)
+{
+	int x, y, z, d, i, j;
+		system("cls");
+		imprime_tablero(t1);
+		imprime_tablero(ti);
+		printf("\nEscoge una coordenada xy donde creas que estara el barco enemigo.\n");
+		printf("\nDime un numero x (1-9):\n");
+		do
+		scanf("%i", &x);
+		while((x<1)||(x>9));
+		printf("\nAhora dime un numero y (1-9):\n");
+		do
+		scanf("%i", &y);
+		while((y<1)||(y>9));
+		x=x-1;
+		y=y-1;
+		sleep(2);
+		if (m[y][x]==0)
+			{
+				system("cls");
+				printf("Agua!\n");
+				sleep(2);
+				ti[y][x]='A';
+				imprime_tablero(ti);
+			}
+			else if (m[y][x]==3)
+			{
+				system("cls");
+				printf("Hundido!\n");
+				sleep(2);
+				ti[y][x]='H';
+				m[y][x]=0;
+				imprime_tablero(ti);
+			}
+			else if (m[y][x]==1)
+			{
+				z=0;
+				m[y][x]=0;
+				for(i = 0; i < 9; i++)					
+				{
+					for(j = 0; j < 9; j++)
+						if(m[i][j]==1)
+							z++;
+				}
+				if (z==0)
+				{
+					system("cls");
+					printf("Hundido!\n");
+					sleep(2);
+					ti[y][x]='H';
+					imprime_tablero(ti);
+				}
+				else 
+				{
+					system("cls");
+					printf("Tocado!\n");
+					sleep(2);
+					ti[y][x]='T';
+					imprime_tablero(ti);
+				}
+			}
+			else
+			{
+				z=0;
+				m[y][x]=0;
+				for(i = 0; i < 9; i++)
+				{
+					for(j = 0; j < 9; j++)
+						if(m[i][j]==2)
+							z++;
+				}
+				if (z==0)
+				{
+					system("cls");
+					printf("Hundido!\n");
+					sleep(2);
+					ti[y][x]='H';
+					imprime_tablero(ti);
+				}
+				else 
+				{
+					system("cls");
+					printf("Tocado!\n");
+					sleep(2);
+					ti[y][x]='T';
+					imprime_tablero(ti);
+				}
+			}
+		for(i = 0; i < 9; i++)
+				{
+					for(j = 0; j < 9; j++)
+						if(m[i][j]==0)
+							d++;
+				}	
+	*u=d;
+}
+void turno_bot(int t0[9][9], int t2[9][9], char t1[9][9], int *u)
+{
+	int x, y, z, d, i, j;
+		do
+		{
+			x= rand() % 8 + 0;
+			y= rand() % 8 + 0;
+		}
+		while (t0[y][x]!=9);
+		if (t2[y][x]==0)
+			{
+				t0[y][x]=9;
+			}
+			else if (t2[y][x]==3)
+			{
+				t1[y][x]='H';
+				t0[y][x]=9;
+				t2[y][x]=0;
+			}
+			else if (t2[y][x]==1)
+			{
+				z=0;
+				t0[y][x]=9;
+				t2[y][x]=0;
+				for(i = 0; i < 9; i++)					
+				{
+					for(j = 0; j < 9; j++)
+						if(t0[i][j]==1)
+							z++;
+				}
+				if (z==0)
+					t1[y][x]='H';
+				else 
+					t1[y][x]='T';
+			}
+			else
+			{
+				z=0;
+				t0[y][x]=9;
+				t2[y][x]=0;
+				for(i = 0; i < 9; i++)					
+				{
+					for(j = 0; j < 9; j++)
+						if(t0[i][j]==2)
+							z++;
+				}
+				if (z==0)
+					t1[y][x]='H';
+				else 
+					t1[y][x]='T';
+			}
+			for(i = 0; i < 9; i++)
+				{
+					for(j = 0; j < 9; j++)
+						if(t2[i][j]==0)
+							d++;
+				}	
+	*u=d;	
+}
+void turno(int t[9][9], char ti[9][9], char t1[9][9], int t0[9][9], int t2[9][9])
+{
+	int u1, u2;
+	do
+	{
+		turno_jugador(t, ti, t1, &u1);
+		turno_bot(t0, t2, t1, &u2);	
+	}
+	while ((u1<81)||(u2<81));
+	printf("\n Has %s!, Quieres intentarlo otra vez (s)? \n ", u1<81? "ganado":"perdido");
 }
