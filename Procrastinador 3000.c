@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<math.h>
 #include<stdlib.h>
 #include<string.h>
 #include"procastLyb.h"
@@ -7,7 +6,7 @@ int main()
 {
 	usuario iz;
 	int i,vg;
-	char res='s';
+	char res;
 	printf("Bienvenido al Procrastinador 3000\n");
 	printf("Antes de empezar, procede con la seleccion de usuario\n");
 	system("pause");
@@ -60,6 +59,8 @@ int main()
 		do
 		{
 			scanf(" %c",&res);
+			res=mins(res);
+			printf("%c", res);
 			if(res=='o')
 			{
 				res='r';

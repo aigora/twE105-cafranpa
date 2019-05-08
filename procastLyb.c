@@ -26,6 +26,7 @@ int ingreso(usuario *iz)
 	do
 	{
 		scanf(" %c",&res);
+		res=mins(res);
 		if(res=='s')
 		{
 			do
@@ -36,6 +37,7 @@ int ingreso(usuario *iz)
 				printf("El usuario seleccionado es: %s\n",usuario[i].name);
 				printf("Seguro que quiere elegir ese?(s/n): ");
 				scanf(" %c",&res);
+				res=mins(res);
 		    }
 		    while(res!='s');
 		}
@@ -48,6 +50,7 @@ int ingreso(usuario *iz)
 				i=j-1;
 				printf("Seguro que desea eleminar el usuario: %s para siempre?(s/n)\n",usuario[i].name);
 				scanf(" %c",&res);
+				res=mins(res);
 			}
 			while(res!='s');
 			printf("seleccione el nombre que quiera tener:\n");
@@ -95,11 +98,13 @@ int boladelocho()
 	printf("Hola, bienvenido a la bola del ocho\n");
 	printf("Crees que estas preparado para conocer tu fortuna?(s/n)\n");
 	scanf(" %c", &ans);
+	ans=mins(ans);
 	while((ans!='s')&&(ans!='n'))
 	{
 		printf("lo siento no te he entendido\n");
 		printf("Crees que estas preparado para conocer tu fortuna?(si o no)\n");
 		scanf(" %c", &ans);
+		ans=mins(ans);
 	}
 	if(ans=='s')
 	futuro();
@@ -266,7 +271,8 @@ void combate()
 			system("cls");
 		}
 		printf("\n Has %s (s)? \n ", yo>0? "ganado, quieres jugar otra vez":"perdido, quieres la revancha");
-		scanf("%s", &s);
+		scanf(" %c", &s);
+		s=mins(s);
 	}
 	while(s=='s');
 }
@@ -308,6 +314,16 @@ int busquedatesoro()
 	busqueda(&tesoro, &usuario);
 	return 0;
 }
+char mins(char ans)
+{
+	if((ans>'a')&&(ans<'z'))
+	return ans;
+	else if((ans>'A')&&(ans<'Z'))
+	{
+		ans=ans+32;
+		return ans;
+	}
+}
 //Usados en Bola del 8cho
 void futuro()
 {
@@ -320,6 +336,7 @@ void futuro()
 	system("cls");
 	printf("Quieres preguntarme algo mas?(s/cualquier otra tecla)\n");
 	scanf(" %c", &ans);
+	ans=mins(ans);
     if(ans=='s')
     futuro();
     else
@@ -411,6 +428,7 @@ int busqueda(posicion *tesoro, posicion *usuario)
 			printf("Has ganado el juego\n");
 			printf("Te gustaria volver a jugar?(s/pulsa cualquier tecla)\n");
 			scanf(" %c",&bans);
+			bans=mins(bans);
 			if(bans=='s')
 			{
 				system("cls");
@@ -426,6 +444,7 @@ int busqueda(posicion *tesoro, posicion *usuario)
 		}
 		printf("usuario:\n\tx:%i\n\ty:%i\n",u->x,u->y);
 		scanf(" %c%i[^\n]",&l,&n);
+		l=mins(l);
 		switch(l)
 		{
 			case 'w':
@@ -455,6 +474,7 @@ int busqueda(posicion *tesoro, posicion *usuario)
 	printf("Se ha acabado el juego\n");
 	printf("Quieres jugar otra vez?(s/n)\n");
 	scanf(" %c",&ans);
+	ans=mins(ans);
 	if(ans=='s')
 	{
 		enterrar(tesoro);

@@ -7,6 +7,7 @@ int ingreso(usuario *iz);
 void registro(usuario iz, int io);
 int boladelocho();
 void combate();
+char mins(char ans);
 //Usados en Bola del 8cho
 typedef struct{
 	char string[40];
