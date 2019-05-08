@@ -21,7 +21,7 @@ int main()
 	sleep(1);
 	system("pause");
 	system("cls");
-	printf("Programas:\n\t1:Bola del ocho\n\t2:Combate por turnos\n\t3:Cunhado digital\n\t4:Recetario para celiacos\n\t5:Busqueda del tesoro\n");
+	printf("Programas:\n\t1:Bola del ocho\n\t2:Combate por turnos\n\t3:Cunhado digital\n\t4:Hundir la flota\n\t5:Recetario para celiacos\n\t6:Busqueda del tesoro\n");
 	printf("Elija: ");
 	do
 	{
@@ -42,9 +42,13 @@ int main()
 				break;
 			case 4:
 				//...
+				iz.flota++;
+				break;	
+			case 5:
+				recetario();
 				iz.recetario++;
 				break;
-			case 5:
+			case 6:
 				busquedatesoro();
 				iz.tesoro++;
 				break;
@@ -60,13 +64,12 @@ int main()
 		{
 			scanf(" %c",&res);
 			res=mins(res);
-			printf("%c", res);
 			if(res=='o')
 			{
 				res='r';
 				system("cls");
 				printf("Muy bien, aqui tienes los programas:\n");
-				printf("\t1:Bola del ocho\n\t2:Combate por turnos\n\t3:Cunhado digital\n\t4:Recetario para celiacos\n\t5:Busqueda del tesoro\n");		
+				printf("\t1:Bola del ocho\n\t2:Combate por turnos\n\t3:Cunhado digital\n\t4:Hundir la flota\n\t5:Recetario para celiacos\n\t6:Busqueda del tesoro\n");		
 			}
 			else if(res=='s')
 			{
