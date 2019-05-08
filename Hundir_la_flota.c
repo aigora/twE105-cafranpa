@@ -11,7 +11,7 @@ int main()
 {
 	srand(time(NULL));
 	char tablero1[9][9], tableroi[9][9], s, d;
-	int destructor, submarino, barco, y, x, direccion, tablero2[9][9], tablero[9][9], i, j, z, u;
+	int destructor, submarino, barco, y, x, direccion, tablero2[9][9], tablero[9][9], tabler0[9][9], i, j, z, u;
 	do
 	{
 		//darle distintos valores a los destructores, cada turno, comprobar si ha dado o no, y recorrer la matriz contando caracters. si hay 0 caracteres que representan al barco, esta hundido
@@ -23,6 +23,7 @@ int main()
 		vaciar_tablero(tablero1, '-');
 		vaciar_num(tablero, 0);
 		vaciar_num(tablero2, 0);
+		vaciar_num(tabler0, 0);
 		enemigo_barcos(tablero);
 		printf("Bienvenido al programa de 'Hundir la flota'\n");
 		printf("Permite que te explique las normas:\n");
@@ -458,6 +459,62 @@ void turno_jugador(int m[9][9], char ti[9][9], char t1[9][9])
 						if(m[i][j]==0)
 							u++;
 				}	
+		}
+		while (u!=81);
+}
+void turno_bot(int t0[9][9], int t2[9][9], char t1[9][9])
+{
+	int x, y, z, u, i, j;
+	do
+	{
+		do
+		{
+			x= rand() % 8 + 0;
+			y= rand() % 8 + 0;
+		}
+		while (t0[y][x]!=9);
+		if (t2[y][x]==0)
+			{
+				t0[y][x]=9;
+			}
+			else if (t2[y][x]==3)
+			{
+				t1[y][x]='H';
+				t0[y][x]=9;
+				t2[y][x]=0;
+			}
+			else if (t2[y][x]==1)
+			{
+				z=0;
+				t0[y][x]=9;
+				t2[y][x]=0;
+				for(i = 0; i < 9; i++)					
+				{
+					for(j = 0; j < 9; j++)
+						if(t0[i][j]==1)
+							z++;
+				}
+				if (z==0)
+					t1[y][x]='H';
+				else 
+					t1[y][x]='T';
+			}
+			else if (t2[y][x]==2)
+			{
+				z=0;
+				t0[y][x]=9;
+				t2[y][x]=0;
+				for(i = 0; i < 9; i++)					
+				{
+					for(j = 0; j < 9; j++)
+						if(t0[i][j]==2)
+							z++;
+				}
+				if (z==0)
+					t1[y][x]='H';
+				else 
+					t1[y][x]='T';
+			}	
 		}
 		while (u!=81);
 }
