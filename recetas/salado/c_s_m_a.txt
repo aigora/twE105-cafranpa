@@ -1,8 +1,8 @@
-INGREDIENTES:\n\
-4 tomates de pera grandes\n\
-1 pimiento verde\n\
-1 pepino\n\
-1 cebolla mediana\n\
+INGREDIENTES:
+4 tomates de pera grandes
+1 pimiento verde
+1 pepino
+1 cebolla mediana
 3 dientes de ajo
 1 manzana
 1 taza de agua
