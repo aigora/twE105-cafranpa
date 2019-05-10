@@ -13,7 +13,7 @@ int main()
 {
 	srand(time(NULL));
 	char tablero1[9][9], tableroi[9][9], s, d;
-	int destructor, submarino, barco, y, x, direccion, tablero2[9][9], tablero[9][9], tabler0[9][9], i, j, z, u;
+	int destructor, submarino, barco, y, x, direccion, tablero2[9][9], tablero[9][9], tabler0[9][9], u;
 	do
 	{
 		//darle distintos valores a los destructores, cada turno, comprobar si ha dado o no, y recorrer la matriz contando caracters. si hay 0 caracteres que representan al barco, esta hundido
@@ -365,7 +365,7 @@ void enemigo_barcos(int M[9][9])
 }
 void turno_jugador(int m[9][9], char ti[9][9], char t1[9][9], int *u)
 {
-	int x, y, z, d, i, j;
+	int x, y, z, d=0, i, j;
 		system("cls");
 		imprime_tablero(t1);
 		imprime_tablero(ti);
@@ -459,25 +459,36 @@ void turno_jugador(int m[9][9], char ti[9][9], char t1[9][9], int *u)
 							d++;
 				}	
 	*u=d;
+	
+	printf("\nAhora es el turno del ordenador\n");
+	system("pause");
+	system("cls");
 }
 void turno_bot(int t0[9][9], int t2[9][9], char t1[9][9], int *u)
 {
-	int x, y, z, d, i, j;
+	int x, y, z, d=0, i, j;
+	printf("El ordenador te esta atacando\n");
 		do
 		{
 			x= rand() % 8 + 0;
 			y= rand() % 8 + 0;
 		}
-		while (t0[y][x]!=9);
+		while (t0[y][x]==9);
+		printf("Ha escogido x:%i e y:%i", x+1, y+1);
+		sleep(3);
+		system("cls");
 		if (t2[y][x]==0)
 			{
+				printf("Agua!\n");
 				t0[y][x]=9;
 			}
 			else if (t2[y][x]==3)
 			{
+				printf("Hundido!\n");
 				t1[y][x]='H';
 				t0[y][x]=9;
 				t2[y][x]=0;
+				imprime_tablero(t1);
 			}
 			else if (t2[y][x]==1)
 			{
@@ -491,9 +502,16 @@ void turno_bot(int t0[9][9], int t2[9][9], char t1[9][9], int *u)
 							z++;
 				}
 				if (z==0)
-					t1[y][x]='H';
+					{
+						printf("Hundido!\n");
+						t1[y][x]='H';
+					}
 				else 
-					t1[y][x]='T';
+					{
+						printf("Tocado!\n");
+						t1[y][x]='T';
+					}
+				imprime_tablero(t1);
 			}
 			else
 			{
@@ -507,9 +525,16 @@ void turno_bot(int t0[9][9], int t2[9][9], char t1[9][9], int *u)
 							z++;
 				}
 				if (z==0)
-					t1[y][x]='H';
+					{
+						printf("Hundido!\n");
+						t1[y][x]='H';
+					}
 				else 
-					t1[y][x]='T';
+					{
+						printf("Tocado!\n");
+						t1[y][x]='T';
+					}
+				imprime_tablero(t1);
 			}
 			for(i = 0; i < 9; i++)
 				{
@@ -517,7 +542,10 @@ void turno_bot(int t0[9][9], int t2[9][9], char t1[9][9], int *u)
 						if(t2[i][j]==0)
 							d++;
 				}	
-	*u=d;	
+	*u=d;
+	printf("\nAhora es tu turno\n");
+	system("pause");
+	system("cls");	
 }
 void turno(int t[9][9], char ti[9][9], char t1[9][9], int t0[9][9], int t2[9][9])
 {
@@ -527,6 +555,6 @@ void turno(int t[9][9], char ti[9][9], char t1[9][9], int t0[9][9], int t2[9][9]
 		turno_jugador(t, ti, t1, &u1);
 		turno_bot(t0, t2, t1, &u2);	
 	}
-	while ((u1<81)||(u2<81));
+	while ((u1<81)&&(u2<81));
 	printf("\n Has %s!, Quieres intentarlo otra vez (s)? \n ", u1<81? "ganado":"perdido");
 }
