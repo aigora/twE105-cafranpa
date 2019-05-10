@@ -310,6 +310,7 @@ void fc_s_D_a () //Funcion para imprimir en pantalla la receta codigo'c_s_D_a'//
 	p=fopen("recetas/salado/c_s_D_a.txt","r");
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 void fc_s_D_b () //Funcion para imprimir en pantalla la receta codigo'c_s_D_b'//
@@ -319,6 +320,7 @@ void fc_s_D_b () //Funcion para imprimir en pantalla la receta codigo'c_s_D_b'//
 	p=fopen("recetas/salado/c_s_D_b.txt","r"); //Fichero que abre la receta c_s_D_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_s_D_c'//
@@ -329,6 +331,7 @@ void fc_s_D_c ()
 	p=fopen("recetas/salado/c_s_D_c.txt","r"); //Fichero que abre la receta c_s_D_c//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_s_m_a'//
@@ -339,6 +342,7 @@ void fc_s_m_a ()
 	p=fopen("recetas/salado/c_s_m_a.txt","r"); //Fichero que abre la receta c_s_m_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_s_m_b'//
@@ -349,6 +353,7 @@ void fc_s_m_b ()
 	p=fopen("recetas/salado/c_s_m_b.txt","r"); //Fichero que abre la receta c_s_m_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_s_m_c'//
@@ -359,6 +364,7 @@ void fc_s_m_c ()
 	p=fopen("recetas/salado/c_s_m_c.txt","r"); //Fichero que abre la receta c_s_m_c//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'fc_s_m_d'//
@@ -369,6 +375,7 @@ void fc_s_m_d ()
 	p=fopen("recetas/salado/c_s_m_c.txt","r"); //Fichero que abre la receta c_s_m_d//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'fc_s_a_a'//
@@ -379,6 +386,7 @@ void fc_s_a_a ()
 	p=fopen("recetas/salado/c_s_a_a.txt","r"); //Fichero que abre la receta c_s_a_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_s_a_b'//
@@ -389,6 +397,7 @@ void fc_s_a_b ()
 	p=fopen("recetas/salado/c_s_a_b.txt","r"); //Fichero que abre la receta c_s_a_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_s_a_c'//
@@ -399,6 +408,7 @@ void fc_s_a_c ()
 	p=fopen("recetas/salado/c_s_a_c.txt","r"); //Fichero que abre la receta c_s_a_c//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_s_a_d'//
@@ -409,6 +419,7 @@ void fc_s_a_d ()
 	p=fopen("recetas/salado/c_s_a_d.txt","r"); //Fichero que abre la receta c_s_a_d//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_s_M_a'//
@@ -419,6 +430,7 @@ void fc_s_M_a ()
 	p=fopen("recetas/salado/c_s_M_a_dos.txt","r"); //Fichero que abre la receta c_s_M_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_s_M_b'//
@@ -429,6 +441,7 @@ void fc_s_M_b ()
 	p=fopen("recetas/salado/c_s_M_b_dos.txt","r"); //Fichero que abre la receta c_s_M_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_s_c_a'//
@@ -439,6 +452,7 @@ void fc_s_c_a ()
 	p=fopen("recetas/salado/c_s_c_a.txt","r"); //Fichero que abre la receta c_s_c_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_s_c_b'//
@@ -449,6 +463,7 @@ void fc_s_c_b ()
 	p=fopen("recetas/salado/c_s_c_b.txt","r"); //Fichero que abre la receta c_s_c_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_s_c_c'//
@@ -459,6 +474,7 @@ void fc_s_c_c ()
 	p=fopen("recetas/salado/c_s_c_c.txt","r"); //Fichero que abre la receta c_s_c_c//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'fc_s_c_d'//
@@ -469,6 +485,7 @@ void fc_s_c_d ()
 	p=fopen("recetas/salado/c_s_c_d.txt","r"); //Fichero que abre la receta c_s_c_d//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 
@@ -482,6 +499,7 @@ void fc_d_D_a ()
 	p=fopen("recetas/dulce/c_d_D_a.txt","r"); //Fichero que abre la receta c_d_D_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_d_D_b'//
@@ -492,6 +510,7 @@ void fc_d_D_b ()
 	p=fopen("recetas/dulce/c_d_D_b.txt","r"); //Fichero que abre la receta c_d_D_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_d_D_c'//
@@ -502,6 +521,7 @@ void fc_d_D_c ()
 	p=fopen("recetas/dulce/c_d_D_c.txt","r"); //Fichero que abre la receta c_d_D_c//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_d_m_a'//
@@ -512,6 +532,7 @@ void fc_d_m_a ()
 	p=fopen("recetas/dulce/c_d_m_a.txt","r"); //Fichero que abre la receta c_d_m_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_d_m_b'//
@@ -522,6 +543,7 @@ void fc_d_m_b ()
 	p=fopen("recetas/dulce/c_d_m_b.txt","r"); //Fichero que abre la receta c_d_m_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_d_a_a'//
@@ -532,6 +554,7 @@ void fc_d_a_a ()
 	p=fopen("recetas/dulce/c_d_a_a.txt","r"); //Fichero que abre la receta c_d_a_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_d_a_b'//
@@ -542,6 +565,7 @@ void fc_d_a_b ()
 	p=fopen("recetas/dulce/c_d_a_b.txt","r"); //Fichero que abre la receta c_d_a_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_d_M_a'//
@@ -552,6 +576,7 @@ void fc_d_M_a ()
 	p=fopen("recetas/dulce/c_d_M_a_dos.txt","r"); //Fichero que abre la receta c_d_M_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_d_M_b'//
@@ -562,6 +587,7 @@ void fc_d_M_b ()
 	p=fopen("recetas/dulce/c_d_M_b_dos.txt","r"); //Fichero que abre la receta c_d_M_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_d_c_a'//
@@ -572,6 +598,7 @@ void fc_d_c_a ()
 	p=fopen("recetas/dulce/c_d_c_a.txt","r"); //Fichero que abre la receta c_d_c_a//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
 
 //Funcion para imprimir en pantalla la receta codigo'c_d_c_b'//
@@ -582,4 +609,5 @@ void fc_d_c_b ()
 	p=fopen("recetas/dulce/c_d_c_b.txt","r"); //Fichero que abre la receta c_d_c_b//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
+	fclose(p);
 }
