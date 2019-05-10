@@ -2,9 +2,12 @@
 #include<math.h>
 #include<stdlib.h>
 #include<string.h>
+//Funcion que genera un numero aleatorio + bonuses, representa la punteria
 int golpe(int b, int h);
+//Funciones que generan el daño del jugador y del onstruo
 int danhoyo(int b, int h);
 int danhoel(int b, int h);
+//Genera numeros aleatorios simulando una pocion
 int pcn(int b);
 void main()
 {
@@ -30,6 +33,7 @@ do
 		curas=pcn(curas);
 		defensayo=15;
 		defensael=18;
+		//Dependiendo del valor de w, el monstruo atacara, apuntara, o hara mas daño en su siguiente ataque
 		if((w==4||w==5))
 		garras+=10;
 		else if(w==6)
