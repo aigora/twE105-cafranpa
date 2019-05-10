@@ -34,7 +34,7 @@ int main()
 {
 	char elecCateg; //Variable empleada para almacenar la eleccion de categoria de pregunta//
 	char start;//variable empleada para almacenar la letra con la que el jugador decide empezar o no a jugar//
-	int contador; //Variable que cuenta la puntuacion del usuario//
+	int contador = 0; //Variable que cuenta la puntuacion del usuario//
 	printf("Bienvenido a 'Questionary', el programa en el que demostararas tus habilidades con preguntas sobre cultura general y ... algunos otras un poco mas especificos.\nEsperamos que te diviertas.");
 	printf("Para comenzar elige una de las 4 categorias siguientes, introduciendo la letra entre parentesis. Pulsa otra letra diferente a las 4 para salir:\n");
 	printf("\nHistoria(H)\nGeografia(G)\nCiencia(C)\nArte(A)\n");
@@ -55,7 +55,8 @@ int main()
 				//debe escribir la letra que represente a la respuesta correcta//
 				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
 				questHistoria(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de HISTORIA // 
-				printf("\nEnhorabuena!! Has llegado al final\t Tu puntuacion es: %i", contador);
+//				system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//
+//				printf("\nEnhorabuena!! Has llegado al final\t Tu puntuacion es: %i", contador);
 			}
 			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
 			break;
@@ -73,8 +74,8 @@ int main()
 				//debe escribir la letra que represente a la respuesta correcta//
 				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
 				questGeografia(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de GEOGRAFIA//
+				system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//
 				printf("\nEnhorabuena!! Has llegado al final\t Tu puntuacion es: %i", contador);
- 
 			}
 			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
 			break;
@@ -95,20 +96,20 @@ int main()
 	return 0;	
 	}
 }
-	
-//DEFINICION DE FUNCIONES EMPLEADAS//
-void puntuacion(char actualAns, char correctAns) //Funcion para sumar la puntuacion del jugador y mostrarle la opcion correcta//
-{
-	int contador=0;
-	if(actualAns == correctAns) //Esto se ejecuta cuando la respuesta otorgada por el usuario sea igul a la respuesta que el programa reconoce como correcta//
+
+//Definicion de funciones empleadas en el programa// 
+void puntuacion(char actualAns, char correctAns)
+{	
+	int contador;
+	if(actualAns == 'correctAns') //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
 	{
-		contador++;
 		printf("\nRespuesta correcta, ganas 1 punto.\n");
+		contador++;
 	}
 	else
 		printf("\nRespuesta incorrecta, la correcta era la %c.\n", correctAns);
 }
-
+	
 //Funcion para imprimir en pantalla la pregunta 1 de HISTORIA//
 void leefichero_p1_h()
 {
@@ -222,71 +223,8 @@ void leefichero_p10_h()
 //Funcion donde tiene lugar la parte de las preguntas y respuestas de HISTORIA //
 void questHistoria()
 {
-	char ansUsuario; //Variable empleada para almacenar la eleccion de la opcion correcta//
-	leefichero_p1_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 1 de historia(descrita al final del programa)//
-				printf("\nTu respuesta:\t");
-				scanf(" %c", &ansUsuario);
-				puntuacion(ansUsuario, 'b');
-				leefichero_p2_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 2 de historia(descrita al final del programa)//
-				printf("\nTu respuesta:\t");
-				scanf(" %c", &ansUsuario);
-				puntuacion(ansUsuario, 'c');
-				leefichero_p3_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 3 de historia(descrita al final del programa)//
-				printf("\nTu respuesta:\t");
-				scanf(" %c", &ansUsuario);
-				puntuacion(ansUsuario, 'c');
-				leefichero_p4_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 4 de historia(descrita al final del programa)//
-				printf("\nTu respuesta:\t");
-				scanf(" %c", &ansUsuario);
-				puntuacion(ansUsuario, 'c');
-				leefichero_p5_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 5 de historia(descrita al final del programa)//
-				printf("\nTu respuesta:\t");
-				scanf(" %c", &ansUsuario);
-				puntuacion(ansUsuario, 'c');
-				leefichero_p6_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 6 de historia(descrita al final del programa)//
-				printf("\nTu respuesta:\t");
-				scanf(" %c", &ansUsuario);
-				puntuacion(ansUsuario, 'c');
-				leefichero_p7_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 7 de historia(descrita al final del programa)//
-				printf("\nTu respuesta:\t");
-				scanf(" %c", &ansUsuario);
-				puntuacion(ansUsuario, 'b');
-				leefichero_p8_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 8 de historia(descrita al final del programa)//
-				printf("\nTu respuesta:\t");
-				scanf(" %c", &ansUsuario);
-				puntuacion(ansUsuario, 'a');
-				leefichero_p9_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 9 de historia(descrita al final del programa)//
-				printf("\nTu respuesta:\t");
-				scanf(" %c", &ansUsuario);
-				puntuacion(ansUsuario, 'd');
-				leefichero_p10_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 10 de historia(descrita al final del programa)//
-				printf("\nTu respuesta:\t");
-				scanf(" %c", &ansUsuario);
-				puntuacion(ansUsuario, 'a');
-}
-
-//Funcion para imprimir en pantalla la pregunta 1 de GEOGRAFIA//
-void leefichero_p1_g();
-{
-	FILE *p;
-	char aux;
-	p=fopen("questionary/geografia/p1.txt","r"); //Fichero que abre la pregunta 1 de GEOGRAFIA//
-	while(fscanf(p,"%c",&aux)!=EOF)
-		printf("%c",aux);
-	fclose(p);	
-}
-
-
-
-
-
-
-
-
-//Funcion donde tiene lugar la parte de las preguntas y respuestas de GEOGRAFIA //
-void questGeografia()
-{
-	char ansUsuario; //Variable empleada para almacenar la eleccion de la opcion correcta//
+	int c, contador;
+	char ansUsuario; //Variable empleada para almacenar la eleccion del jugador//
 	leefichero_p1_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 1 de historia(descrita al final del programa)//
 	printf("\nTu respuesta:\t");
 	scanf(" %c", &ansUsuario);
@@ -324,6 +262,165 @@ void questGeografia()
 	scanf(" %c", &ansUsuario);
 	puntuacion(ansUsuario, 'd');
 	leefichero_p10_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 10 de historia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	puntuacion(ansUsuario, 'a');
+	system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//
+	c = contador;
+	printf("\nEnhorabuena!! Has llegado al final\t Tu puntuacion es: %i", c);
+}
+
+//Funcion para imprimir en pantalla la pregunta 1 de GEOGRAFIA//
+void leefichero_p1_g()
+{
+	FILE *p;
+	char aux;
+	p=fopen("questionary/geografia/p1.txt","r"); //Fichero que abre la pregunta 1 de GEOGRAFIA//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
+	fclose(p);	
+}
+
+//Funcion para imprimir en pantalla la pregunta 2 de GEOGRAFIA//
+void leefichero_p2_g()
+{
+	FILE *p;
+	char aux;
+	p=fopen("questionary/geografia/p2.txt","r"); //Fichero que abre la pregunta 2 de GEOGRAFIA//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
+	fclose(p);	
+}
+
+//Funcion para imprimir en pantalla la pregunta 3 de GEOGRAFIA//
+void leefichero_p3_g()
+{
+	FILE *p;
+	char aux;
+	p=fopen("questionary/geografia/p3.txt","r"); //Fichero que abre la pregunta 3 de GEOGRAFIA//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
+	fclose(p);	
+}
+
+//Funcion para imprimir en pantalla la pregunta 4 de GEOGRAFIA//
+void leefichero_p4_g()
+{
+	FILE *p;
+	char aux;
+	p=fopen("questionary/geografia/p4.txt","r"); //Fichero que abre la pregunta 4 de GEOGRAFIA//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
+	fclose(p);	
+}
+
+//Funcion para imprimir en pantalla la pregunta 5 de GEOGRAFIA//
+void leefichero_p5_g()
+{
+	FILE *p;
+	char aux;
+	p=fopen("questionary/geografia/p5.txt","r"); //Fichero que abre la pregunta 5 de GEOGRAFIA//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
+	fclose(p);	
+}
+
+//Funcion para imprimir en pantalla la pregunta 6 de GEOGRAFIA//
+void leefichero_p6_g()
+{
+	FILE *p;
+	char aux;
+	p=fopen("questionary/geografia/p6.txt","r"); //Fichero que abre la pregunta 6 de GEOGRAFIA//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
+	fclose(p);	
+}
+
+//Funcion para imprimir en pantalla la pregunta 7 de GEOGRAFIA//
+void leefichero_p7_g()
+{
+	FILE *p;
+	char aux;
+	p=fopen("questionary/geografia/p7.txt","r"); //Fichero que abre la pregunta 7 de GEOGRAFIA//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
+	fclose(p);	
+}
+
+//Funcion para imprimir en pantalla la pregunta 8 de GEOGRAFIA//
+void leefichero_p8_g()
+{
+	FILE *p;
+	char aux;
+	p=fopen("questionary/geografia/p8.txt","r"); //Fichero que abre la pregunta 8 de GEOGRAFIA//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
+	fclose(p);	
+}
+
+//Funcion para imprimir en pantalla la pregunta 9 de GEOGRAFIA//
+void leefichero_p9_g()
+{
+	FILE *p;
+	char aux;
+	p=fopen("questionary/geografia/p9.txt","r"); //Fichero que abre la pregunta 9 de GEOGRAFIA//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
+	fclose(p);	
+}
+
+//Funcion para imprimir en pantalla la pregunta 10 de GEOGRAFIA//
+void leefichero_p10_g()
+{
+	FILE *p;
+	char aux;
+	p=fopen("questionary/geografia/p10.txt","r"); //Fichero que abre la pregunta 10 de GEOGRAFIA//
+	while(fscanf(p,"%c",&aux)!=EOF)
+		printf("%c",aux);
+	fclose(p);	
+}
+
+//Funcion donde tiene lugar la parte de las preguntas y respuestas de GEOGRAFIA //
+void questGeografia()
+{
+	char ansUsuario; //Variable empleada para almacenar la eleccion del jugador//
+	leefichero_p1_g(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 1 de geografia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	puntuacion(ansUsuario, 'b');
+	leefichero_p2_g(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 2 de geografia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	puntuacion(ansUsuario, 'c');
+	leefichero_p3_g(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 3 de geografia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	puntuacion(ansUsuario, 'c');
+	leefichero_p4_g(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 4 de geografia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	puntuacion(ansUsuario, 'c');
+	leefichero_p5_g(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 5 de geografia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	puntuacion(ansUsuario, 'c');
+	leefichero_p6_g(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 6 de geografia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	puntuacion(ansUsuario, 'c');
+	leefichero_p7_g(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 7 de geografia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	puntuacion(ansUsuario, 'b');
+	leefichero_p8_g(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 8 de geografia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	puntuacion(ansUsuario, 'a');
+	leefichero_p9_g(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 9 de geografia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	puntuacion(ansUsuario, 'd');
+	leefichero_p10_g(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 10 de geografia(descrita al final del programa)//
 	printf("\nTu respuesta:\t");
 	scanf(" %c", &ansUsuario);
 	puntuacion(ansUsuario, 'a');
