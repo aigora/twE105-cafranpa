@@ -382,6 +382,7 @@ void turno_jugador(int m[9][9], char ti[9][9], char t1[9][9], int *u)
 		system("cls");
 		imprime_tablero(t1);
 		imprime_tablero(ti);
+		imprime_num(m);
 		printf("\nEscoge una coordenada xy donde creas que estara el barco enemigo.\n");
 		printf("\nDime un numero x (1-9):\n");
 		do
@@ -519,7 +520,7 @@ void turno_bot(int t0[9][9], int t2[9][9], char t1[9][9], int *u)
 				for(i = 0; i < 9; i++)					
 				{
 					for(j = 0; j < 9; j++)
-						if(t0[i][j]==1)
+						if(t2[i][j]==1)
 							z++;
 				}
 				if (z==0)
@@ -542,7 +543,7 @@ void turno_bot(int t0[9][9], int t2[9][9], char t1[9][9], int *u)
 				for(i = 0; i < 9; i++)					
 				{
 					for(j = 0; j < 9; j++)
-						if(t0[i][j]==2)
+						if(t2[i][j]==2)
 							z++;
 				}
 				if (z==0)
@@ -577,5 +578,5 @@ void turno(int t[9][9], char ti[9][9], char t1[9][9], int t0[9][9], int t2[9][9]
 		turno_bot(t0, t2, t1, &u2);	
 	}
 	while ((u1<81)&&(u2<81));
-	printf("\n Has %s!, Quieres intentarlo otra vez (s)? \n ", u1<81? "ganado":"perdido");
+	printf("\n Has %s!, Quieres intentarlo otra vez (s)? \n ", u2<u1? "ganado, has conseguido eliminar todos los barcos enemigos":"perdido, han derribado todos tus barcos");
 }
