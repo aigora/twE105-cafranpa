@@ -84,7 +84,26 @@ int main()
 				//debe escribir la letra que represente a la respuesta correcta//
 				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
 				puntos+=questHistoria(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de HISTORIA //
-				void conocimiento(puntos); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
+				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
+				{
+					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranquilo, todo es mejorable.\n");
+				}
+				else if((puntos>3)&&(puntos<5))
+				{
+					printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
+				}
+				else if((puntos>=5)&&(puntos<7))
+				{
+					printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
+				}
+				else if((puntos>=7)&&(puntos<10))
+				{
+					printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
+				}
+				else if(puntos=10)
+				{
+					printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
+				}
 			}
 			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
 			break;
@@ -102,7 +121,26 @@ int main()
 				//debe escribir la letra que represente a la respuesta correcta//
 				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
 				puntos+=questGeografia(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de GEOGRAFIA//
-				void conocimiento(puntos); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
+				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
+				{
+					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranquilo, todo es mejorable\n");
+				}
+				else if((puntos>3)&&(puntos<5))
+				{
+					printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
+				}
+				else if((puntos>=5)&&(puntos<7))
+				{
+					printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
+				}
+				else if((puntos>=7)&&(puntos<10))
+				{
+					printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
+				}
+				else if(puntos=10)
+				{
+					printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
+				}
 			}
 			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
 			break;
@@ -120,7 +158,26 @@ int main()
 				//debe escribir la letra que represente a la respuesta correcta//
 				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
 				puntos+=questCiencia(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de CIENCIA//
-				void conocimiento(puntos); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
+				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
+				{
+					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranquilo, todo es mejorable\n");
+				}
+				else if((puntos>3)&&(puntos<5))
+				{
+					printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
+				}
+				else if((puntos>=5)&&(puntos<7))
+				{
+					printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
+				}
+				else if((puntos>=7)&&(puntos<10))
+				{
+					printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
+				}
+				else if(puntos=10)
+				{
+					printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
+				}
 			}
 			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
 			break;
@@ -138,14 +195,33 @@ int main()
 				//debe escribir la letra que represente a la respuesta correcta//
 				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
 				puntos+=questArte(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de ARTE//
-				void conocimiento(puntos); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
+				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
+				{
+					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranquilo, todo es mejorable\n");
+				}
+				else if((puntos>3)&&(puntos<5))
+				{
+					printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
+				}
+				else if((puntos>=5)&&(puntos<7))
+				{
+					printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
+				}
+				else if((puntos>=7)&&(puntos<10))
+				{
+					printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
+				}
+				else if(puntos=10)
+				{
+					printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
+				}	
 			}
 			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
 			break;
 		default:
 			printf("Has escogido salir del juego.\nUn placer, nos vemos pronto!!\n");
-	return 0;	
 	}
+	return 0;
 }
 
 //Definicion de funciones empleadas en el programa// 
