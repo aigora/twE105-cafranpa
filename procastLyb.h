@@ -1,7 +1,7 @@
 //Usados en Procrastinador 3000(programa central)
 typedef struct{
 	char name[20];
-	int bola, combate, cunhado, flota, recetario, tesoro;
+	int bola, combate, cunhado, flota, questionary, recetario, tesoro;
 }usuario;
 int ingreso(usuario *iz);
 void registro(usuario iz, int io);

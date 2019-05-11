@@ -11,16 +11,16 @@ int ingreso(usuario *iz)
 	p=fopen("usuarios.txt","r");
 	for(i=0;i<4;i++)
 	{
-		fscanf(p,"%s\t%i\t%i\t%i\t%i\t%i\t%i\n", 
-		aux,&usuario[i].bola,&usuario[i].combate,&usuario[i].cunhado,&usuario[i].flota,&usuario[i].recetario,&usuario[i].tesoro);
+		fscanf(p,"%s\t%i\t%i\t%i\t%i\t%i\t%i\t%i\n", 
+		aux,&usuario[i].bola,&usuario[i].combate,&usuario[i].cunhado,&usuario[i].flota,&usuario[i].questionary,&usuario[i].recetario,&usuario[i].tesoro);
 		strcpy(usuario[i].name,aux);
 	}
 	fclose(p);
 	printf("Aqui estan los usuarios actuales:\n");
 	for(i=0;i<4;i++)
 	{
-		printf("%i: %s:\n\tbola del 8cho:%i\n\tcombate:%i\n\tcunhado:%i\n\tflota:%i\n\trecetario:%i\n\ttesoro:%i\n",
-			i+1,usuario[i].name,usuario[i].bola,usuario[i].combate,usuario[i].cunhado,usuario[i].flota,usuario[i].recetario,usuario[i].tesoro);
+		printf("%i: %s:\n\tbola del 8cho:%i\n\tcombate:%i\n\tcunhado:%i\n\tflota:%i\n\tquestionary:%i\n\trecetario:%i\n\ttesoro:%i\n",
+			i+1,usuario[i].name,usuario[i].bola,usuario[i].combate,usuario[i].cunhado,usuario[i].flota,usuario[i].questionary,usuario[i].recetario,usuario[i].tesoro);
 	}
 	printf("Quieres seleccionar alguno de ellos, o por el contrario quieres reescribir alguno de ellos?(s/r)\n");
 	do
@@ -56,7 +56,7 @@ int ingreso(usuario *iz)
 			printf("seleccione el nombre que quiera tener:\n");
 			scanf(" %s[^\n]", aux);
 			strcpy(usuario[i].name,aux);
-			printf("%i: %s:\n\tbola del 8cho:%i\n\tcombate:%i\n\tcunhado:%i\n\trecetario:%i\n\ttesoro:%i\n",
+			printf("%i: %s:\n\tbola del 8cho:%i\n\tcombate:%i\n\tcunhado:%i\n\tquestionary:%i\n\trecetario:%i\n\ttesoro:%i\n",
 			1+i,usuario[i].name,usuario[i].bola=0,usuario[i].combate=0,usuario[i].cunhado=0,usuario[i].recetario=0,usuario[i].tesoro=0);
 		}
 		else if((res!='s')&&(res!='r'))
@@ -77,8 +77,8 @@ void registro(usuario iz, int io)
 	p=fopen("usuarios.txt","r");
 	for(i=0;i<4;i++)
 	{
-		fscanf(p,"%s\t%i\t%i\t%i\t%i\t%i\t%i\n", 
-		aux,&usuario[i].bola,&usuario[i].combate,&usuario[i].cunhado,&usuario[i].flota,&usuario[i].recetario,&usuario[i].tesoro);
+		fscanf(p,"%s\t%i\t%i\t%i\t%i\t%i\t%i\t%i\n", 
+		aux,&usuario[i].bola,&usuario[i].combate,&usuario[i].cunhado,&usuario[i].flota,&usuario[i].questionary,&usuario[i].recetario,&usuario[i].tesoro);
 		strcpy(usuario[i].name,aux);
 	}
 	fclose(p);
@@ -86,8 +86,8 @@ void registro(usuario iz, int io)
 	usuario[io]=iz;
 	for(i=0;i<4;i++)
 	{
-		fprintf(p,"%s\t%i\t%i\t%i\t%i\t%i\t%i\n",
-		usuario[i].name,usuario[i].bola,usuario[i].combate,usuario[i].cunhado,usuario[i].flota,usuario[i].recetario,usuario[i].tesoro);
+		fprintf(p,"%s\t%i\t%i\t%i\t%i\t%i\t%i\t%i\n",
+		usuario[i].name,usuario[i].bola,usuario[i].combate,usuario[i].cunhado,usuario[i].flota,usuario[i].questionary,usuario[i].recetario,usuario[i].tesoro);
 	}
 	fclose(p);
 }

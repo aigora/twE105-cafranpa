@@ -21,7 +21,7 @@ int main()
 	sleep(1);
 	system("pause");
 	system("cls");
-	printf("Programas:\n\t1:Bola del ocho\n\t2:Combate por turnos\n\t3:Cunhado digital\n\t4:Hundir la flota\n\t5:Recetario para celiacos\n\t6:Busqueda del tesoro\n");
+	printf("Programas:\n\t1:Bola del ocho\n\t2:Combate por turnos\n\t3:Cunhado digital\n\t4:Hundir la flota\n\t5:Questionary\n\t6:Recetario para celiacos\n\t7:Busqueda del tesoro\n");
 	printf("Elija: ");
 	do
 	{
@@ -43,15 +43,20 @@ int main()
 			case 4:
 				//...
 				iz.flota++;
-				break;	
+				break;
 			case 5:
+				//...
+				iz.questionary++;
+				break;		
+			case 6:
 				recetario();
 				iz.recetario++;
 				break;
-			case 6:
+			case 7:
 				busquedatesoro();
 				iz.tesoro++;
 				break;
+	
 			default:
 				printf("No tengo esa opcion, vuelva a elegir: ");
 				res='r';
