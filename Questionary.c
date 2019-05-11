@@ -5,7 +5,7 @@
 int puntuacion(char actualAns, char correctAns);
 
 //Funciones empleadas en la seccion HISTORIA//
-void questHistoria(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de Historia // 
+int questHistoria(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de Historia // 
 void leefichero_p1_h();
 void leefichero_p2_h();
 void leefichero_p3_h();
@@ -32,7 +32,7 @@ void leefichero_p10_g();
 
 int main() 
 {
-	int puntos;
+	int puntos=0;
 	int ansUsuario;
 	int ansCorrecta;
 	char elecCateg; //Variable empleada para almacenar la eleccion de categoria de pregunta//
@@ -57,7 +57,7 @@ int main()
 				printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
 				//debe escribir la letra que represente a la respuesta correcta//
 				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
-				questHistoria(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de HISTORIA // 
+				puntos+=questHistoria(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de HISTORIA // 
 			}
 			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
 			break;
@@ -225,52 +225,54 @@ void leefichero_p10_h()
 }
 
 //Funcion donde tiene lugar la parte de las preguntas y respuestas de HISTORIA //
-void questHistoria()
+int questHistoria()
 {
-	int contador;
+	int contador=0;
 	char ansUsuario; //Variable empleada para almacenar la eleccion del jugador//
 	leefichero_p1_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 1 de historia(descrita al final del programa)//
 	printf("\nTu respuesta:\t");
 	scanf(" %c", &ansUsuario);
-	puntuacion(ansUsuario, 'b');
+	contador+=puntuacion(ansUsuario, 'b');
 	leefichero_p2_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 2 de historia(descrita al final del programa)//
 	printf("\nTu respuesta:\t");
 	scanf(" %c", &ansUsuario);
-	puntuacion(ansUsuario, 'c');
+	contador+=puntuacion(ansUsuario, 'c');
 	leefichero_p3_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 3 de historia(descrita al final del programa)//
 	printf("\nTu respuesta:\t");
 	scanf(" %c", &ansUsuario);
-	puntuacion(ansUsuario, 'c');
+	contador+=puntuacion(ansUsuario, 'c');
 	leefichero_p4_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 4 de historia(descrita al final del programa)//
 	printf("\nTu respuesta:\t");
 	scanf(" %c", &ansUsuario);
-	puntuacion(ansUsuario, 'c');
+	contador+=puntuacion(ansUsuario, 'c');
 	leefichero_p5_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 5 de historia(descrita al final del programa)//
 	printf("\nTu respuesta:\t");
 	scanf(" %c", &ansUsuario);
-	puntuacion(ansUsuario, 'c');
+	contador+=puntuacion(ansUsuario, 'c');
 	leefichero_p6_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 6 de historia(descrita al final del programa)//
 	printf("\nTu respuesta:\t");
 	scanf(" %c", &ansUsuario);
-	puntuacion(ansUsuario, 'c');
+	contador+=puntuacion(ansUsuario, 'c');
 	leefichero_p7_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 7 de historia(descrita al final del programa)//
 	printf("\nTu respuesta:\t");
 	scanf(" %c", &ansUsuario);
-	puntuacion(ansUsuario, 'b');
+	contador+=puntuacion(ansUsuario, 'b');
 	leefichero_p8_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 8 de historia(descrita al final del programa)//
 	printf("\nTu respuesta:\t");
 	scanf(" %c", &ansUsuario);
-	puntuacion(ansUsuario, 'a');
+	contador+=puntuacion(ansUsuario, 'a');
 	leefichero_p9_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 9 de historia(descrita al final del programa)//
 	printf("\nTu respuesta:\t");
 	scanf(" %c", &ansUsuario);
-	puntuacion(ansUsuario, 'd');
+	contador+=puntuacion(ansUsuario, 'd');
 	leefichero_p10_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 10 de historia(descrita al final del programa)//
 	printf("\nTu respuesta:\t");
 	scanf(" %c", &ansUsuario);
-	puntuacion(ansUsuario, 'a');
+	contador+=puntuacion(ansUsuario, 'a');
+	system("pause");
 	system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//
 	printf("Tu puntuacion es: %i", contador);
+	return contador;
 }
 
 //Funcion para imprimir en pantalla la pregunta 1 de GEOGRAFIA//
