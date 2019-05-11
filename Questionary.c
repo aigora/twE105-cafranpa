@@ -112,8 +112,7 @@ int puntuacion(char actualAns, char correctAns)
 		return 0;
 	}		
 }
-
-//HISTORIA//
+	
 //Funcion para imprimir en pantalla la pregunta 1 de HISTORIA//
 void leefichero_p1_h()
 {
@@ -236,7 +235,7 @@ int questHistoria()
 	leefichero_p2_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 2 de historia(descrita al final del programa)//
 	printf("\nTu respuesta:\t");
 	scanf(" %c", &ansUsuario);
-	contador+=puntuacion(ansUsuario, 'c');
+	contador+=puntuacion(ansUsuario, 'b');
 	leefichero_p3_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 3 de historia(descrita al final del programa)//
 	printf("\nTu respuesta:\t");
 	scanf(" %c", &ansUsuario);
@@ -269,7 +268,7 @@ int questHistoria()
 	printf("\nTu respuesta:\t");
 	scanf(" %c", &ansUsuario);
 	contador+=puntuacion(ansUsuario, 'a');
-	system("pause");
+	system("pause"); //Para dar tiempo al usuario a leer la ultima respuesta antes de llegar a la puntuacion//
 	system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//
 	printf("Tu puntuacion es: %i", contador);
 	return contador;
