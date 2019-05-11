@@ -3,6 +3,7 @@ typedef struct{
 	char name[20];
 	int bola, combate, cunhado, flota, questionary, recetario, tesoro;
 }usuario;
+//estructura que permite almacenar informacion util sobre el usuario
 int ingreso(usuario *iz);
 void registro(usuario iz, int io);
 int boladelocho();
@@ -13,6 +14,7 @@ char mins(char ans);
 typedef struct{
 	char string[40];
 }string;
+//estructura que permite hacer un vector de cadenas de caracteres
 void futuro();
 void prediccion();
 int lecturafichero(FILE *pf, string *res, int n);

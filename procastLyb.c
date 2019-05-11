@@ -86,7 +86,7 @@ int ingreso(usuario *iz)
 	//devuelve la posicion del vector
 	//que pertenece al usuario seleccionado
 }
-void registro(usuario iz, int io)
+void registro(usuario iz, int io)//esta funcion tambien se usa en otros programas
 {
 	FILE *p; usuario usuario[4];
 	char aux[20]; int i;
@@ -122,6 +122,7 @@ int boladelocho()
 	printf("Hola, bienvenido a la bola del ocho\n");
 	printf("Crees que estas preparado para conocer tu fortuna?(s/n)\n");
 	scanf(" %c", &ans);
+	//el usuario selecciona lo que quiere
 	ans=mins(ans);
 	while((ans!='s')&&(ans!='n'))
 	{
@@ -130,14 +131,17 @@ int boladelocho()
 		scanf(" %c", &ans);
 		ans=mins(ans);
 	}
+	//permite al usuario corregir si ha introducido mal la respuesta
 	if(ans=='s')
-	futuro();
+		futuro();
+	//ejecuta el programa si la respuesta es s
 	else if(ans=='n')
 	{
 		printf("Te entiendo, el futuro no es para mentes fragiles\n");
 		system("pause");
 		printf("Intuyo que nos volveremos a ver pronto...\n");
     }
+    //cierra el programa si la respuesta es n
     return 0;
 }
 void combate()
@@ -624,16 +628,25 @@ void futuro()
 	printf("Veo que tienes agallas\n");
 	printf("Adelante, preguntame lo que quieras conocer\n");
 	scanf(" %[^\n]");
+	//permite que el usuario escribe cualquier cosa
+	//hasta que de un salto de pagina.
+	//Este dato al ser irrelevante para el resto del programa
+	//no se dirige a niguna variable(podriamos considerarlo como datos inutiles)
 	prediccion();
+	//ejecuta el programa
 	system("pause");
 	system("cls");
 	printf("Quieres preguntarme algo mas?(s/cualquier otra tecla)\n");
 	scanf(" %c", &ans);
+	//pregunta al usuario si quiere realizar otra pregunta
 	ans=mins(ans);
     if(ans=='s')
     futuro();
+    //realizamos una recursividad si la respuesta es s
+    //lo que permite volver ha realizar el programa desde el inicio
     else
     printf("Espero haberte servido de mucho, nos veremos en otro momento\n");
+    //termina el programa
 }
 void prediccion()
 {
@@ -642,14 +655,19 @@ void prediccion()
 	int i;
 	srand(time(NULL));
 	i=rand()%20+0;
+	//genera un numero aleatorio del 0 al 20
 	lecturafichero(pf, res, 21);
+	//almacena en un vector las respuestas
 	printf("%s\n",res[i].string);
+	//imprime en pantalla la respuesta que pertenece
+	//a la posicion i elegida aleatoriamente
 }
 int lecturafichero(FILE *pf, string *res, int n)
 {
 	int i;
 	char x;
 	pf=fopen("bola_del_8.txt","r");
+	//abre el fichero
 	if(pf==NULL)
 	{
 		printf("error: no se ha podido abrir el fichero\n");
@@ -659,6 +677,7 @@ int lecturafichero(FILE *pf, string *res, int n)
 	{
 		fscanf(pf," %400[^\n]",res[i].string);	
 	}
+	//almcena en cada posicion del vector una respuesta
 	fclose(pf);
 	return 1;	
 }
