@@ -1,0 +1,6 @@
+10- Cuantas caras tiene un icosaedro?
+
+a)20
+b)16
+c)8
+d)24
