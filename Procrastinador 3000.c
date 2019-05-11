@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<time.h>
 #include"procastLyb.h"
 int main()
 {
@@ -53,7 +54,7 @@ int main()
 				iz.flota++;
 				break;
 			case 5:
-				//...
+				questionary();
 				iz.questionary++;
 				break;		
 			case 6:

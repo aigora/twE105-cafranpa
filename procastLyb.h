@@ -9,6 +9,7 @@ void registro(usuario iz, int io);
 int boladelocho();
 void combate();
 void recetario();
+void questionary();
 char mins(char ans);
 //Usados en Bola del 8cho
 typedef struct{
@@ -28,6 +29,59 @@ int danhoel(int b, int h);
 int pcn(int b);
 //Usados en Cunhado
 //...
+//Usados en Hundir la flota
+//...
+//Usados en Questionary
+//Funciones empleadas(descritas al final del programa)//
+int puntuacion(char actualAns, char correctAns);
+//Funciones empleadas en la seccion HISTORIA//
+int questHistoria(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de Historia // 
+void leefichero_p1_h();
+void leefichero_p2_h();
+void leefichero_p3_h();
+void leefichero_p4_h();
+void leefichero_p5_h();
+void leefichero_p6_h();
+void leefichero_p7_h();
+void leefichero_p8_h();
+void leefichero_p9_h();
+void leefichero_p10_h();
+//Funciones empleadas en la seccion GEOGRAFIA//
+int questGeografia(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de Geografia // 
+void leefichero_p1_g();
+void leefichero_p2_g();
+void leefichero_p3_g();
+void leefichero_p4_g();
+void leefichero_p5_g();
+void leefichero_p6_g();
+void leefichero_p7_g();
+void leefichero_p8_g();
+void leefichero_p9_g();
+void leefichero_p10_g();
+//Funciones empleadas en la seccion CIENCIA//
+int questCiencia(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de ciencia //
+void leefichero_p1_c();
+void leefichero_p2_c();
+void leefichero_p3_c();
+void leefichero_p4_c();
+void leefichero_p5_c();
+void leefichero_p6_c();
+void leefichero_p7_c();
+void leefichero_p8_c();
+void leefichero_p9_c();
+void leefichero_p10_c();
+//Funciones empleadas en la seccion ARTE//
+int questArte(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de arte //
+void leefichero_p1_a();
+void leefichero_p2_a();
+void leefichero_p3_a();
+void leefichero_p4_a();
+void leefichero_p5_a();
+void leefichero_p6_a();
+void leefichero_p7_a();
+void leefichero_p8_a();
+void leefichero_p9_a();
+void leefichero_p10_a();
 //Usados en Recetario
 //celiaco SALADO//
 void fc_s_D_a (); //Funcion para imprimir en pantalla la receta codigo'c_s_D_a'//
