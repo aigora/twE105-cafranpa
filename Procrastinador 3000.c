@@ -5,13 +5,18 @@
 int main()
 {
 	usuario iz;
+	//genero una variable que almacene el usuario seleccionado
+	//el la funcion "ingreso"
 	int i,vg;
+	//contador y una variable de respuesta
 	char res;
+	//variable de respuesta
 	printf("Bienvenido al Procrastinador 3000\n");
 	printf("Antes de empezar, procede con la seleccion de usuario\n");
 	system("pause");
 	system("cls");
-	i=ingreso(&iz);//linea 7 procastLyb.c
+	i=ingreso(&iz);
+	//esta funcion nos permite almacenar el usuario en la variable iz
 	sleep(1);
 	system("cls");
 	printf("Muy bien %s, como habras podido intuir, soy un bot que te ayudara a pasar el rato\n",iz.name);
@@ -26,11 +31,14 @@ int main()
 	do
 	{
 		scanf("%i", &vg);
+		//Elige el minijuego que quiera jugar el usuario
 		switch(vg)
 		{
 			case 1:
 				boladelocho();
+				//ejecuta el programa concreto
 				iz.bola++;
+				//aumenta en uno el contador del juego en concreto
 				break;
 			case 2:
 				combate();
@@ -62,12 +70,15 @@ int main()
 				res='r';
 				break;				
 		}
-		registro(iz,i);//linea 70 procastLyb.c
+		registro(iz,i);
+		//analiza los datos que han cambiado en el registro
+		//para despues cambiarlos
 		system("cls");
 		printf("Eso fue divertido, quieres elegir otro programa(o), o quieres salir del programa(s)?(o/s)\n");
 		do
 		{
 			scanf(" %c",&res);
+			//analiza la respuesta para realizar una accion determinado
 			res=mins(res);
 			if(res=='o')
 			{
@@ -76,12 +87,14 @@ int main()
 				printf("Muy bien, aqui tienes los programas:\n");
 				printf("\t1:Bola del ocho\n\t2:Combate por turnos\n\t3:Cunhado digital\n\t4:Hundir la flota\n\t5:Recetario para celiacos\n\t6:Busqueda del tesoro\n");		
 			}
+			//permite al usuario jugar a otro programa
 			else if(res=='s')
 			{
 				printf("Gracias por pasar tiempo conmigo %s\n", iz.name);
 				printf("Espero volver a verte pronto\n");
 				exit(-1);
 			}
+			//permite al usuario terminar de ejecutar el programa
 			else
 			{
 				printf("Lo siento, no te he entendedido\n");

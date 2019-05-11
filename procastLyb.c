@@ -9,23 +9,31 @@ int ingreso(usuario *iz)
 	FILE *p; usuario usuario[4];
 	int i,j;char aux[20], res;
 	p=fopen("usuarios.txt","r");
+	//abre el fichero que contiene la informacion de los usuarios
 	for(i=0;i<4;i++)
 	{
 		fscanf(p,"%s\t%i\t%i\t%i\t%i\t%i\t%i\t%i\n", 
-		aux,&usuario[i].bola,&usuario[i].combate,&usuario[i].cunhado,&usuario[i].flota,&usuario[i].questionary,&usuario[i].recetario,&usuario[i].tesoro);
+			aux,&usuario[i].bola,&usuario[i].combate,&usuario[i].cunhado,&usuario[i].flota,&usuario[i].questionary,&usuario[i].recetario,&usuario[i].tesoro);
+		//almacenamos en un vector de estructuras todos los usuarios
+		//para su proxima utilizacion
 		strcpy(usuario[i].name,aux);
+		//utilizamos la copia de cadenas para añadir la informacion del nombre de usuario
 	}
 	fclose(p);
+	//cerramos el fichero
 	printf("Aqui estan los usuarios actuales:\n");
 	for(i=0;i<4;i++)
 	{
 		printf("%i: %s:\n\tbola del 8cho:%i\n\tcombate:%i\n\tcunhado:%i\n\tflota:%i\n\tquestionary:%i\n\trecetario:%i\n\ttesoro:%i\n",
 			i+1,usuario[i].name,usuario[i].bola,usuario[i].combate,usuario[i].cunhado,usuario[i].flota,usuario[i].questionary,usuario[i].recetario,usuario[i].tesoro);
+		//muestra por pantalla los usuarios para que 
+		//el usuario pueda elegir uno de ellos
 	}
 	printf("Quieres seleccionar alguno de ellos, o por el contrario quieres reescribir alguno de ellos?(s/r)\n");
 	do
 	{
 		scanf(" %c",&res);
+		//el usuario elige entre
 		res=mins(res);
 		if(res=='s')
 		{
@@ -41,6 +49,8 @@ int ingreso(usuario *iz)
 		    }
 		    while(res!='s');
 		}
+		//selecciona el usuario asegurandose 
+		//de que el usario ha elegido correctamente
 		else if(res=='r')
 		{
 			do
@@ -59,6 +69,8 @@ int ingreso(usuario *iz)
 			printf("%i: %s:\n\tbola del 8cho:%i\n\tcombate:%i\n\tcunhado:%i\n\tquestionary:%i\n\trecetario:%i\n\ttesoro:%i\n",
 			1+i,usuario[i].name,usuario[i].bola=0,usuario[i].combate=0,usuario[i].cunhado=0,usuario[i].recetario=0,usuario[i].tesoro=0);
 		}
+		//sobreescribe los datos de un usuario 
+		//anterior poniendo todos los datos a 0
 		else if((res!='s')&&(res!='r'))
 		{
 			printf("No te he entendido\n");
@@ -68,28 +80,40 @@ int ingreso(usuario *iz)
 	}
 	while(res=='h');
 	*iz=usuario[i];
+	//almacena el usuario seleccionada en 
+	//la variable iz del programa principal
 	return i;
+	//devuelve la posicion del vector
+	//que pertenece al usuario seleccionado
 }
 void registro(usuario iz, int io)
 {
 	FILE *p; usuario usuario[4];
 	char aux[20]; int i;
 	p=fopen("usuarios.txt","r");
+	//abre el fichero que contiene los usuarios
 	for(i=0;i<4;i++)
 	{
 		fscanf(p,"%s\t%i\t%i\t%i\t%i\t%i\t%i\t%i\n", 
 		aux,&usuario[i].bola,&usuario[i].combate,&usuario[i].cunhado,&usuario[i].flota,&usuario[i].questionary,&usuario[i].recetario,&usuario[i].tesoro);
 		strcpy(usuario[i].name,aux);
 	}
+	//mete los datos en un vector
 	fclose(p);
+	//cierra el fichero
 	p=fopen("usuarios.txt", "w");
+	//vuelve a abrirlo
 	usuario[io]=iz;
+	//hace un cambio en el usuario seleccionado por el usuario
 	for(i=0;i<4;i++)
 	{
 		fprintf(p,"%s\t%i\t%i\t%i\t%i\t%i\t%i\t%i\n",
 		usuario[i].name,usuario[i].bola,usuario[i].combate,usuario[i].cunhado,usuario[i].flota,usuario[i].questionary,usuario[i].recetario,usuario[i].tesoro);
 	}
+	//los almacena para su proxima utilizacio
+	//esta vez con los cambios realizados durante el programa
 	fclose(p);
+	//cierra el fichero
 }
 int boladelocho()
 {
@@ -583,11 +607,15 @@ char mins(char ans)
 {
 	if((ans>'a')&&(ans<'z'))
 	return ans;
+	//si la respuesta ya esta en minusculas
+	//lo devuelve tal cual
 	else if((ans>'A')&&(ans<'Z'))
 	{
 		ans=ans+32;
 		return ans;
 	}
+	//si la respuesta esta en mayusculas
+	//lo transforma en minusculas y lo devuelve
 }
 //Usados en Bola del 8cho
 void futuro()
