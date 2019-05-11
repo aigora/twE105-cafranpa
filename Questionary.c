@@ -3,7 +3,6 @@
 
 //Funciones empleadas(descritas al final del programa)//
 int puntuacion(char actualAns, char correctAns);
-void conocimiento(int puntosFinales);
 
 //Funciones empleadas en la seccion HISTORIA//
 int questHistoria(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de Historia // 
@@ -164,31 +163,6 @@ int puntuacion(char actualAns, char correctAns)
 		printf("\nRespuesta incorrecta, la correcta era la %c.\n", correctAns);
 		return 0;
 	}		
-}
-
-//Funcion que te indica tu nivel de 'conocimiento' segun tu puntuacion obtenida previamente// 	
-void conocimiento(int puntosFinales)
-{	
-	if(puntosFinales<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
-	{
-		printf("\nParece que necesitas ponerte a repasar un pelin, pero tranquilo, todo es mejorable\n");
-	}
-	else if((puntosFinales>3)&&(puntosFinales<5))
-	{
-		printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
-	}
-	else if((puntosFinales>=5)&&(puntosFinales<7))
-	{
-		printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
-	}
-	else if((puntosFinales>=7)&&(puntosFinales<10))
-	{
-		printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
-	}
-	else if(puntosFinales=10)
-	{
-		printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
-	}
 }
 
 //HISTORIA//
