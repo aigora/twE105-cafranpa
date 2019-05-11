@@ -84,7 +84,8 @@ int main()
 				printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
 				//debe escribir la letra que represente a la respuesta correcta//
 				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
-				puntos+=questHistoria(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de HISTORIA // 
+				puntos+=questHistoria(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de HISTORIA //
+				void conocimiento(puntos); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
 			}
 			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
 			break;
@@ -102,6 +103,7 @@ int main()
 				//debe escribir la letra que represente a la respuesta correcta//
 				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
 				puntos+=questGeografia(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de GEOGRAFIA//
+				void conocimiento(puntos); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
 			}
 			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
 			break;
@@ -119,6 +121,7 @@ int main()
 				//debe escribir la letra que represente a la respuesta correcta//
 				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
 				puntos+=questCiencia(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de CIENCIA//
+				void conocimiento(puntos); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
 			}
 			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
 			break;
@@ -136,6 +139,7 @@ int main()
 				//debe escribir la letra que represente a la respuesta correcta//
 				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
 				puntos+=questArte(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de ARTE//
+				void conocimiento(puntos); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
 			}
 			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
 			break;
@@ -348,7 +352,6 @@ int questHistoria()
 	system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//
 	printf("%s, Tu puntuacion es: %i", name, contador);
 	return contador;
-	void conocimiento(contador); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
 }
 
 //GEOGRAFIA//
@@ -512,7 +515,6 @@ int questGeografia()
 	system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//
 	printf("%s, Tu puntuacion es: %i", name, contador);
 	return contador;
-	void conocimiento(contador); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
 }
 
 //CIENCIA//
@@ -676,7 +678,6 @@ int questCiencia()
 	system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//
 	printf("%s, Tu puntuacion es: %i", name, contador);
 	return contador;
-	void conocimiento(contador); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
 }
 
 //ARTE//
@@ -840,5 +841,4 @@ int questArte()
 	system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//
 	printf("%s, Tu puntuacion es: %i", name, contador);
 	return contador;
-	void conocimiento(contador); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
 }
