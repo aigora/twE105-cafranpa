@@ -3,7 +3,7 @@
 
 //Funciones empleadas(descritas al final del programa)//
 int puntuacion(char actualAns, char correctAns);
-int conocimiento(int puntosFinales);
+void conocimiento(int puntosFinales);
 
 //Funciones empleadas en la seccion HISTORIA//
 int questHistoria(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de Historia // 
@@ -43,6 +43,19 @@ void leefichero_p7_c();
 void leefichero_p8_c();
 void leefichero_p9_c();
 void leefichero_p10_c();
+
+//Funciones empleadas en la seccion ARTE//
+int questArte(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de arte //
+void leefichero_p1_a();
+void leefichero_p2_a();
+void leefichero_p3_a();
+void leefichero_p4_a();
+void leefichero_p5_a();
+void leefichero_p6_a();
+void leefichero_p7_a();
+void leefichero_p8_a();
+void leefichero_p9_a();
+void leefichero_p10_a();
 
 int main() 
 {
@@ -88,7 +101,7 @@ int main()
 				printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
 				//debe escribir la letra que represente a la respuesta correcta//
 				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
-				questGeografia(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de GEOGRAFIA//
+				puntos+=questGeografia(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de GEOGRAFIA//
 			}
 			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
 			break;
@@ -105,15 +118,26 @@ int main()
 				printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
 				//debe escribir la letra que represente a la respuesta correcta//
 				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
-				questCiencia(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de GEOGRAFIA//
+				puntos+=questCiencia(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de CIENCIA//
 			}
 			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
 			break;
 		case'A': //Se reproduce en caso de que el usuario escriba la letra 'A' o 'a'//
 		case'a':
+			system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
 			printf("BIENVENIDO!!\nHas elegido la categoria Arte\n");
-			printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir. En cuanto lo pulses, el contador de tiempo empezara a correr\n");
-			printf("Ten cuidado,  y pinsa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!");
+			printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir.\n");
+			printf("Ten cuidado, y piensa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!\n");
+			scanf(" %c", &start); //Aqui la persona introduce una letra para empezar a jugar o pulsa una letra diferente a 's' para salir//
+			if(start == 's')
+			{
+				system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
+				printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
+				//debe escribir la letra que represente a la respuesta correcta//
+				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
+				puntos+=questArte(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de ARTE//
+			}
+			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
 			break;
 		default:
 			printf("Has escogido salir del juego.\nUn placer, nos vemos pronto!!\n");
@@ -139,7 +163,7 @@ int puntuacion(char actualAns, char correctAns)
 }
 
 //Funcion que te indica tu nivel de 'conocimiento' segun tu puntuacion obtenida previamente// 	
-int conocimiento(int puntosFinales)
+void conocimiento(int puntosFinales)
 {	
 	if(puntosFinales<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
 	{
@@ -202,7 +226,7 @@ void leefichero_p4_h()
 {
 	FILE *p;
 	char aux;
-	p=fopen("questionary/historia/p4.txt","r"); //Fichero que abre la pregunta 4 de HISTORIA//			leefichero_p5_h()
+	p=fopen("questionary/historia/p4.txt","r"); //Fichero que abre la pregunta 4 de HISTORIA//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
 	fclose(p);
@@ -324,7 +348,7 @@ int questHistoria()
 	system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//
 	printf("%s, Tu puntuacion es: %i", name, contador);
 	return contador;
-	int conocimiento(contador); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
+	void conocimiento(contador); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
 }
 
 //GEOGRAFIA//
@@ -488,7 +512,7 @@ int questGeografia()
 	system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//
 	printf("%s, Tu puntuacion es: %i", name, contador);
 	return contador;
-	int conocimiento(contador); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
+	void conocimiento(contador); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
 }
 
 //CIENCIA//
@@ -652,71 +676,71 @@ int questCiencia()
 	system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//
 	printf("%s, Tu puntuacion es: %i", name, contador);
 	return contador;
-	int conocimiento(contador); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
+	void conocimiento(contador); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
 }
 
-//GEOGRAFIA//
-//Funcion para imprimir en pantalla la pregunta 1 de CIENCIA//
-void leefichero_p1_c()
+//ARTE//
+//Funcion para imprimir en pantalla la pregunta 1 de ARTE//
+void leefichero_p1_a()
 {
 	FILE *p;
 	char aux;
-	p=fopen("questionary/ciencia/p1.txt","r"); //Fichero que abre la pregunta 1 de ciencia//
+	p=fopen("questionary/arte/p1.txt","r"); //Fichero que abre la pregunta 1 de arte//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
 	fclose(p);	
 }
 
-//Funcion para imprimir en pantalla la pregunta 2 de CIENCIA//
-void leefichero_p2_c()
+//Funcion para imprimir en pantalla la pregunta 2 de ARTE//
+void leefichero_p2_a()
 {
 	FILE *p;
 	char aux;
-	p=fopen("questionary/ciencia/p2.txt","r"); //Fichero que abre la pregunta 2 de ciencia//
+	p=fopen("questionary/arte/p2.txt","r"); //Fichero que abre la pregunta 2 de arte//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
 	fclose(p);	
 }
 
-//Funcion para imprimir en pantalla la pregunta 3 de CIENCIA//
-void leefichero_p3_c()
+//Funcion para imprimir en pantalla la pregunta 3 de ARTE//
+void leefichero_p3_a()
 {
 	FILE *p;
 	char aux;
-	p=fopen("questionary/ciencia/p3.txt","r"); //Fichero que abre la pregunta 3 de ciencia//
+	p=fopen("questionary/arte/p3.txt","r"); //Fichero que abre la pregunta 3 de arte//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
 	fclose(p);	
 }
 
-//Funcion para imprimir en pantalla la pregunta 4 de CIENCIA//
-void leefichero_p4_c()
+//Funcion para imprimir en pantalla la pregunta 4 de ARTE//
+void leefichero_p4_a()
 {
 	FILE *p;
 	char aux;
-	p=fopen("questionary/ciencia/p4.txt","r"); //Fichero que abre la pregunta 4 de ciencia//
+	p=fopen("questionary/arte/p4.txt","r"); //Fichero que abre la pregunta 4 de arte//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
 	fclose(p);	
 }
 
-//Funcion para imprimir en pantalla la pregunta 5 de CIENCIA//
-void leefichero_p5_c()
+//Funcion para imprimir en pantalla la pregunta 5 de ARTE//
+void leefichero_p5_a()
 {
 	FILE *p;
 	char aux;
-	p=fopen("questionary/ciencia/p5.txt","r"); //Fichero que abre la pregunta 5 de ciencia//
+	p=fopen("questionary/arte/p5.txt","r"); //Fichero que abre la pregunta 5 de arte//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
 	fclose(p);	
 }
 
-//Funcion para imprimir en pantalla la pregunta 6 de CIENCIA//
-void leefichero_p6_c()
+//Funcion para imprimir en pantalla la pregunta 6 de ARTE//
+void leefichero_p6_a()
 {
 	FILE *p;
 	char aux;
-	p=fopen("questionary/ciencia/p6.txt","r"); //Fichero que abre la pregunta 6 de ciencia//
+	p=fopen("questionary/arte/p6.txt","r"); //Fichero que abre la pregunta 6 de arte//
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
 	fclose(p);	
@@ -764,4 +788,57 @@ void leefichero_p10_a()
 	while(fscanf(p,"%c",&aux)!=EOF)
 		printf("%c",aux);
 	fclose(p);	
+}
+
+//Funcion donde tiene lugar la parte de las preguntas y respuestas de ARTE //
+int questArte()
+{
+	char name[20]; //Aqui se almacena el nombre del usuario//
+	int contador=0;
+	char ansUsuario; //Variable empleada para almacenar la eleccion del jugador//
+	leefichero_p1_a(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 1 de historia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	contador+=puntuacion(ansUsuario, 'd');
+	leefichero_p2_a(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 2 de historia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	contador+=puntuacion(ansUsuario, 'a');
+	leefichero_p3_a(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 3 de historia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	contador+=puntuacion(ansUsuario, 'd');
+	leefichero_p4_a(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 4 de historia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	contador+=puntuacion(ansUsuario, 'a');
+	leefichero_p5_a(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 5 de historia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	contador+=puntuacion(ansUsuario, 'a');
+	leefichero_p6_a(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 6 de historia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	contador+=puntuacion(ansUsuario, 'a');
+	leefichero_p7_a(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 7 de historia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	contador+=puntuacion(ansUsuario, 'c');
+	leefichero_p8_a(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 8 de historia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	contador+=puntuacion(ansUsuario, 'd');
+	leefichero_p9_a(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 9 de historia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	contador+=puntuacion(ansUsuario, 'a');
+	leefichero_p10_a(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 10 de historia(descrita al final del programa)//
+	printf("\nTu respuesta:\t");
+	scanf(" %c", &ansUsuario);
+	contador+=puntuacion(ansUsuario, 'c');
+	system("pause"); //Para dar tiempo al usuario a leer la ultima respuesta antes de llegar a la puntuacion//
+	system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//
+	printf("%s, Tu puntuacion es: %i", name, contador);
+	return contador;
+	void conocimiento(contador); //Funcion que imprime un mensaje en pantalla dependiendo de tu puntuacion obtenida previamente//
 }
