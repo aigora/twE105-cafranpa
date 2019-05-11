@@ -136,7 +136,23 @@ int puntuacion(char actualAns, char correctAns)
 		return 0;
 	}		
 }
-	
+
+//Funcion que te indica tu nivel de 'conocimiento' segun tu puntuacion obtenida previamente// 	
+int puntuacion(char actualAns, char correctAns)
+{	
+	if(actualAns == correctAns) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
+	{
+		printf("\nRespuesta correcta, ganas 1 punto.\n");
+		return 1;
+	}
+	else
+	{
+		printf("\nRespuesta incorrecta, la correcta era la %c.\n", correctAns);
+		return 0;
+	}		
+}
+
+//HISTORIA//
 //Funcion para imprimir en pantalla la pregunta 1 de HISTORIA//
 void leefichero_p1_h()
 {
