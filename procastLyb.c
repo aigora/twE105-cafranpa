@@ -576,6 +576,7 @@ int busquedatesoro()
 	posicion tesoro, usuario;
 	system("cls");
 	enterrar(&tesoro);
+	//da una posicion aleatoria al tesoro
 	printf("Bienvenido a 'la busqueda del tesoro'\n");
 	sleep(3);
 	system("cls");
@@ -603,8 +604,10 @@ int busquedatesoro()
 	printf("\n %d \n", cnt);
 	sleep(1);
 	} 
+	//realiza una cuenta atras
 	system("cls");
 	busqueda(&tesoro, &usuario);
+	//ejecuta el programa
 	return 0;
 }
 char mins(char ans)
@@ -1002,12 +1005,15 @@ void enterrar(posicion *tesoro)
 	posicion *res=tesoro;
 	srand(time(NULL));
 	res->x=rand() % 10+0;
+	//da un valor aleatorio a la posicion x del tesoro
 	res->y=rand() % 10+0;
+	//da un valor aleatorio a la posicion y del tesoro
 }
 int busqueda(posicion *tesoro, posicion *usuario)
 {
 	posicion *t=tesoro,*u=usuario;
 	u->x=u->y=0;
+	//el usuario empieza en el punto (0,0)
 	int i=1,n,b;
 	char l,ans,bans;
 	do
@@ -1015,93 +1021,119 @@ int busqueda(posicion *tesoro, posicion *usuario)
 		printf("Ronda %i\n",i);
 		sleep(2);
 		b=proximidad(tesoro,usuario);
+		//da informacion de la posicion del jugador
+		//con respecto al tesoro y devuelve un numero
 		if(b==0)
+		//si es cero es porque ha ganado el juego
 		{
 			printf("Has ganado el juego\n");
 			printf("Te gustaria volver a jugar?(s/pulsa cualquier tecla)\n");
 			scanf(" %c",&bans);
+			//decide si jugar de nuevo o salir
 			bans=mins(bans);
 			if(bans=='s')
+			//si decide volver a jugar
 			{
 				system("cls");
 				enterrar(tesoro);
+				//vuelvea a asignar un posicion al tesoro
 				busqueda(tesoro,usuario);
+				//e inicia de nuevo el juego
 			}
 			else
+			//si no
 			{
 				system("cls");
 				printf("Gracias por jugar\n");
 				return 0;
+				//cierra el programa
 			}
 		}
 		printf("usuario:\n\tx:%i\n\ty:%i\n",u->x,u->y);
+		//indica donde esta situado el jugador
 		scanf(" %c%i[^\n]",&l,&n);
+		//lee como se quiere mover el jugador
 		l=mins(l);
 		switch(l)
 		{
 			case 'w':
 			{
 				avancevertical(n,usuario);
+				//se mueve hacia arriba tantas posiciones como haya señalado el usuario
 				break;		
 			}
 			case 'd':
 			{
 				avancehorizontal(n,usuario);
+				//se mueve hacia la derecha...
 				break;
 			}
 			case 's':
 			{
 				avancevertical(-n,usuario);
+				//se mueve hacia abajo...
 				break;		
 			}
 			case 'a':
 			{
 				avancehorizontal(-n,usuario);
+				//se mueve hacia la izquierda...
 				break;				
 			}		
 		}
 		i++;
 	}
 	while(i<=20);
+	//el juego acaba tras 20 rondas
 	printf("Se ha acabado el juego\n");
-	printf("Quieres jugar otra vez?(s/n)\n");
+	printf("Quieres jugar otra vez?(s/cualquier otra letra)\n");
 	scanf(" %c",&ans);
+	//el jugador elige si volver a jugar o si salir del programa
 	ans=mins(ans);
 	if(ans=='s')
+	//si decide volver a jugar 
 	{
 		enterrar(tesoro);
+		//se da otra posicion al tesoro
 		busqueda(tesoro, usuario);
+		//y se vuelve a comenzar el programa
 	}
 }
 int proximidad(posicion *tesoro, posicion *usuario)
 {
 	posicion *t=tesoro,*u=usuario;
+	//compara las posiciones del usuario y del tesoro
 	if((abs(u->x-t->x)==0)&&(abs(u->y-t->y)==0))
-	return 0;
+	//si el usuario esta en la misma posicion que el tesoro devuelve 0, indicando que ha ganado
+		return 0;
 	else if((abs(u->x-t->x)<=1)&&(abs(u->y-t->y)<=1))
-	printf("Estas al lado del tesoro\n");	
+		printf("Estas al lado del tesoro\n");	
 	else if((abs(u->x-t->x)<=2)&&(abs(u->y-t->y)<=2))
-	printf("Estas muy cerca del tesoro\n");
+		printf("Estas muy cerca del tesoro\n");
 	else if(((abs(u->x-t->x)<=3)&&(abs(u->y-t->y)<=2))||((abs(u->x-t->x)<=2)&&(abs(u->y-t->y)<=3))||((abs(u->x-t->x)<=3)&&(abs(u->y-t->y)<=3)))
-	printf("Estas acercandote\n");
+		printf("Estas acercandote\n");
 	else
-	printf("Estas bastante lejos del tesoro\n");
+		printf("Estas bastante lejos del tesoro\n");
 	return 1;
 }
 int avancevertical(int n, posicion *usuario)
 {
 	posicion *u=usuario;
 	u->y+=n;
+	//aumenta tantas veces como indicadas por el usuario
 	if((u->y>10)||(u->y<0))
 	{
 		printf("Error:te has salido del tablero\n");
+		//indica que se ha salido del tablero
 		u->y-=n;
+		//retrodece las posiciones que habia recorrido
 		return 0;
 	}
 	return 1;
 }
 int avancehorizontal(int n, posicion *usuario)
 {
+	//funciona igual que el horizontal pero en horizontal
 	posicion *u=usuario;
 	u->x+=n;
 	if((u->x>10)||(u->x<0))
