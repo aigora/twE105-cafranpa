@@ -3,7 +3,7 @@
 #include<string.h>
 #include<time.h>
 #include"procastLyb.h"
-int main()
+void main()
 {
 	usuario iz;
 	//genero una variable que almacene el usuario seleccionado
@@ -37,33 +37,38 @@ int main()
 		{
 			case 1:
 				boladelocho();
-				//ejecuta el programa concreto
 				iz.bola++;
 				//aumenta en uno el contador del juego en concreto
 				break;
 			case 2:
 				combate();
 				iz.combate++;
+				//aumenta en uno el contador del juego en concreto
 				break;
 			case 3:
 				//...
 				iz.cunhado++;
+				//aumenta en uno el contador del juego en concreto
 				break;
 			case 4:
 				//...
 				iz.flota++;
+				//aumenta en uno el contador del juego en concreto
 				break;
 			case 5:
-				questionary();
+				questionary(iz.name);
 				iz.questionary++;
+				//aumenta en uno el contador del juego en concreto
 				break;		
 			case 6:
 				recetario();
 				iz.recetario++;
+				//aumenta en uno el contador del juego en concreto
 				break;
 			case 7:
 				busquedatesoro();
 				iz.tesoro++;
+				//aumenta en uno el contador del juego en concreto
 				break;
 	
 			default:
@@ -86,7 +91,7 @@ int main()
 				res='r';
 				system("cls");
 				printf("Muy bien, aqui tienes los programas:\n");
-				printf("\t1:Bola del ocho\n\t2:Combate por turnos\n\t3:Cunhado digital\n\t4:Hundir la flota\n\t5:Recetario para celiacos\n\t6:Busqueda del tesoro\n");		
+				printf("\t1:Bola del ocho\n\t2:Combate por turnos\n\t3:Cunhado digital\n\t4:Hundir la flota\n\t5:Questionary\n\t6:Recetario para celiacos\n\t7:Busqueda del tesoro\n");		
 			}
 			//permite al usuario jugar a otro programa
 			else if(res=='s')

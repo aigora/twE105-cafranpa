@@ -305,6 +305,174 @@ void combate()
 	while(s=='s');
 }
 //cunhado
+void questionary(char *name)
+{
+	int puntos=0; //La variable que contabiliza los puntos empieza contando desde cero// 
+	int ansUsuario; //Variable que almacena la respuesta del usuario//
+	int ansCorrecta; //Variable que almacena la respuesta correcta//
+	char elecCateg; //Variable empleada para almacenar la eleccion de categoria de pregunta//
+	char start;//variable empleada para almacenar la letra con la que el jugador decide empezar o no a jugar//
+	int contador; //Variable que cuenta la puntuacion del usuario//
+	system("cls");
+	printf("Bienvenido a 'Questionary', el programa en el que demostararas tus habilidades con preguntas sobre cultura general y ... algunas otras un poco mas especificas.\nEsperamos que te diviertas.");
+	printf("Para comenzar elige una de las 4 categorias siguientes, introduciendo la letra entre parentesis. Pulsa otra letra diferente a las 4 para salir:\n");
+	printf("\nHistoria(h)\nGeografia(g)\nCiencia(c)\nArte(a)\n");
+	scanf(" %c", &elecCateg);
+	switch(elecCateg) //El programa funcionara mostrando las opciones especificas de cada categoria, dependiendo de lo que introduzca el usuario//
+	{
+		case'H': //Se reproduce en caso de que el usuario escriba la letra 'H' o 'h'//
+		case'h':
+			system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
+			printf("BIENVENIDO!!\nHas elegido la categoria Historia\n");
+			printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir.\n");
+			printf("Ten cuidado, y piensa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!\n");
+			scanf(" %c", &start); //Aqui la persona introduce una letra para empezar a jugar o pulsa una letra diferente a 's' para salir//
+			if(start == 's')
+			{
+				system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//
+				printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
+				//debe escribir la letra que represente a la respuesta correcta//
+				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
+				puntos+=questHistoria(name); //Funcion donde tiene lugar la parte de las preguntas y respuestas de HISTORIA //
+				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
+				{
+					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranquilo, todo es mejorable.\n");
+				}
+				else if((puntos>3)&&(puntos<5))
+				{
+					printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
+				}
+				else if((puntos>=5)&&(puntos<7))
+				{
+					printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
+				}
+				else if((puntos>=7)&&(puntos<10))
+				{
+					printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
+				}
+				else if(puntos=10)
+				{
+					printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
+				}
+			}
+			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
+			break;
+		case'G': //Se reproduce en caso de que el usuario escriba la letra 'G' o 'g'//
+		case'g':
+			system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
+			printf("BIENVENIDO!!\nHas elegido la categoria Geografia\n");
+			printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir.\n");
+			printf("Ten cuidado, y piensa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!\n");
+			scanf(" %c", &start); //Aqui la persona introduce una letra para empezar a jugar o pulsa una letra diferente a 's' para salir//
+			if(start == 's')
+			{
+				system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
+				printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
+				//debe escribir la letra que represente a la respuesta correcta//
+				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
+				puntos+=questGeografia(name); //Funcion donde tiene lugar la parte de las preguntas y respuestas de GEOGRAFIA//
+				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
+				{
+					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranquilo, todo es mejorable\n");
+				}
+				else if((puntos>3)&&(puntos<5))
+				{
+					printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
+				}
+				else if((puntos>=5)&&(puntos<7))
+				{
+					printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
+				}
+				else if((puntos>=7)&&(puntos<10))
+				{
+					printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
+				}
+				else if(puntos=10)
+				{
+					printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
+				}
+			}
+			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
+			break;
+		case'C': //Se reproduce en caso de que el usuario escriba la letra 'C' o 'c'//
+		case'c':	
+			system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
+			printf("BIENVENIDO!!\nHas elegido la categoria Ciencia\n");
+			printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir.\n");
+			printf("Ten cuidado, y piensa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!\n");
+			scanf(" %c", &start); //Aqui la persona introduce una letra para empezar a jugar o pulsa una letra diferente a 's' para salir//
+			if(start == 's')
+			{
+				system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
+				printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
+				//debe escribir la letra que represente a la respuesta correcta//
+				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
+				puntos+=questCiencia(name); //Funcion donde tiene lugar la parte de las preguntas y respuestas de CIENCIA//
+				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
+				{
+					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranquilo, todo es mejorable\n");
+				}
+				else if((puntos>3)&&(puntos<5))
+				{
+					printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
+				}
+				else if((puntos>=5)&&(puntos<7))
+				{
+					printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
+				}
+				else if((puntos>=7)&&(puntos<10))
+				{
+					printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
+				}
+				else if(puntos=10)
+				{
+					printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
+				}
+			}
+			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
+			break;
+		case'A': //Se reproduce en caso de que el usuario escriba la letra 'A' o 'a'//
+		case'a':
+			system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
+			printf("BIENVENIDO!!\nHas elegido la categoria Arte\n");
+			printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir.\n");
+			printf("Ten cuidado, y piensa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!\n");
+			scanf(" %c", &start); //Aqui la persona introduce una letra para empezar a jugar o pulsa una letra diferente a 's' para salir//
+			if(start == 's')
+			{
+				system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
+				printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
+				//debe escribir la letra que represente a la respuesta correcta//
+				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
+				puntos+=questArte(name); //Funcion donde tiene lugar la parte de las preguntas y respuestas de ARTE//
+				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
+				{
+					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranquilo, todo es mejorable\n");
+				}
+				else if((puntos>3)&&(puntos<5))
+				{
+					printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
+				}
+				else if((puntos>=5)&&(puntos<7))
+				{
+					printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
+				}
+				else if((puntos>=7)&&(puntos<10))
+				{
+					printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
+				}
+				else if(puntos=10)
+				{
+					printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
+				}	
+			}
+			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
+			break;
+		default:
+			printf("Has escogido salir del juego.\nUn placer, nos vemos pronto!!\n");
+	}
+	system("pause");	
+}
 void recetario()
 {
 	char select1; //Variable entera para elegir entre dulce o salado//
@@ -611,172 +779,6 @@ int busquedatesoro()
 	//ejecuta el programa
 	return 0;
 }
-void questionary()
-{
-	int puntos=0; //La variable que contabiliza los puntos empieza contando desde cero// 
-	int ansUsuario; //Variable que almacena la respuesta del usuario//
-	int ansCorrecta; //Variable que almacena la respuesta correcta//
-	char elecCateg; //Variable empleada para almacenar la eleccion de categoria de pregunta//
-	char start;//variable empleada para almacenar la letra con la que el jugador decide empezar o no a jugar//
-	int contador; //Variable que cuenta la puntuacion del usuario//
-	printf("Bienvenido a 'Questionary', el programa en el que demostararas tus habilidades con preguntas sobre cultura general y ... algunas otras un poco mas especificas.\nEsperamos que te diviertas.");
-	printf("Para comenzar elige una de las 4 categorias siguientes, introduciendo la letra entre parentesis. Pulsa otra letra diferente a las 4 para salir:\n");
-	printf("\nHistoria(h)\nGeografia(g)\nCiencia(c)\nArte(a)\n");
-	scanf("%c", &elecCateg);
-	switch(elecCateg) //El programa funcionara mostrando las opciones especificas de cada categoria, dependiendo de lo que introduzca el usuario//
-	{
-		case'H': //Se reproduce en caso de que el usuario escriba la letra 'H' o 'h'//
-		case'h':
-			system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
-			printf("BIENVENIDO!!\nHas elegido la categoria Historia\n");
-			printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir.\n");
-			printf("Ten cuidado, y piensa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!\n");
-			scanf(" %c", &start); //Aqui la persona introduce una letra para empezar a jugar o pulsa una letra diferente a 's' para salir//
-			if(start == 's')
-			{
-				system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//
-				printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
-				//debe escribir la letra que represente a la respuesta correcta//
-				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
-				puntos+=questHistoria(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de HISTORIA //
-				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
-				{
-					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranquilo, todo es mejorable.\n");
-				}
-				else if((puntos>3)&&(puntos<5))
-				{
-					printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
-				}
-				else if((puntos>=5)&&(puntos<7))
-				{
-					printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
-				}
-				else if((puntos>=7)&&(puntos<10))
-				{
-					printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
-				}
-				else if(puntos=10)
-				{
-					printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
-				}
-			}
-			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
-			break;
-		case'G': //Se reproduce en caso de que el usuario escriba la letra 'G' o 'g'//
-		case'g':
-			system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
-			printf("BIENVENIDO!!\nHas elegido la categoria Geografia\n");
-			printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir.\n");
-			printf("Ten cuidado, y piensa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!\n");
-			scanf(" %c", &start); //Aqui la persona introduce una letra para empezar a jugar o pulsa una letra diferente a 's' para salir//
-			if(start == 's')
-			{
-				system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
-				printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
-				//debe escribir la letra que represente a la respuesta correcta//
-				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
-				puntos+=questGeografia(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de GEOGRAFIA//
-				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
-				{
-					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranquilo, todo es mejorable\n");
-				}
-				else if((puntos>3)&&(puntos<5))
-				{
-					printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
-				}
-				else if((puntos>=5)&&(puntos<7))
-				{
-					printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
-				}
-				else if((puntos>=7)&&(puntos<10))
-				{
-					printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
-				}
-				else if(puntos=10)
-				{
-					printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
-				}
-			}
-			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
-			break;
-		case'C': //Se reproduce en caso de que el usuario escriba la letra 'C' o 'c'//
-		case'c':	
-			system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
-			printf("BIENVENIDO!!\nHas elegido la categoria Ciencia\n");
-			printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir.\n");
-			printf("Ten cuidado, y piensa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!\n");
-			scanf(" %c", &start); //Aqui la persona introduce una letra para empezar a jugar o pulsa una letra diferente a 's' para salir//
-			if(start == 's')
-			{
-				system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
-				printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
-				//debe escribir la letra que represente a la respuesta correcta//
-				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
-				puntos+=questCiencia(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de CIENCIA//
-				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
-				{
-					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranquilo, todo es mejorable\n");
-				}
-				else if((puntos>3)&&(puntos<5))
-				{
-					printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
-				}
-				else if((puntos>=5)&&(puntos<7))
-				{
-					printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
-				}
-				else if((puntos>=7)&&(puntos<10))
-				{
-					printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
-				}
-				else if(puntos=10)
-				{
-					printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
-				}
-			}
-			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
-			break;
-		case'A': //Se reproduce en caso de que el usuario escriba la letra 'A' o 'a'//
-		case'a':
-			system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
-			printf("BIENVENIDO!!\nHas elegido la categoria Arte\n");
-			printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir.\n");
-			printf("Ten cuidado, y piensa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!\n");
-			scanf(" %c", &start); //Aqui la persona introduce una letra para empezar a jugar o pulsa una letra diferente a 's' para salir//
-			if(start == 's')
-			{
-				system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
-				printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
-				//debe escribir la letra que represente a la respuesta correcta//
-				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
-				puntos+=questArte(); //Funcion donde tiene lugar la parte de las preguntas y respuestas de ARTE//
-				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
-				{
-					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranquilo, todo es mejorable\n");
-				}
-				else if((puntos>3)&&(puntos<5))
-				{
-					printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
-				}
-				else if((puntos>=5)&&(puntos<7))
-				{
-					printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
-				}
-				else if((puntos>=7)&&(puntos<10))
-				{
-					printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
-				}
-				else if(puntos=10)
-				{
-					printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
-				}	
-			}
-			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
-			break;
-		default:
-			printf("Has escogido salir del juego.\nUn placer, nos vemos pronto!!\n");
-	}	
-}
 char mins(char ans)
 {
 	if((ans>'a')&&(ans<'z'))
@@ -1003,9 +1005,8 @@ void leefichero_p10_h()
 	fclose(p);
 }
 //Funcion donde tiene lugar la parte de las preguntas y respuestas de HISTORIA //
-int questHistoria()
+int questHistoria(char *name)
 {
-	char name[20]; //Aqui se almacena el nombre del usuario//
 	int contador=0;
 	char ansUsuario; //Variable empleada para almacenar la eleccion del jugador//
 	leefichero_p1_h(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 1 de historia(descrita al final del programa)//
@@ -1155,9 +1156,8 @@ void leefichero_p10_g()
 	fclose(p);	
 }
 //Funcion donde tiene lugar la parte de las preguntas y respuestas de GEOGRAFIA //
-int questGeografia()
+int questGeografia(char *name)
 {
-	char name[20]; //Aqui se almacena el nombre del usuario//
 	int contador=0;
 	char ansUsuario; //Variable empleada para almacenar la eleccion del jugador//
 	leefichero_p1_g(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 1 de geografia(descrita al final del programa)//
@@ -1307,9 +1307,8 @@ void leefichero_p10_c()
 	fclose(p);	
 }
 //Funcion donde tiene lugar la parte de las preguntas y respuestas de CIENCIA //
-int questCiencia()
+int questCiencia(char *name)
 {
-	char name[20]; //Aqui se almacena el nombre del usuario//
 	int contador=0;
 	char ansUsuario; //Variable empleada para almacenar la eleccion del jugador//
 	leefichero_p1_c(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 1 de historia(descrita al final del programa)//
@@ -1460,9 +1459,8 @@ void leefichero_p10_a()
 	fclose(p);	
 }
 //Funcion donde tiene lugar la parte de las preguntas y respuestas de ARTE //
-int questArte()
+int questArte(char *name)
 {
-	char name[20]; //Aqui se almacena el nombre del usuario//
 	int contador=0;
 	char ansUsuario; //Variable empleada para almacenar la eleccion del jugador//
 	leefichero_p1_a(); //Se ejecuta la funcion encargada de leer el fichero de la pregunta 1 de historia(descrita al final del programa)//
