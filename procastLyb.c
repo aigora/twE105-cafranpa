@@ -336,7 +336,7 @@ void questionary(char *name)
 				puntos+=questHistoria(name); //Funcion donde tiene lugar la parte de las preguntas y respuestas de HISTORIA //
 				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
 				{
-					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranquilo, todo es mejorable.\n");
+					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranqui, todo es mejorable.\n");
 				}
 				else if((puntos>3)&&(puntos<5))
 				{
@@ -373,7 +373,7 @@ void questionary(char *name)
 				puntos+=questGeografia(name); //Funcion donde tiene lugar la parte de las preguntas y respuestas de GEOGRAFIA//
 				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
 				{
-					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranquilo, todo es mejorable\n");
+					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranqui, todo es mejorable\n");
 				}
 				else if((puntos>3)&&(puntos<5))
 				{
@@ -410,7 +410,7 @@ void questionary(char *name)
 				puntos+=questCiencia(name); //Funcion donde tiene lugar la parte de las preguntas y respuestas de CIENCIA//
 				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
 				{
-					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranquilo, todo es mejorable\n");
+					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranqui, todo es mejorable\n");
 				}
 				else if((puntos>3)&&(puntos<5))
 				{
@@ -447,7 +447,7 @@ void questionary(char *name)
 				puntos+=questArte(name); //Funcion donde tiene lugar la parte de las preguntas y respuestas de ARTE//
 				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
 				{
-					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranquilo, todo es mejorable\n");
+					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranqui, todo es mejorable\n");
 				}
 				else if((puntos>3)&&(puntos<5))
 				{
