@@ -215,6 +215,8 @@ int main()
 	scanf(" %c", &s);
 	}
 	while(s=='s');
+	printf("Espero volver a verte\n");
+	system("pause");
 	return 0;
 }
 void imprime_tablero(char M[9][9])
@@ -577,5 +579,5 @@ void turno(int t[9][9], char ti[9][9], char t1[9][9], int t0[9][9], int t2[9][9]
 			turno_bot(t0, t2, t1, &u2);	
 	}
 	while ((u1<81)&&(u2<81));
-	printf("\n Has %s!, Quieres intentarlo otra vez (s)? \n ", u2<u1? "ganado, has conseguido eliminar todos los barcos enemigos":"perdido, han derribado todos tus barcos");
+	printf("\n Has %s!, Quieres intentarlo otra vez (s/cualquier otra tecla)? \n ", u2<u1? "ganado, has conseguido eliminar todos los barcos enemigos":"perdido, han derribado todos tus barcos");
 }

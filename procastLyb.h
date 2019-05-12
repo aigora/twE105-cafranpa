@@ -8,6 +8,7 @@ int ingreso(usuario *iz);
 void registro(usuario iz, int io);
 int boladelocho();
 void combate();
+void flota();
 void recetario();
 void questionary(char *name);
 char mins(char ans);
@@ -30,7 +31,18 @@ int pcn(int b);
 //Usados en Cunhado
 //...
 //Usados en Hundir la flota
-//...
+//Estas funciones hace un "printf" de una matriz
+void imprime_tablero(char M[9][9]);
+void imprime_num(int M[9][9]);
+//Estas funciones vacian las matrices, y las rellenan con "-" y "0" respectivamente
+void vaciar_tablero(char M[9][9], char p);
+void vaciar_num(int M[9][9], int p);
+//Genera las posiciones de los barcos del ordenador
+void enemigo_barcos(int M[9][9]);
+//Estas tres funciones se encargan de los turnos
+void turno_jugador(int m[9][9], char ti[9][9], char t1[9][9], int *u);
+void turno_bot(int t0[9][9], int t2[9][9], char t1[9][9], int *u);
+void turno(int t[9][9], char ti[9][9], char t1[9][9], int t0[9][9], int t2[9][9]);
 //Usados en Questionary
 //Funciones empleadas(descritas al final del programa)//
 int puntuacion(char actualAns, char correctAns);

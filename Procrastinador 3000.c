@@ -51,7 +51,7 @@ void main()
 				//aumenta en uno el contador del juego en concreto
 				break;
 			case 4:
-				//...
+				flota();
 				iz.flota++;
 				//aumenta en uno el contador del juego en concreto
 				break;
