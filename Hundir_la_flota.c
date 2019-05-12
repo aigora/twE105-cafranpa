@@ -33,10 +33,9 @@ int main()
 		vaciar_num(tablero2, 0);
 		vaciar_num(tabler0, 0);
 		enemigo_barcos(tablero);
-		printf("Bienvenido al programa de 'Hundir la flota'\n");
+		printf("Bienvenido al programa de 'Hundir la flota'");
 		sleep(2);
 		printf("\nAhora vamos a probar a llenar el tablero con barcos\n");
-		imprime_tablero(tablero1);
 		sleep(2);
 		printf("Lo mejor sera que decidas que tipo de barco quieres colocar primero:\n");
 		sleep(2);
@@ -382,7 +381,6 @@ void turno_jugador(int m[9][9], char ti[9][9], char t1[9][9], int *u)
 		system("cls");
 		imprime_tablero(t1);
 		imprime_tablero(ti);
-		imprime_num(m);
 		printf("\nEscoge una coordenada xy donde creas que estara el barco enemigo.\n");
 		printf("\nDime un numero x (1-9):\n");
 		do
@@ -489,7 +487,7 @@ void turno_jugador(int m[9][9], char ti[9][9], char t1[9][9], int *u)
 void turno_bot(int t0[9][9], int t2[9][9], char t1[9][9], int *u)
 {
 	int x, y, z, d=0, i, j;
-	printf("El ordenador te esta atacando\n");
+		printf("El ordenador te esta atacando\n");
 		do
 		{
 			x= rand() % 8 + 0;
@@ -567,7 +565,7 @@ void turno_bot(int t0[9][9], int t2[9][9], char t1[9][9], int *u)
 	*u=d;
 	printf("\nAhora es tu turno\n");
 	system("pause");
-	system("cls");	
+	system("cls");
 }
 void turno(int t[9][9], char ti[9][9], char t1[9][9], int t0[9][9], int t2[9][9])
 {
@@ -575,7 +573,8 @@ void turno(int t[9][9], char ti[9][9], char t1[9][9], int t0[9][9], int t2[9][9]
 	do
 	{
 		turno_jugador(t, ti, t1, &u1);
-		turno_bot(t0, t2, t1, &u2);	
+		if (u1<81)
+			turno_bot(t0, t2, t1, &u2);	
 	}
 	while ((u1<81)&&(u2<81));
 	printf("\n Has %s!, Quieres intentarlo otra vez (s)? \n ", u2<u1? "ganado, has conseguido eliminar todos los barcos enemigos":"perdido, han derribado todos tus barcos");
