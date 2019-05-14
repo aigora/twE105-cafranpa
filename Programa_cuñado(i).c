@@ -9,7 +9,7 @@ int main()
 	FILE *pf;
 	char chistes[21][30];
     int i=0, w, d, f, x, y;
-  	char  eleccion[11], s, respuesta[20], a1[]="DEDOS", a2[]="PASO DE ZEBRA", a3[]="TIJERAS";
+  	char  s, respuesta[20], a1[]="DEDOS", a2[]="PASO DE ZEBRA", a3[]="TIJERAS";
   	srand(time(NULL));
   do
   {	
@@ -26,6 +26,7 @@ int main()
   	{
   		printf("Has escogido los Chistes! Aqui estan todos\n");
   		sleep(3);
+  		//Se abre un fichero donde estan todas las opciones que el usuario puede escoger. Hemos usado un fichero en vez de un printf porque era más ordenado
 		pf=fopen("chistes.txt","r");
 		if(pf==NULL)
 		{
@@ -120,7 +121,8 @@ int main()
 		do
 		{
 			printf("\nTe quedan %i intentos\n", d);
-			scanf (" %20s", respuesta);
+			scanf (" %20s\n", respuesta);
+			//Al usar strupr transformamos la respuesta introducida a mayusculas, así el programa la pueda recnocer sin importar como este escrita
 			_strupr(respuesta);
 			d--;
 		}
@@ -128,6 +130,7 @@ int main()
 		if (d>=0)
 		{
 			system("cls");
+			system("pause");
 			printf("Segunda adivinanza:\nSoy animal en el campo, soy pintura en la ciudad y mi nombre como dice Braulio en esta calle esta.");
 			d=5;
 			do
@@ -141,16 +144,17 @@ int main()
 			if(d>=0)
 			{
 				system("cls");
+				system("pause");
 				printf("Ultima adivinanza:\nDos hermanas diligentes que caminan al compas, con el pico por delante y los ojos por detras.");
 				d=5;
 				do
 				{
 					printf("\nTe quedan %i intentos\n", d);
-					scanf(" %20s\n", respuesta);
+					scanf(" %20[^\n]\n", respuesta);
 					_strupr(respuesta);	
 					d--;
-				}	
-				while (strcmp(a3, respuesta) != 0&&d>0);
+				}
+				while (strcmp(a3, respuesta) != 0&&d>0);	
 				if(d<0)
 				d=-1;
 					
@@ -163,6 +167,7 @@ int main()
 	}	
 	printf("\nHas %s!, Repetimos (s)? \n ", d!=-1? "ganado":"perdido");
 	scanf(" %c", &s);
+
   }
   while(s=='s');
   
