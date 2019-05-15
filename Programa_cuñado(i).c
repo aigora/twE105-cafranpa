@@ -121,13 +121,13 @@ int main()
 		do
 		{
 			printf("\nTe quedan %i intentos\n", d);
-			scanf (" %20s\n", respuesta);
+			scanf (" %200[^\n]", respuesta);
 			//Al usar strupr transformamos la respuesta introducida a mayusculas, así el programa la pueda recnocer sin importar como este escrita
 			_strupr(respuesta);
 			d--;
 		}
 		while (strcmp(a1, respuesta) != 0&&d>0);
-		if (d>=0)
+		if (d>0)
 		{
 			system("cls");
 			system("pause");
@@ -136,12 +136,12 @@ int main()
 			do
 			{
 				printf("\nTe quedan %i intentos\n", d);
-				scanf(" %20[^\n]\n", respuesta);
+				scanf(" %200[^\n]", respuesta);
 				_strupr(respuesta);
 				d--;
 			}
 			while (strcmp(a2, respuesta) != 0&&d>0);
-			if(d>=0)
+			if(d>0)
 			{
 				system("cls");
 				system("pause");
@@ -150,7 +150,7 @@ int main()
 				do
 				{
 					printf("\nTe quedan %i intentos\n", d);
-					scanf(" %20[^\n]\n", respuesta);
+					scanf(" %200[^\n]", respuesta);
 					_strupr(respuesta);	
 					d--;
 				}
