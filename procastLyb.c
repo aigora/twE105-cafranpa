@@ -289,7 +289,7 @@ void combate()
 						case 5:
 							printf("El monstruo esta concentrandose en apuntar\n");
 							break;
-						//Aumento de da?o
+						//Aumento de danho
 						case 6:
 							printf("El monstruo se esta preparando para hacer un ataque muy fuerte\n");
 							break;
@@ -327,11 +327,11 @@ void flota()
 		vaciar_num(tabler0, 0);
 		enemigo_barcos(tablero);
 		printf("Bienvenido al programa de 'Hundir la flota'");
-		sleep(2);
+		sleep(3);
 		printf("\nAhora vamos a probar a llenar el tablero con barcos\n");
-		sleep(2);
+		sleep(3);
 		printf("Lo mejor sera que decidas que tipo de barco quieres colocar primero:\n");
-		sleep(2);
+		sleep(4);
 		system("cls");
 		do
 		{
