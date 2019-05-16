@@ -311,7 +311,7 @@ void flota()
 	srand(time(NULL));
 	//Tablero1 y tableroi proporcinan informacion al jugador, la posicion de sus barcos, y si sus ataques han impactado o no
 	char tablero1[9][9], tableroi[9][9], s, d;
-	//Las distintas matrics aqui contienen informacion para el ordenador, sobre las posiciones de los barcos y si sus ataques fallan o no
+	//Las distintas matrices aqui contienen informacion para el ordenador, sobre las posiciones de los barcos y si sus ataques fallan o no
 	int destructor, submarino, barco, y, x, direccion, tablero2[9][9], tablero[9][9], tabler0[9][9], u;
 	system("cls");
 	do
@@ -501,7 +501,7 @@ void flota()
 		}
 		while (submarino>0||destructor>0);
 	printf("\nMuy bien, ahora que ya tienes tu tablero listo, es hora de jugar\n");
-	printf("\nEste tablero es en el cual se iran apuntando tus disparos, si son agua, tocado, undido, etc.\n");
+	printf("\nEste tablero es en el cual se iran apuntando tus disparos, si son agua, tocado, hundido, etc.\n");
 	imprime_tablero(tableroi);
 	system("pause");
 	turno(tablero, tableroi, tablero1, tabler0, tablero2);				
