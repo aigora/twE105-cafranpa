@@ -521,7 +521,7 @@ void questionary(char *name)
 	int contador; //Variable que cuenta la puntuacion del usuario//
 	system("cls");
 	printf("Bienvenido a 'Questionary', el programa en el que demostararas tus habilidades con preguntas sobre cultura general y ... algunas otras un poco mas especificas.\nEsperamos que te diviertas.");
-	printf("Para comenzar elige una de las 4 categorias siguientes, introduciendo la letra entre parentesis. Pulsa otra letra diferente a las 4 para salir:\n");
+	printf("\nPara comenzar elige una de las 4 categorias siguientes, introduciendo la letra entre parentesis.\nPulsa otra letra diferente a las 4 para salir:\n");
 	printf("\nHistoria(h)\nGeografia(g)\nCiencia(c)\nArte(a)\n");
 	scanf(" %c", &elecCateg);
 	switch(elecCateg) //El programa funcionara mostrando las opciones especificas de cada categoria, dependiendo de lo que introduzca el usuario//
