@@ -8,6 +8,7 @@ int ingreso(usuario *iz);
 void registro(usuario iz, int io);
 int boladelocho();
 void combate();
+int cunhado();
 void flota();
 void recetario();
 void questionary(char *name);
@@ -29,7 +30,9 @@ int danhoel(int b, int h);
 //Genera numeros aleatorios simulando una pocion
 int pcn(int b);
 //Usados en Cunhado
-//...
+/*Este programa usa la funcion
+int golpe(int b, int h);
+definida en la linea 25 en relacion al programa combate*/
 //Usados en Hundir la flota
 //Estas funciones hace un "printf" de una matriz
 void imprime_tablero(char M[9][9]);

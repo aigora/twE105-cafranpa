@@ -11,19 +11,19 @@ int main()
     int i=0, w, d, f, x, y;
   	char  s, respuesta[20], a1[]="DEDOS", a2[]="PASO DE ZEBRA", a3[]="TIJERAS";
   	srand(time(NULL));
-  do
-  {	
-  	system("cls");
-  	printf ("\nBienvenido al programa cunhado. Por favor, escribe lo que prefieras:\n1)Chiste\n2)Adivinanza\n");
-  	scanf ("%i", &f);
-  	while (f!=1&&f!=2)
-  	{
-  		printf("Escribe un 1 o un 2, por favor.\n");
+  	do
+  	{	
+  		system("cls");
+  		printf ("\nBienvenido al programa cunhado. Por favor, escribe lo que prefieras:\n1)Chiste\n2)Adivinanza\n");
   		scanf ("%i", &f);
-  	}
-  	system("cls");
-  	if (f!=2)
-  	{
+  		while (f!=1&&f!=2)
+  		{
+  			printf("Escribe un 1 o un 2, por favor.\n");
+  			scanf ("%i", &f);
+		}
+	  	system("cls");
+	  	if (f!=2)
+		{
   		printf("Has escogido los Chistes! Aqui estan todos\n");
   		sleep(3);
   		//Se abre un fichero donde estan todas las opciones que el usuario puede escoger. Hemos usado un fichero en vez de un printf porque era más ordenado
@@ -112,74 +112,71 @@ int main()
 			break;
 		}
 	}
-	else
-	{
-		printf("Has elegido las adivinanzas! Te voy a ir poniendo adivinanzas, cada vez mas dificiles. Ganaras si las adivinas todas antes de quedarte sin intentos.\n");
-		sleep(4);
-		system("cls");
-		printf("Primera adivinanza:\nCinco hermanos muy unidos que no se pueden mirar, cuando rinhen aunque quieras no los puedes separar.");
-		d=5;
-		do
+		else
 		{
-			if (d<5)
-				printf("Te has equivocado");
-			printf("\nTe quedan %i intentos\n", d);
-			scanf (" %200[^\n]", respuesta);
-			//Al usar strupr transformamos la respuesta introducida a mayusculas, así el programa la pueda recnocer sin importar como este escrita
-			_strupr(respuesta);
-			d--;
-		}
-		while (strcmp(a1, respuesta) != 0&&d>0);
-		if (d>0)
-		{
+			printf("Has elegido las adivinanzas! Te voy a ir poniendo adivinanzas, cada vez mas dificiles. Ganaras si las adivinas todas antes de quedarte sin intentos.\n");
+			sleep(4);
 			system("cls");
-			printf("Muy bien! Has acertado\n");
-			system("pause");
-			printf("Segunda adivinanza:\nSoy animal en el campo, soy pintura en la ciudad y mi nombre como dice Braulio en esta calle esta.");
+			printf("Primera adivinanza:\nCinco hermanos muy unidos que no se pueden mirar, cuando rinhen aunque quieras no los puedes separar.");
 			d=5;
 			do
 			{
 				if (d<5)
-				printf("Te has equivocado");
+					printf("Te has equivocado");
 				printf("\nTe quedan %i intentos\n", d);
-				scanf(" %200[^\n]", respuesta);
+				scanf (" %200[^\n]", respuesta);
+				//Al usar strupr transformamos la respuesta introducida a mayusculas, así el programa la pueda recnocer sin importar como este escrita
 				_strupr(respuesta);
 				d--;
 			}
-			while (strcmp(a2, respuesta) != 0&&d>0);
-			if(d>0)
+			while (strcmp(a1, respuesta) != 0&&d>0);
+			if (d>0)
 			{
 				system("cls");
-				printf("Esta es la ultima, buena suerte!\n");
+				printf("Muy bien! Has acertado\n");
 				system("pause");
-				printf("Ultima adivinanza:\nDos hermanas diligentes que caminan al compas, con el pico por delante y los ojos por detras.");
+				printf("Segunda adivinanza:\nSoy animal en el campo, soy pintura en la ciudad y mi nombre como dice Braulio en esta calle esta.");
 				d=5;
 				do
 				{
 					if (d<5)
-						printf("Te has equivocado");
+					printf("Te has equivocado");
 					printf("\nTe quedan %i intentos\n", d);
 					scanf(" %200[^\n]", respuesta);
-					_strupr(respuesta);	
+					_strupr(respuesta);
 					d--;
 				}
-				while (strcmp(a3, respuesta) != 0&&d>0);	
-				if(d<0)
+				while (strcmp(a2, respuesta) != 0&&d>0);
+				if(d>0)
+				{
+					system("cls");
+					printf("Esta es la ultima, buena suerte!\n");
+					system("pause");
+					printf("Ultima adivinanza:\nDos hermanas diligentes que caminan al compas, con el pico por delante y los ojos por detras.");
+					d=5;
+					do
+					{
+						if (d<5)
+							printf("Te has equivocado");
+						printf("\nTe quedan %i intentos\n", d);
+						scanf(" %200[^\n]", respuesta);
+						_strupr(respuesta);	
+						d--;
+					}
+					while (strcmp(a3, respuesta) != 0&&d>0);	
+					if(d<0)
+					d=-1;	
+				}
+				else
 				d=-1;
-					
 			}
 			else
 			d=-1;
-		}
-		else
-		d=-1;
-	}	
-	printf("\nHas %s!, Repetimos (s)? \n ", d!=-1? "ganado":"perdido");
-	scanf(" %c", &s);
-
-  }
-  while(s=='s');
-  
+		}	
+		printf("\nHas %s!, Repetimos (s)? \n ", d!=-1? "ganado":"perdido");
+		scanf(" %c", &s);
+	}
+	while(s=='s');
 }
 
 
