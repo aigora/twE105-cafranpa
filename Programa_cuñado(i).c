@@ -115,11 +115,14 @@ int main()
 	else
 	{
 		printf("Has elegido las adivinanzas! Te voy a ir poniendo adivinanzas, cada vez mas dificiles. Ganaras si las adivinas todas antes de quedarte sin intentos.\n");
-		sleep(3);
-		printf("Primera adivinanza:\nCinco hermanos muy unidos que no se pueden mirar, cuando riñen aunque quieras no los puedes separar.");
+		sleep(4);
+		system("cls");
+		printf("Primera adivinanza:\nCinco hermanos muy unidos que no se pueden mirar, cuando rinhen aunque quieras no los puedes separar.");
 		d=5;
 		do
 		{
+			if (d<5)
+				printf("Te has equivocado");
 			printf("\nTe quedan %i intentos\n", d);
 			scanf (" %200[^\n]", respuesta);
 			//Al usar strupr transformamos la respuesta introducida a mayusculas, así el programa la pueda recnocer sin importar como este escrita
@@ -130,11 +133,14 @@ int main()
 		if (d>0)
 		{
 			system("cls");
+			printf("Muy bien! Has acertado\n");
 			system("pause");
 			printf("Segunda adivinanza:\nSoy animal en el campo, soy pintura en la ciudad y mi nombre como dice Braulio en esta calle esta.");
 			d=5;
 			do
 			{
+				if (d<5)
+				printf("Te has equivocado");
 				printf("\nTe quedan %i intentos\n", d);
 				scanf(" %200[^\n]", respuesta);
 				_strupr(respuesta);
@@ -144,11 +150,14 @@ int main()
 			if(d>0)
 			{
 				system("cls");
+				printf("Esta es la ultima, buena suerte!\n");
 				system("pause");
 				printf("Ultima adivinanza:\nDos hermanas diligentes que caminan al compas, con el pico por delante y los ojos por detras.");
 				d=5;
 				do
 				{
+					if (d<5)
+						printf("Te has equivocado");
 					printf("\nTe quedan %i intentos\n", d);
 					scanf(" %200[^\n]", respuesta);
 					_strupr(respuesta);	
