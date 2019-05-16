@@ -1,4 +1,4 @@
-fran_gdlf	0	0	0	0	0	0	0
+fran_gdlf	0	0	1	0	0	0	0
 cande.est	0	0	0	0	2	0	0
 pablo_pa	0	0	0	0	0	0	0
 usuario_4	0	0	0	0	0	0	0

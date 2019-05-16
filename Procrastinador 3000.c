@@ -46,7 +46,7 @@ void main()
 				//aumenta en uno el contador del juego en concreto
 				break;
 			case 3:
-				//...
+				cunhado();
 				iz.cunhado++;
 				//aumenta en uno el contador del juego en concreto
 				break;
@@ -96,6 +96,7 @@ void main()
 			//permite al usuario jugar a otro programa
 			else if(res=='s')
 			{
+				system("cls");
 				printf("Gracias por pasar tiempo conmigo %s\n", iz.name);
 				printf("Espero volver a verte pronto\n");
 				exit(-1);
