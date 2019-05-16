@@ -7,7 +7,7 @@ void main()
 {
 	usuario iz;
 	//genero una variable que almacene el usuario seleccionado
-	//el la funcion "ingreso"
+	//en la funcion "ingreso"
 	int i,vg;
 	//contador y una variable de respuesta
 	char res;
