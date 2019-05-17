@@ -24,7 +24,7 @@ int lecturafichero(FILE *pf, string *res, int n);
 //Usados en Combate por turnos
 //Funcion que genera un numero aleatorio + bonuses, representa la punteria
 int golpe(int b, int h);
-//Funciones que generan el daño del jugador y del onstruo
+//Funciones que generan el daño del jugador y del monstruo
 int danhoyo(int b, int h);
 int danhoel(int b, int h);
 //Genera numeros aleatorios simulando una pocion

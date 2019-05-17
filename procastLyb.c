@@ -1224,10 +1224,10 @@ void futuro()
 	printf("Veo que tienes agallas\n");
 	printf("Adelante, preguntame lo que quieras conocer\n");
 	scanf(" %[^\n]");
-	//permite que el usuario escribe cualquier cosa
+	//permite que el usuario escriba cualquier cosa
 	//hasta que de un salto de pagina.
 	//Este dato al ser irrelevante para el resto del programa
-	//no se dirige a niguna variable(podriamos considerarlo como datos inutiles)
+	//no se dirige a ninguna variable(podriamos considerarlo como datos inutiles)
 	prediccion();
 	//ejecuta el programa
 	system("pause");
@@ -1273,7 +1273,7 @@ int lecturafichero(FILE *pf, string *res, int n)
 	{
 		fscanf(pf," %400[^\n]",res[i].string);	
 	}
-	//almcena en cada posicion del vector una respuesta
+	//almacena en cada posicion del vector una respuesta
 	fclose(pf);
 	return 1;	
 }
