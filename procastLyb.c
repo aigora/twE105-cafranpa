@@ -692,432 +692,477 @@ void questionary(char *name)
 	int ansUsuario; //Variable que almacena la respuesta del usuario//
 	int ansCorrecta; //Variable que almacena la respuesta correcta//
 	char elecCateg; //Variable empleada para almacenar la eleccion de categoria de pregunta//
-	char start;//variable empleada para almacenar la letra con la que el jugador decide empezar o no a jugar//
+	char start,res;//variable empleada para almacenar la letra con la que el jugador decide empezar o no a jugar//
 	int contador; //Variable que cuenta la puntuacion del usuario//
 	system("cls");
 	printf("Bienvenido a 'Questionary', el programa en el que demostararas tus habilidades con preguntas sobre cultura general y ... algunas otras un poco mas especificas.\nEsperamos que te diviertas.");
 	printf("\nPara comenzar elige una de las 4 categorias siguientes, introduciendo la letra entre parentesis.\nPulsa otra letra diferente a las 4 para salir:\n");
-	printf("\nHistoria(h)\nGeografia(g)\nCiencia(c)\nArte(a)\n");
-	scanf(" %c", &elecCateg);
-	switch(elecCateg) //El programa funcionara mostrando las opciones especificas de cada categoria, dependiendo de lo que introduzca el usuario//
+	do
 	{
-		case'H': //Se reproduce en caso de que el usuario escriba la letra 'H' o 'h'//
-		case'h':
-			system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
-			printf("BIENVENIDO!!\nHas elegido la categoria Historia\n");
-			printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir.\n");
-			printf("Ten cuidado, y piensa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!\n");
-			scanf(" %c", &start); //Aqui la persona introduce una letra para empezar a jugar o pulsa una letra diferente a 's' para salir//
-			if(start == 's')
-			{
-				system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//
-				printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
-				//debe escribir la letra que represente a la respuesta correcta//
-				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
-				puntos+=questHistoria(name); //Funcion donde tiene lugar la parte de las preguntas y respuestas de HISTORIA //
-				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
-				{
-					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranqui, todo es mejorable.\n");
-				}
-				else if((puntos>3)&&(puntos<5))
-				{
-					printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
-				}
-				else if((puntos>=5)&&(puntos<7))
-				{
-					printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
-				}
-				else if((puntos>=7)&&(puntos<10))
-				{
-					printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
-				}
-				else if(puntos=10)
-				{
-					printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
-				}
-			}
-			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
-			break;
-		case'G': //Se reproduce en caso de que el usuario escriba la letra 'G' o 'g'//
-		case'g':
-			system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
-			printf("BIENVENIDO!!\nHas elegido la categoria Geografia\n");
-			printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir.\n");
-			printf("Ten cuidado, y piensa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!\n");
-			scanf(" %c", &start); //Aqui la persona introduce una letra para empezar a jugar o pulsa una letra diferente a 's' para salir//
-			if(start == 's')
-			{
+		printf("\nHistoria(h)\nGeografia(g)\nCiencia(c)\nArte(a)\n");
+		scanf(" %c", &elecCateg);
+		switch(elecCateg) //El programa funcionara mostrando las opciones especificas de cada categoria, dependiendo de lo que introduzca el usuario//
+		{
+			case'H': //Se reproduce en caso de que el usuario escriba la letra 'H' o 'h'//
+			case'h':
 				system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
-				printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
-				//debe escribir la letra que represente a la respuesta correcta//
-				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
-				puntos+=questGeografia(name); //Funcion donde tiene lugar la parte de las preguntas y respuestas de GEOGRAFIA//
-				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
+				printf("BIENVENIDO!!\nHas elegido la categoria Historia\n");
+				printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir.\n");
+				printf("Ten cuidado, y piensa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!\n");
+				scanf(" %c", &start); //Aqui la persona introduce una letra para empezar a jugar o pulsa una letra diferente a 's' para salir//
+				if(start == 's')
 				{
-					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranqui, todo es mejorable\n");
+					system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//
+					printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
+					//debe escribir la letra que represente a la respuesta correcta//
+					//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
+					puntos+=questHistoria(name); //Funcion donde tiene lugar la parte de las preguntas y respuestas de HISTORIA //
+					if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
+					{
+						printf("\nParece que necesitas ponerte a repasar un pelin, pero tranqui, todo es mejorable.\n");
+					}
+					else if((puntos>3)&&(puntos<5))
+					{
+						printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
+					}
+					else if((puntos>=5)&&(puntos<7))
+					{
+						printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
+					}
+					else if((puntos>=7)&&(puntos<10))
+					{
+						printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
+					}
+					else if(puntos=10)
+					{
+						printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
+					}
 				}
-				else if((puntos>3)&&(puntos<5))
-				{
-					printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
-				}
-				else if((puntos>=5)&&(puntos<7))
-				{
-					printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
-				}
-				else if((puntos>=7)&&(puntos<10))
-				{
-					printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
-				}
-				else if(puntos=10)
-				{
-					printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
-				}
-			}
-			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
-			break;
-		case'C': //Se reproduce en caso de que el usuario escriba la letra 'C' o 'c'//
-		case'c':	
-			system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
-			printf("BIENVENIDO!!\nHas elegido la categoria Ciencia\n");
-			printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir.\n");
-			printf("Ten cuidado, y piensa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!\n");
-			scanf(" %c", &start); //Aqui la persona introduce una letra para empezar a jugar o pulsa una letra diferente a 's' para salir//
-			if(start == 's')
-			{
+				else printf("Hasta pronto, ha sido un placer jugar contigo\n");
+				break;
+			case'G': //Se reproduce en caso de que el usuario escriba la letra 'G' o 'g'//
+			case'g':
 				system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
-				printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
-				//debe escribir la letra que represente a la respuesta correcta//
-				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
-				puntos+=questCiencia(name); //Funcion donde tiene lugar la parte de las preguntas y respuestas de CIENCIA//
-				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
+				printf("BIENVENIDO!!\nHas elegido la categoria Geografia\n");
+				printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir.\n");
+				printf("Ten cuidado, y piensa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!\n");	
+				scanf(" %c", &start); //Aqui la persona introduce una letra para empezar a jugar o pulsa una letra diferente a 's' para salir//
+				if(start == 's')
 				{
-					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranqui, todo es mejorable\n");
+					system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
+					printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
+					//debe escribir la letra que represente a la respuesta correcta//
+					//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
+					puntos+=questGeografia(name); //Funcion donde tiene lugar la parte de las preguntas y respuestas de GEOGRAFIA//
+					if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
+					{
+						printf("\nParece que necesitas ponerte a repasar un pelin, pero tranqui, todo es mejorable\n");
+					}
+					else if((puntos>3)&&(puntos<5))
+					{
+						printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
+					}
+					else if((puntos>=5)&&(puntos<7))
+					{
+						printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
+					}
+					else if((puntos>=7)&&(puntos<10))
+					{
+						printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
+					}	
+					else if(puntos=10)
+					{
+						printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
+					}
 				}
-				else if((puntos>3)&&(puntos<5))
-				{
-					printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
-				}
-				else if((puntos>=5)&&(puntos<7))
-				{
-					printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
-				}
-				else if((puntos>=7)&&(puntos<10))
-				{
-					printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
-				}
-				else if(puntos=10)
-				{
-					printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
-				}
-			}
-			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
-			break;
-		case'A': //Se reproduce en caso de que el usuario escriba la letra 'A' o 'a'//
-		case'a':
-			system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
-			printf("BIENVENIDO!!\nHas elegido la categoria Arte\n");
-			printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir.\n");
-			printf("Ten cuidado, y piensa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!\n");
-			scanf(" %c", &start); //Aqui la persona introduce una letra para empezar a jugar o pulsa una letra diferente a 's' para salir//
-			if(start == 's')
-			{
+				else printf("Hasta pronto, ha sido un placer jugar contigo\n");
+				break;
+			case'C': //Se reproduce en caso de que el usuario escriba la letra 'C' o 'c'//
+			case'c':	
 				system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
-				printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
-				//debe escribir la letra que represente a la respuesta correcta//
-				//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
-				puntos+=questArte(name); //Funcion donde tiene lugar la parte de las preguntas y respuestas de ARTE//
-				if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
+				printf("BIENVENIDO!!\nHas elegido la categoria Ciencia\n");
+				printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir.\n");
+				printf("Ten cuidado, y piensa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!\n");
+				scanf(" %c", &start); //Aqui la persona introduce una letra para empezar a jugar o pulsa una letra diferente a 's' para salir//
+				if(start == 's')
 				{
-					printf("\nParece que necesitas ponerte a repasar un pelin, pero tranqui, todo es mejorable\n");
+					system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
+					printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
+					//debe escribir la letra que represente a la respuesta correcta//
+					//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
+					puntos+=questCiencia(name); //Funcion donde tiene lugar la parte de las preguntas y respuestas de CIENCIA//
+					if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
+					{
+						printf("\nParece que necesitas ponerte a repasar un pelin, pero tranqui, todo es mejorable\n");
+					}
+					else if((puntos>3)&&(puntos<5))
+					{
+						printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
+					}
+					else if((puntos>=5)&&(puntos<7))
+					{
+						printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
+					}
+					else if((puntos>=7)&&(puntos<10))
+					{
+						printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
+					}
+					else if(puntos=10)
+					{
+						printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
+					}
 				}
-				else if((puntos>3)&&(puntos<5))
+				else printf("Hasta pronto, ha sido un placer jugar contigo\n");
+				break;
+			case'A': //Se reproduce en caso de que el usuario escriba la letra 'A' o 'a'//
+			case'a':
+				system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
+				printf("BIENVENIDO!!\nHas elegido la categoria Arte\n");
+				printf("Pulsa (s) para comenzar a jugar, o pulsa cualquier tecla distinta para salir.\n");
+				printf("Ten cuidado, y piensa bien antes de contestar, tu puntuacion depende de las preguntas que aciertes y no hay segundas oportunidades...\nBUENA SUERTE!\n");
+				scanf(" %c", &start); //Aqui la persona introduce una letra para empezar a jugar o pulsa una letra diferente a 's' para salir//
+				if(start == 's')
 				{
-					printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
+					system("cls"); //Para limpiar el texto anterior y proporcionar mejor estetica al programa//  
+					printf("Escribe 'a', 'b', 'c' o 'd' dependiendo de la opcion que consideres verdadera\n"); //Se indica al usuario que para responder//
+					//debe escribir la letra que represente a la respuesta correcta//
+					//(esta indicacion sirve para todas las preguntas siguientes del juego y por ello, no se volvera a repetir)//
+					puntos+=questArte(name); //Funcion donde tiene lugar la parte de las preguntas y respuestas de ARTE//
+					if(puntos<=3) //Esto se ejecutara cuando la respuesta otorgada por el usuario sea igual a la respuesta que el programa reconoce como correcta//
+					{
+						printf("\nParece que necesitas ponerte a repasar un pelin, pero tranqui, todo es mejorable\n");
+					}
+					else if((puntos>3)&&(puntos<5))
+					{
+						printf("\nCasi casi apruebas, no te rindas... mas suerte la proxima\n");
+					}
+					else if((puntos>=5)&&(puntos<7))
+					{
+						printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
+					}
+					else if((puntos>=7)&&(puntos<10))
+					{
+						printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
+					}
+					else if(puntos=10)
+					{
+						printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
+					}	
 				}
-				else if((puntos>=5)&&(puntos<7))
-				{
-					printf("\nBastante bien, has conseguido superar la prueba que pocos han resistido, enhorabuena!!\n");
-				}
-				else if((puntos>=7)&&(puntos<10))
-				{
-					printf("\nFenomenal, no solo has aprobado, si no que ademas casi aciertas todo, enhorabuena!!\n");
-				}
-				else if(puntos=10)
-				{
-					printf("\nFANTASTICO, has acertado todas las preguntas, eres un increible!!!\n");
-				}	
-			}
-			else printf("Hasta pronto, ha sido un placer jugar contigo\n");
-			break;
-		default:
-			printf("Has escogido salir del juego.\nUn placer, nos vemos pronto!!\n");
+				else printf("Hasta pronto, ha sido un placer jugar contigo\n");
+				break;
+			default:
+				printf("Has escogido salir del juego.\nUn placer, nos vemos pronto!!\n");
+		}
+		printf("Quieres probar suerte con esta u otra categoria(r), o deseas salir(s)?(r/s)\n");
+		do
+		{
+			scanf(" %c", &res);
+			res=mins(res);
+			system("cls");
+			if(res=='r')
+				printf("Genial!!\n Veamos de nuevo las opciones:\n");
+			else if(res=='s')
+				printf("Espero que vuelvas pronto\n");
+			else
+			{
+				printf("Lo siento no te he entendido\nPor favor repite la respuesta:\nsalir(s) o volver a jugar(r)?\n");
+				res='c';
+			}	
+		}
+		while(res=='c');
 	}
+	while(res!='s');
 	system("pause");	
 }
 void recetario()
 {
-	char select1; //Variable entera para elegir entre dulce o salado//
-	char select2_s, select2_d; //Variable entera para elegir entre desayuno, almuerzo, etc.(salado); y variable entera para elegir entre desayuno, almuerzo, etc.(dulce)//
-	char select3; //Variable entera para elegir que receta desea el usuario//
+	char select1; //Variable para elegir entre dulce o salado//
+	char select2_s, select2_d; //Variable para elegir entre desayuno, almuerzo, etc.(salado); y variable entera para elegir entre desayuno, almuerzo, etc.(dulce)//
+	char select3; //Variable para elegir que receta desea el usuario//
+	char res;//Variable para indicar la repeticion o no del programa
 	system("cls");
 	printf("Aqui te traemos un recetario donde podras descubrir recetas faciles y rapidas (para culquier hora del dia) dedicadas especialmente a gente celiaca\n");
 	//MENU CELIACO//
 	printf("La celiaquia es una patologia intestinal cronica que cada vez es mas comun en nuestra sociedad.\nSe produce por una mala absorcion de alimentos con gluten,\nproteina que se encuentra en la harina de diversos cereales como el trigo, cebada, avena o centeno.\nPor tanto, una persona diagnosticada con celiaquia debe consumir alimentos sin gluten.\n");
-	printf("Escoge si prefieres una receta dulce(d) o salada(s)\n"); //A continuacion, el usuario teclea 'd' si desea una receta dulce o 's' si la prefiere salada//
-	scanf(" %c", &select1); //El usuario elige un menu escribiendo una letra en el teclado//
-	switch(select1) //Con este switch case el programa va a continuar en base a las opcciones escogidas por el usuario: dulce o salado//
+	do
 	{
-		case 's': //si la seleccion del usuario es una receta  celiaca SALADA, el programa continua pidiendo sus elecciones al usuario en base a recetas celiacas solo saladas//
-			printf("Escoge que te apetece mas, una receta salada para:\nUn desayuno(D)\nUna comida de media manhana(m)\nUn almuerzo(a)\nUna merienda(M)\nUna cena(c)\n");
-	  		scanf(" %c", &select2_s); //El usuario escribira una letra u otra('D', 'm', 'a', 'M', 'c'), dependiendo del tipo de comida que prefiera//
-			switch(select2_s) //El programa da 5 opciones segun la eleccion previa realizada//
-				{
-				  	case 'D':
-					  	printf("Aqui te presentamos algunas recetas de desayunos salados para celiacos disponibles\n");
-					 	printf("Por favor, escoge una de las siguientes recetas, escribiendo la letra que aparezca al lado de la que desees\n");
-				     	printf("1.Revoltillo o tortilla(a)\n2.Tostada con crema de cacahuete o almendras y platano(b)\n3.Tortitas saladas caseras de trigo sarraceno o maiz(c)\n");
-					  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
-					 	switch(select3)
-						{
-							case 'a':
-							  	printf("Has escogido: 1.'Revoltillo o tortilla'\n");//Codigo de esta receta:'c_s_D_a'//
-						  	  	fc_s_D_a (); //Nombre de la funcion que imprime la receta codigo: 'c_s_D_a'//
-						  	  	break;
-						  	case 'b':
-						  	 	printf("Has escogido: 2.'Tostada con crema de cacahuete o almendras y platano'\n");//Codigo de esta receta:'c_s_D_b'//
-						  	 	fc_s_D_b (); //Nombre de la funcion que imprime la receta codigo: 'c_s_D_b'//
-							 	break;
-						  	case 'c':
-						  	  	printf("Has escogido: 3.'Tortitas saladas caseras de trigo sarraceno o maiz'\n");//Codigo de esta receta:'c_s_D_c'//
-						  	  	fc_s_D_c (); //Nombre de la funcion que imprime la receta codigo: 'c_s_D_c'//
-							  	break;
-						  	default:
-						  	  	printf("Esta opcion no es valida\n"); //Si la letra introducida por el usuario es distinta de las opcciones dadas, el programa imprime este mensaje en pantalla//
-						  	  	break;
-						}
-					 	break;
-					case 'm':
-					  	printf("Aqui te presentamos algunas recetas de las comidas de media manhana saladas para celiacos disponibles\n");
-					  	printf("Por favor, escoge una de las siguientes recetas, escribiendo la letra que aparezca al lado de la que desees\n");
-				      	printf("1.Gazpacho para celiacos(a)\n2.Brownie de garbanzos(b)\n3.Tortitas fritas(c)\n4.Pan suave trenzado sin gluten(d)\n");
-					  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
-					  	switch(select3)
-						{
-							case 'a':
-							  	printf("Has escogido: 1.'Gazpacho para celiacos'\n");//Codigo de esta receta:'c_s_m_a'//
-						  	  	fc_s_m_a (); //Nombre de la funcion que imprime la receta codigo: 'c_s_m_a'//
-						  	  	break;
-						  	case 'b':
-						  	 	printf("Has escogido: 2.'Brownie de garbanzos'\n");//Codigo de esta receta:'c_s_m_b'//
-						  	  	fc_s_m_b (); //Nombre de la funcion que imprime la receta codigo: 'c_s_m_b'//
-							  	break;
-						  	case 'c':
-						  	  	printf("Has escogido: 3.'Tortitas fritas'\n");//Codigo de esta receta:'c_s_m_c'//
-						  	  	fc_s_m_c (); //Nombre de la funcion que imprime la receta codigo: 'c_s_m_c'//
-							  	break;
-							case 'd':
-						  	  	printf("Has escogido: 4.'Pan suave trenzado sin gluten'\n");//Codigo de esta receta:'c_s_m_d'//
-						  	  	fc_s_m_d (); //Nombre de la funcion que imprime la receta codigo: 'c_s_m_d'//
-							  	break;
-						  	default:
-						  	  	printf("Esta opcion no es valida\n"); //Si la letra introducida por el usuario es distinta de las opcciones dadas, el programa imprime este mensaje en pantalla//
-						  	  	break;
-						}
-					  	break;
-					case 'a':
-					  	printf("Aqui te presentamos algunas recetas de las almuerzos salados para celiacos disponibles\n");
-					  	printf("Por favor, escoge una de las siguientes recetas, escribiendo la letra que aparezca al lado de la que desees\n");
-				      	printf("1.Canelones sin leche y sin gluten(a)\n2.Croquetas sin gluten(b)\n3.Empanadillas sin gluten(c)\n4.Receta de Pasta al huevo sin gluten(d)\n");
-					  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
-					  	switch(select3)
-						{
-							case 'a':
-							  	printf("Has escogido: 1.'Canelones sin leche y sin gluten'\n");//Codigo de esta receta:'c_s_a_a'//
-						  	  	fc_s_a_a (); //Nombre de la funcion que imprime la receta codigo: 'c_s_a_a'//
-						  	  	break;
-						  	case 'b':
-						  	  	printf("Has escogido: 2.'Croquetas sin gluten'\n");//Codigo de esta receta:'c_s_a_b'//
-						  	  	fc_s_a_b (); //Nombre de la funcion que imprime la receta codigo: 'c_s_a_b'//
-							  	break;
-						  	case 'c':
-						  	  	printf("Has escogido: 3.'Empanadillas sin gluten'\n");//Codigo de esta receta:'c_s_a_c'//
-						  	  	fc_s_a_c (); //Nombre de la funcion que imprime la receta codigo: 'c_s_a_c'//
-							  	break;
-							case 'd':
-						  	  	printf("Has escogido: 4.'Receta de Pasta al huevo sin gluten'\n");//Codigo de esta receta:'c_s_a_d'//
-						  	  	fc_s_a_d (); //Nombre de la funcion que imprime la receta codigo: 'c_s_a_d'//
-							  	break;
-						  	default:
-						  	  	printf("Esta opcion no es valida\n"); //Si la letra introducida por el usuario es distinta de las opcciones dadas, el programa imprime este mensaje en pantalla//
-						  	  	break;
-								}
-					  	break;
-					case 'M':
-					  	printf("Aqui te presentamos algunas recetas de las meriendas saladas para celiacos disponibles\n");
-					  	printf("Por favor, escoge una de las siguientes recetas, escribiendo la letra que aparezca al lado de la que desees\n");
-				      	printf("1.Mini magdalenas de atun con tomate(a)\n2.galletas saladas sin gluten(b)\n");
-					  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
-					  	switch(select3)
-						{
-							case 'a':
-							  	printf("Has escogido: 1.'Mini magdalenas de atun con tomate'\n");//Codigo de esta receta:'c_s_M_a'//
-						  	  	fc_s_M_a (); //Nombre de la funcion que imprime la receta codigo: 'c_s_M_a'//
-						  	  	break;
-							case 'b':
-						  	  	printf("Has escogido: 2.'galletas saladas sin gluten'\n");//Codigo de esta receta:'c_s_M_b'//
-						  	  	fc_s_M_b (); //Nombre de la funcion que imprime la receta codigo: 'c_s_M_b'//
-							  	break;
-						  	default:
-						  	  	printf("Esta opcion no es valida\n"); //Si la letra introducida por el usuario es distinta de las opcciones dadas, el programa imprime este mensaje en pantalla//
-						  	  	break;
-						}
-					  	break;	
-					case 'c':
-					  	printf("Aqui te presentamos algunas recetas de las cenas saladas para celiacos disponibles\n");
-					  	printf("Por favor, escoge una de las siguientes recetas, escribiendo la letra que aparezca al lado de la que desees\n");
-				      	printf("1.Masa para pizzas sin gluten(a)\n2.Lasagna a la bolognesa sin gluten(b)\n3.Hojaldre relleno de queso de cabra(c)\n4)Croquetas de Jamon Serrano y Queso(d)\n");
-					  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
-					  	switch(select3)
-						{
-							case 'a':
-							  	printf("Has escogido: 1.'Masa para pizzas sin gluten'\n");//Codigo de esta receta:'c_s_c_a'//
-						  	  	fc_s_c_a (); //Nombre de la funcion que imprime la receta codigo: 'c_s_c_a'//
-						  	  	break;
-						  	case 'b':
-						  	  	printf("Has escogido: 2.'Lasagna a la bolognesa sin gluten'\n");//Codigo de esta receta:'c_s_c_b'//
-						  	  	fc_s_c_b (); //Nombre de la funcion que imprime la receta codigo: 'c_s_c_b'//
-							  	break;
-						  	case 'c':
-						  	  	printf("Has escogido: 3.'Hojaldre relleno de queso de cabra'\n");//Codigo de esta receta:'c_s_c_c'//
-						  	  	fc_s_c_c (); //Nombre de la funcion que imprime la receta codigo: 'c_s_c_c'//
-							  	break;
-							case 'd':
-						  	 	printf("Has escogido: 4.'Croquetas de Jamon Serrano y Queso'\n");//Codigo de esta receta:'c_s_a_d'//
-						  	  	fc_s_c_d (); //Nombre de la funcion que imprime la receta codigo: 'c_s_a_d'//
-							  	break;
-							default:
-						  	  	printf("Esta opcion no es valida\n"); //Si la letra introducida por el usuario es distinta de las opcciones dadas, el programa imprime este mensaje en pantalla//
-						  	  	break;
-						}
+		printf("Escoge si prefieres una receta dulce(d) o salada(s)\n"); //A continuacion, el usuario teclea 'd' si desea una receta dulce o 's' si la prefiere salada//
+		scanf(" %c", &select1); //El usuario elige un menu escribiendo una letra en el teclado//
+		switch(select1) //Con este switch case el programa va a continuar en base a las opcciones escogidas por el usuario: dulce o salado//
+		{
+			case 's': //si la seleccion del usuario es una receta  celiaca SALADA, el programa continua pidiendo sus elecciones al usuario en base a recetas celiacas solo saladas//
+				printf("Escoge que te apetece mas, una receta salada para:\nUn desayuno(D)\nUna comida de media manhana(m)\nUn almuerzo(a)\nUna merienda(M)\nUna cena(c)\n");
+		  		scanf(" %c", &select2_s); //El usuario escribira una letra u otra('D', 'm', 'a', 'M', 'c'), dependiendo del tipo de comida que prefiera//
+				switch(select2_s) //El programa da 5 opciones segun la eleccion previa realizada//
+					{
+					  	case 'D':
+						  	printf("Aqui te presentamos algunas recetas de desayunos salados para celiacos disponibles\n");
+						 	printf("Por favor, escoge una de las siguientes recetas, escribiendo la letra que aparezca al lado de la que desees\n");
+					     	printf("1.Revoltillo o tortilla(a)\n2.Tostada con crema de cacahuete o almendras y platano(b)\n3.Tortitas saladas caseras de trigo sarraceno o maiz(c)\n");
+						  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
+						 	switch(select3)
+							{
+								case 'a':
+								  	printf("Has escogido: 1.'Revoltillo o tortilla'\n");//Codigo de esta receta:'c_s_D_a'//
+							  	  	fc_s_D_a (); //Nombre de la funcion que imprime la receta codigo: 'c_s_D_a'//
+							  	  	break;
+							  	case 'b':
+							  	 	printf("Has escogido: 2.'Tostada con crema de cacahuete o almendras y platano'\n");//Codigo de esta receta:'c_s_D_b'//
+							  	 	fc_s_D_b (); //Nombre de la funcion que imprime la receta codigo: 'c_s_D_b'//
+								 	break;
+							  	case 'c':
+						  		  	printf("Has escogido: 3.'Tortitas saladas caseras de trigo sarraceno o maiz'\n");//Codigo de esta receta:'c_s_D_c'//
+							  	  	fc_s_D_c (); //Nombre de la funcion que imprime la receta codigo: 'c_s_D_c'//
+								  	break;
+							  	default:
+							  	  	printf("Esta opcion no es valida\n"); //Si la letra introducida por el usuario es distinta de las opcciones dadas, el programa imprime este mensaje en pantalla//
+							  	  	break;
+							}
+						 	break;
+						case 'm':
+						  	printf("Aqui te presentamos algunas recetas de las comidas de media manhana saladas para celiacos disponibles\n");
+						  	printf("Por favor, escoge una de las siguientes recetas, escribiendo la letra que aparezca al lado de la que desees\n");
+					      	printf("1.Gazpacho para celiacos(a)\n2.Brownie de garbanzos(b)\n3.Tortitas fritas(c)\n4.Pan suave trenzado sin gluten(d)\n");
+						  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
+						  	switch(select3)
+							{
+								case 'a':
+								  	printf("Has escogido: 1.'Gazpacho para celiacos'\n");//Codigo de esta receta:'c_s_m_a'//
+							  	  	fc_s_m_a (); //Nombre de la funcion que imprime la receta codigo: 'c_s_m_a'//
+							  	  	break;
+							  	case 'b':
+							  	 	printf("Has escogido: 2.'Brownie de garbanzos'\n");//Codigo de esta receta:'c_s_m_b'//
+							  	  	fc_s_m_b (); //Nombre de la funcion que imprime la receta codigo: 'c_s_m_b'//
+								  	break;
+							  	case 'c':
+							  	  	printf("Has escogido: 3.'Tortitas fritas'\n");//Codigo de esta receta:'c_s_m_c'//
+							  	  	fc_s_m_c (); //Nombre de la funcion que imprime la receta codigo: 'c_s_m_c'//
+								  	break;
+								case 'd':
+							  	  	printf("Has escogido: 4.'Pan suave trenzado sin gluten'\n");//Codigo de esta receta:'c_s_m_d'//
+							  	  	fc_s_m_d (); //Nombre de la funcion que imprime la receta codigo: 'c_s_m_d'//
+								  	break;
+							  	default:
+							  	  	printf("Esta opcion no es valida\n"); //Si la letra introducida por el usuario es distinta de las opcciones dadas, el programa imprime este mensaje en pantalla//
+							  	  	break;
+							}
+						  	break;
+						case 'a':
+						  	printf("Aqui te presentamos algunas recetas de las almuerzos salados para celiacos disponibles\n");
+						  	printf("Por favor, escoge una de las siguientes recetas, escribiendo la letra que aparezca al lado de la que desees\n");
+					      	printf("1.Canelones sin leche y sin gluten(a)\n2.Croquetas sin gluten(b)\n3.Empanadillas sin gluten(c)\n4.Receta de Pasta al huevo sin gluten(d)\n");
+						  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
+					  		switch(select3)
+							{
+								case 'a':
+								  	printf("Has escogido: 1.'Canelones sin leche y sin gluten'\n");//Codigo de esta receta:'c_s_a_a'//
+							  	  	fc_s_a_a (); //Nombre de la funcion que imprime la receta codigo: 'c_s_a_a'//
+							  	  	break;
+							  	case 'b':
+							  	  	printf("Has escogido: 2.'Croquetas sin gluten'\n");//Codigo de esta receta:'c_s_a_b'//
+							  	  	fc_s_a_b (); //Nombre de la funcion que imprime la receta codigo: 'c_s_a_b'//
+								  	break;
+							  	case 'c':
+							  	  	printf("Has escogido: 3.'Empanadillas sin gluten'\n");//Codigo de esta receta:'c_s_a_c'//
+							  	  	fc_s_a_c (); //Nombre de la funcion que imprime la receta codigo: 'c_s_a_c'//
+								  	break;
+								case 'd':
+							  	  	printf("Has escogido: 4.'Receta de Pasta al huevo sin gluten'\n");//Codigo de esta receta:'c_s_a_d'//
+							  	  	fc_s_a_d (); //Nombre de la funcion que imprime la receta codigo: 'c_s_a_d'//
+								  	break;
+							  	default:
+							  	  	printf("Esta opcion no es valida\n"); //Si la letra introducida por el usuario es distinta de las opcciones dadas, el programa imprime este mensaje en pantalla//
+							  	  	break;
+									}
+						  	break;
+						case 'M':
+						  	printf("Aqui te presentamos algunas recetas de las meriendas saladas para celiacos disponibles\n");
+						  	printf("Por favor, escoge una de las siguientes recetas, escribiendo la letra que aparezca al lado de la que desees\n");
+					      	printf("1.Mini magdalenas de atun con tomate(a)\n2.galletas saladas sin gluten(b)\n");
+						  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
+						  	switch(select3)
+							{
+								case 'a':
+								  	printf("Has escogido: 1.'Mini magdalenas de atun con tomate'\n");//Codigo de esta receta:'c_s_M_a'//
+							  	  	fc_s_M_a (); //Nombre de la funcion que imprime la receta codigo: 'c_s_M_a'//
+							  	  	break;
+								case 'b':
+							  	  	printf("Has escogido: 2.'galletas saladas sin gluten'\n");//Codigo de esta receta:'c_s_M_b'//
+							  	  	fc_s_M_b (); //Nombre de la funcion que imprime la receta codigo: 'c_s_M_b'//
+								  	break;
+							  	default:
+							  	  	printf("Esta opcion no es valida\n"); //Si la letra introducida por el usuario es distinta de las opcciones dadas, el programa imprime este mensaje en pantalla//
+							  	  	break;
+							}
+						  	break;	
+						case 'c':
+						  	printf("Aqui te presentamos algunas recetas de las cenas saladas para celiacos disponibles\n");
+						  	printf("Por favor, escoge una de las siguientes recetas, escribiendo la letra que aparezca al lado de la que desees\n");
+					      	printf("1.Masa para pizzas sin gluten(a)\n2.Lasagna a la bolognesa sin gluten(b)\n3.Hojaldre relleno de queso de cabra(c)\n4)Croquetas de Jamon Serrano y Queso(d)\n");
+						  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
+						  	switch(select3)
+							{
+								case 'a':
+								  	printf("Has escogido: 1.'Masa para pizzas sin gluten'\n");//Codigo de esta receta:'c_s_c_a'//
+							  	  	fc_s_c_a (); //Nombre de la funcion que imprime la receta codigo: 'c_s_c_a'//
+							  	  	break;
+							  	case 'b':
+							  	  	printf("Has escogido: 2.'Lasagna a la bolognesa sin gluten'\n");//Codigo de esta receta:'c_s_c_b'//
+							  	  	fc_s_c_b (); //Nombre de la funcion que imprime la receta codigo: 'c_s_c_b'//
+								  	break;
+							  	case 'c':
+							  	  	printf("Has escogido: 3.'Hojaldre relleno de queso de cabra'\n");//Codigo de esta receta:'c_s_c_c'//
+							  	  	fc_s_c_c (); //Nombre de la funcion que imprime la receta codigo: 'c_s_c_c'//
+								  	break;
+								case 'd':
+							  	 	printf("Has escogido: 4.'Croquetas de Jamon Serrano y Queso'\n");//Codigo de esta receta:'c_s_a_d'//
+							  	  	fc_s_c_d (); //Nombre de la funcion que imprime la receta codigo: 'c_s_a_d'//
+								  	break;
+								default:
+							  	  	printf("Esta opcion no es valida\n"); //Si la letra introducida por el usuario es distinta de las opcciones dadas, el programa imprime este mensaje en pantalla//
+							  	  	break;
+							}
+							break;
+					}	
+				  	break;
+			case 'd': //si la seleccion del usuario es una receta dulce, el programa continua pidiendo sus elecciones al usuario en base a recetas celiacas solo dulces//
+				printf("Escoge que te apetece mas, una receta dulce para:\nUn desayuno(D)\nUna comida de media manhana(m)\nUn almuerzo(a)\nUna merienda(M)\nUna cena(c)\n");
+				scanf(" %c", &select2_d); //El usuario escribira una letra u otra('D', 'm', 'a', 'M', 'c'), dependiendo del tipo de comida que prefiera//
+			  	switch(select2_d)
+			  		{
+					  	case 'D':
+						  	printf("Aqui te presentamos algunas recetas de desayunos salados para celiacos disponibles\n");
+					  	  	printf("Por favor, escoge una de las siguientes recetas, escribiendo la letra que aparezca al lado de la que desees\n\n");
+						  	printf("1.Tortitas caseras de trigo sarraceno o maiz(a)\n2.Galletas de vainilla y mandioca(b)\n3.Bol de fruta con quinoa(c)\n");
+						  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
+						  	switch(select3)
+							{
+								case 'a':
+								  	printf("Has escogido: 1.'Tortitas caseras de trigo sarraceno o maiz'\n");//Codigo de esta receta:'c_d_D_a'//
+							  	  	fc_d_D_a (); //Nombre de la funcion que imprime la receta codigo: 'c_d_D_a'//
+							  	  	break;
+							  	case 'b':
+							  	  	printf("Has escogido: 2.'Galletas de vainilla y mandioca'\n");//Codigo de esta receta:'c_d_D_b'//
+							  	  	fc_d_D_b (); //Nombre de la funcion que imprime la receta codigo: 'c_d_D_b'//
+								  	break;
+							  	case 'c':
+							  	  	printf("Has escogido: 3.'Bol de fruta con quinoa'\n");//Codigo de esta receta:'c_d_D_c'//
+							  	  	fc_d_D_c (); //Nombre de la funcion que imprime la receta codigo: 'c_d_D_c'//
+								  	break;
+							  	default:
+							  	  	printf("Esta opcion no es valida\n");
+							  	  	break;
+							}
+	    				  	break;
+						case 'm':
+						  	printf("Aqui te presentamos algunas recetas de comidas de media manhana saladas para celiacos disponibles\n");
+						  	printf("Deberias escoger una de las siguientes recetas, escribiendo el numero que aparezca al lado de la que desees\n");
+						  	printf("1.Galletas de Mantequilla de Cacahuete con Chocolate Blanco(a)\n2.Hojaldre de cebolla y calabaza caramelizada con queso rulo de cabra(b)\n");
+						  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
+						  	switch(select3)
+							{
+								case 'a':
+								  	printf("Has escogido: 1.'Galletas de Mantequilla de Cacahuete con Chocolate Blanco'\n");//Codigo de esta receta:'c_d_D_a'//
+							  	  	fc_d_m_a (); //Nombre de la funcion que imprime la receta codigo: 'c_d_D_a'//
+							  	 	break;
+							  	case 'b':
+							  	  	printf("Has escogido: 2.'Hojaldre de cebolla y calabaza caramelizada con queso rulo de cabra'\n");//Codigo de esta receta:'c_d_m_b'//
+							  	  	fc_d_m_b (); //Nombre de la funcion que imprime la receta codigo: 'c_d_m_a'//
+								  	break;
+							  	default:
+							  	  	printf("Esta opcion no es valida\n");
+							  	  	break;
+							}
+						  	break;
+						case 'a':
+						  	printf("Aqui te presentamos algunas recetas de almuerzos salados para celiacos disponibles\n");
+						  	printf("Deberias escoger una de las siguientes recetas, escribiendo el numero que aparezca al lado de la que desees\n");
+						 	printf("1.Escalopines en salsa agridulce sin gluten(a)\n2.Lomo de cerdo agridulce(b)\n");
+						  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
+						  	switch(select3)
+							{
+								case 'a':
+								  	printf("Has escogido: 1.'Escalopines en salsa agridulce sin gluten'\n");//Codigo de esta receta:'c_d_a_a'//
+							  	  	fc_d_a_a (); //Nombre de la funcion que imprime la receta codigo: 'c_d_a_a'//
+							  	  	break;
+							  	case 'b':
+							  	  	printf("Has escogido: 2.'Lomo de cerdo agridulce'\n");//Codigo de esta receta:'c_d_a_b'//
+							  	  	fc_d_a_b (); //Nombre de la funcion que imprime la receta codigo: 'c_d_a_b'//
+								  	break;
+							  	default:
+							  	  	printf("Esta opcion no es valida\n");
+							  	  	break;
+							}
+					      	break;
+						case 'M':
+						  	printf("Aqui te presentamos algunas recetas de meriendas saladas para celiacos disponibles\n");
+						  	printf("Deberias escoger una de las siguientes recetas, escribiendo el numero que aparezca al lado de la que desees\n");
+						  	printf("1.Magdalenas de vainilla sin gluten(a)\n2.Pastel Biarritz sin gluten(b)\n");
+						  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
+						  	switch(select3)
+							{
+								case 'a':
+								  	printf("Has escogido: 1.'Magdalenas de vainilla sin gluten'\n");//Codigo de esta receta:'c_d_M_a'//
+							  	  	fc_d_M_a (); //Nombre de la funcion que imprime la receta codigo: 'c_d_M_a'//
+							  	  	break;
+							  	case 'b':
+							  	  	printf("Has escogido: 2.'Pastel Biarritz sin gluten'\n");//Codigo de esta receta:'c_d_M_b'//
+							  	  	fc_d_M_b (); //Nombre de la funcion que imprime la receta codigo: 'c_d_M_b'//
+								  	break;
+							  	default:
+							  	  	printf("Esta opcion no es valida\n");
+							  	  	break;
+							}
+						  	break;
+						case 'c':
+						  	printf("Aqui te presentamos algunas recetas de cenas ligeras y saladas para celiacos disponibles\n");
+						  	printf("Deberias escoger una de las siguientes recetas, escribiendo el numero que aparezca al lado de la que desees\n");
+						  	printf("1.Croquetas de arroz con leche(a)\n2.Rollitos de primavera(b)\n");
+						  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
+						  	switch(select3)
+							{
+								case 'a':
+								  	printf("Has escogido: 1.'Croquetas de arroz con leche'\n");//Codigo de esta receta:'c_d_c_a'//
+							  	  	fc_d_c_a (); //Nombre de la funcion que imprime la receta codigo: 'c_d_c_a'//
+							  	  	break;
+							  	case 'b':
+							  	  	printf("Has escogido: 2.'Rollitos de primavera'\n");//Codigo de esta receta:'c_d_c_b'//
+							  	  	fc_d_c_b (); //Nombre de la funcion que imprime la receta codigo: 'c_d_c_b'//
+								  	break;
+							  	default:
+							  	  	printf("Esta opcion no es valida\n");
+							  	  	break;
+							}
+						  	break;
+					}
 						break;
-				}	
-			  	break;
-		case 'd': //si la seleccion del usuario es una receta dulce, el programa continua pidiendo sus elecciones al usuario en base a recetas celiacas solo dulces//
-			printf("Escoge que te apetece mas, una receta dulce para:\nUn desayuno(D)\nUna comida de media manhana(m)\nUn almuerzo(a)\nUna merienda(M)\nUna cena(c)\n");
-			scanf(" %c", &select2_d); //El usuario escribira una letra u otra('D', 'm', 'a', 'M', 'c'), dependiendo del tipo de comida que prefiera//
-		  	switch(select2_d)
-		  		{
-				  	case 'D':
-					  	printf("Aqui te presentamos algunas recetas de desayunos salados para celiacos disponibles\n");
-				  	  	printf("Por favor, escoge una de las siguientes recetas, escribiendo la letra que aparezca al lado de la que desees\n\n");
-					  	printf("1.Tortitas caseras de trigo sarraceno o maiz(a)\n2.Galletas de vainilla y mandioca(b)\n3.Bol de fruta con quinoa(c)\n");
-					  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
-					  	switch(select3)
-						{
-							case 'a':
-							  	printf("Has escogido: 1.'Tortitas caseras de trigo sarraceno o maiz'\n");//Codigo de esta receta:'c_d_D_a'//
-						  	  	fc_d_D_a (); //Nombre de la funcion que imprime la receta codigo: 'c_d_D_a'//
-						  	  	break;
-						  	case 'b':
-						  	  	printf("Has escogido: 2.'Galletas de vainilla y mandioca'\n");//Codigo de esta receta:'c_d_D_b'//
-						  	  	fc_d_D_b (); //Nombre de la funcion que imprime la receta codigo: 'c_d_D_b'//
-							  	break;
-						  	case 'c':
-						  	  	printf("Has escogido: 3.'Bol de fruta con quinoa'\n");//Codigo de esta receta:'c_d_D_c'//
-						  	  	fc_d_D_c (); //Nombre de la funcion que imprime la receta codigo: 'c_d_D_c'//
-							  	break;
-						  	default:
-						  	  	printf("Esta opcion no es valida\n");
-						  	  	break;
-						}
-    				  	break;
-					case 'm':
-					  	printf("Aqui te presentamos algunas recetas de comidas de media manhana saladas para celiacos disponibles\n");
-					  	printf("Deberias escoger una de las siguientes recetas, escribiendo el numero que aparezca al lado de la que desees\n");
-					  	printf("1.Galletas de Mantequilla de Cacahuete con Chocolate Blanco(a)\n2.Hojaldre de cebolla y calabaza caramelizada con queso rulo de cabra(b)\n");
-					  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
-					  	switch(select3)
-						{
-							case 'a':
-							  	printf("Has escogido: 1.'Galletas de Mantequilla de Cacahuete con Chocolate Blanco'\n");//Codigo de esta receta:'c_d_D_a'//
-						  	  	fc_d_m_a (); //Nombre de la funcion que imprime la receta codigo: 'c_d_D_a'//
-						  	 	break;
-						  	case 'b':
-						  	  	printf("Has escogido: 2.'Hojaldre de cebolla y calabaza caramelizada con queso rulo de cabra'\n");//Codigo de esta receta:'c_d_m_b'//
-						  	  	fc_d_m_b (); //Nombre de la funcion que imprime la receta codigo: 'c_d_m_a'//
-							  	break;
-						  	default:
-						  	  	printf("Esta opcion no es valida\n");
-						  	  	break;
-						}
-					  	break;
-					case 'a':
-					  	printf("Aqui te presentamos algunas recetas de almuerzos salados para celiacos disponibles\n");
-					  	printf("Deberias escoger una de las siguientes recetas, escribiendo el numero que aparezca al lado de la que desees\n");
-					 	printf("1.Escalopines en salsa agridulce sin gluten(a)\n2.Lomo de cerdo agridulce(b)\n");
-					  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
-					  	switch(select3)
-						{
-							case 'a':
-							  	printf("Has escogido: 1.'Escalopines en salsa agridulce sin gluten'\n");//Codigo de esta receta:'c_d_a_a'//
-						  	  	fc_d_a_a (); //Nombre de la funcion que imprime la receta codigo: 'c_d_a_a'//
-						  	  	break;
-						  	case 'b':
-						  	  	printf("Has escogido: 2.'Lomo de cerdo agridulce'\n");//Codigo de esta receta:'c_d_a_b'//
-						  	  	fc_d_a_b (); //Nombre de la funcion que imprime la receta codigo: 'c_d_a_b'//
-							  	break;
-						  	default:
-						  	  	printf("Esta opcion no es valida\n");
-						  	  	break;
-						}
-				      	break;
-					case 'M':
-					  	printf("Aqui te presentamos algunas recetas de meriendas saladas para celiacos disponibles\n");
-					  	printf("Deberias escoger una de las siguientes recetas, escribiendo el numero que aparezca al lado de la que desees\n");
-					  	printf("1.Magdalenas de vainilla sin gluten(a)\n2.Pastel Biarritz sin gluten(b)\n");
-					  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
-					  	switch(select3)
-						{
-							case 'a':
-							  	printf("Has escogido: 1.'Magdalenas de vainilla sin gluten'\n");//Codigo de esta receta:'c_d_M_a'//
-						  	  	fc_d_M_a (); //Nombre de la funcion que imprime la receta codigo: 'c_d_M_a'//
-						  	  	break;
-						  	case 'b':
-						  	  	printf("Has escogido: 2.'Pastel Biarritz sin gluten'\n");//Codigo de esta receta:'c_d_M_b'//
-						  	  	fc_d_M_b (); //Nombre de la funcion que imprime la receta codigo: 'c_d_M_b'//
-							  	break;
-						  	default:
-						  	  	printf("Esta opcion no es valida\n");
-						  	  	break;
-						}
-					  	break;
-					case 'c':
-					  	printf("Aqui te presentamos algunas recetas de cenas ligeras y saladas para celiacos disponibles\n");
-					  	printf("Deberias escoger una de las siguientes recetas, escribiendo el numero que aparezca al lado de la que desees\n");
-					  	printf("1.Croquetas de arroz con leche(a)\n2.Rollitos de primavera(b)\n");
-					  	scanf(" %c", &select3); //Aqui es usuario teclea la opcion que desee para obetener impresa en pantalla su receta deseada//
-					  	switch(select3)
-						{
-							case 'a':
-							  	printf("Has escogido: 1.'Croquetas de arroz con leche'\n");//Codigo de esta receta:'c_d_c_a'//
-						  	  	fc_d_c_a (); //Nombre de la funcion que imprime la receta codigo: 'c_d_c_a'//
-						  	  	break;
-						  	case 'b':
-						  	  	printf("Has escogido: 2.'Rollitos de primavera'\n");//Codigo de esta receta:'c_d_c_b'//
-						  	  	fc_d_c_b (); //Nombre de la funcion que imprime la receta codigo: 'c_d_c_b'//
-							  	break;
-						  	default:
-						  	  	printf("Esta opcion no es valida\n");
-						  	  	break;
-						}
-					  	break;
-				}
-					break;
-		default: //Si se teclea algo distinto de 's' o 'd', el programa avisa de que con esa opccion no se puede continuar//
-			printf("Esa no es una opccion valida\n");
-			break;	
+			default: //Si se teclea algo distinto de 's' o 'd', el programa avisa de que con esa opccion no se puede continuar//
+				printf("Esa no es una opccion valida\n");
+				break;	
+		}
+		printf("\n");
+		system("pause");
+		system("cls");
+		printf("Quieres consultar otra receta(o) o salir del programa(s)?(o/s)\n");
+		do
+		{
+			scanf(" %c", &res);
+			res=mins(res);
+			system("cls");
+			if(res=='o')
+				printf("De acuerdo\n");
+			else if(res=='s')
+				printf("Espero que disfrutes mucho de tu plato\nHasta la proxima\n");
+			else
+			{
+				printf("No te he entendido, por favor repiteme la respuesta\nQuieres otra receta(o) o salir(s)?(o/s)\n");
+				res='r';	
+			}	
+		}
+		while(res=='r');	
 	}
-	printf("\n");
+	while(res=='o');
 	system("pause");
 }
 int busquedatesoro()

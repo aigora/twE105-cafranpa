@@ -1,5 +1,6 @@
 5- Que cambio de estado ocurre en la sublimacion?
-De solido a liquido
+
+a)De solido a liquido
 b)De solido a gaseoso
 c)De gaseoso a liquido
 d)De liquido a solido

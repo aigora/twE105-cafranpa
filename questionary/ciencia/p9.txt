@@ -1,5 +1,6 @@
 9- De donde de saca la sacarina?
-Del aceite de girasol
-Del azucar
-Del carbon
-Del azufre
+
+a)Del aceite de girasol
+b)Del azucar
+c)Del carbon
+d)Del azufre
