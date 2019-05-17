@@ -152,10 +152,9 @@ void combate()
 	char s;
 	//Generamos una semilla para los numeros aleatorios
 	srand(time(NULL));
-	system("cls");
 	do	
 	{	
-		printf("Instrucciones:\nTanto tu como el monstruo teneis 4 'habilidades', por ponerles un nombre.\nLos puntos de ataque, los puntos de danho, los puntos de vida y la defensa.\nLos puntos de ataque y de danho se generan aleatoriamente cada turno.\nSi tus puntos de ataque son iguales o superiores a la defensa del enemigo, le\nquitaras 'x' puntos de danho  sus puntos de vida\n\n");
+		printf("Instrucciones:\nTanto tu como el monstruo teneis 4 'habilidades', por ponerles un nombre.\nLos puntos de ataque, los puntos de danho, los puntos de vida y la defensa.\nLos puntos de ataque y de danho se generan aleatoreamente cada turno.\nSi tus puntos de ataque son iguales o superiores a la defensa del enemigo, le\nquitaras 'x' puntos de danho  sus puntos de vida\n\n");
 		yo=70;
 		el=80;
 		printf("Aparece un enemigo, preparate para el combate \n");
@@ -412,7 +411,6 @@ int cunhado()
 				printf("+Que le dice a la foca de su madre?\n-I love you, mother foca\n");
 			break;
 		}
-		printf("\nRepetimos?(s)\n");
 	}
 		else
 		{
@@ -474,8 +472,8 @@ int cunhado()
 			}
 			else
 			d=-1;
-		printf("\nHas %s!, Repetimos (s)? \n ", d!=-1? "ganado":"perdido");
 		}	
+		printf("\nHas %s!, Repetimos (s)? \n ", d!=-1? "ganado":"perdido");
 		scanf(" %c", &s);
 	}
 	while(s=='s');
@@ -1222,10 +1220,10 @@ char mins(char ans)
 //Usados en Bola del 8cho
 void futuro()
 {
-	char ans, res[200];
+	char ans;
 	printf("Veo que tienes agallas\n");
 	printf("Adelante, preguntame lo que quieras conocer\n");
-	scanf(" %[^\n]", res);
+	scanf(" %[^\n]");
 	//permite que el usuario escribe cualquier cosa
 	//hasta que de un salto de pagina.
 	//Este dato al ser irrelevante para el resto del programa
@@ -1239,13 +1237,12 @@ void futuro()
 	//pregunta al usuario si quiere realizar otra pregunta
 	ans=mins(ans);
     if(ans=='s')
-    	futuro();
-	    //realizamos una recursividad si la respuesta es s
-	    //lo que permite volver ha realizar el programa desde el inicio
+    futuro();
+    //realizamos una recursividad si la respuesta es s
+    //lo que permite volver ha realizar el programa desde el inicio
     else
-	    printf("Espero haberte servido de mucho, nos veremos en otro momento\n");
-	    //termina el programa
-	system("pause");
+    printf("Espero haberte servido de mucho, nos veremos en otro momento\n");
+    //termina el programa
 }
 void prediccion()
 {
