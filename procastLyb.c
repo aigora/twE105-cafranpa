@@ -2711,7 +2711,7 @@ int avancevertical(int n, posicion *usuario)
 }
 int avancehorizontal(int n, posicion *usuario)
 {
-	//funciona igual que el horizontal pero en horizontal
+	//funciona igual que el vertical pero en horizontal
 	posicion *u=usuario;
 	u->x+=n;
 	if((u->x>10)||(u->x<0))
