@@ -152,6 +152,7 @@ void combate()
 	char s;
 	//Generamos una semilla para los numeros aleatorios
 	srand(time(NULL));
+	system("cls");
 	do	
 	{	
 		printf("Instrucciones:\nTanto tu como el monstruo teneis 4 'habilidades', por ponerles un nombre.\nLos puntos de ataque, los puntos de danho, los puntos de vida y la defensa.\nLos puntos de ataque y de danho se generan aleatoreamente cada turno.\nSi tus puntos de ataque son iguales o superiores a la defensa del enemigo, le\nquitaras 'x' puntos de danho  sus puntos de vida\n\n");
