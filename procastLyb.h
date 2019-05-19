@@ -6,6 +6,8 @@ typedef struct{
 //estructura que permite almacenar informacion util sobre el usuario
 int ingreso(usuario *iz);
 void registro(usuario iz, int io);
+//funciones que ayudan a la administracion de datos
+//del usuario que esta usando el programa
 int boladelocho();
 void combate();
 int cunhado();

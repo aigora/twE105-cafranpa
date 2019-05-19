@@ -15,9 +15,12 @@ void main()
 	printf("Bienvenido al Procrastinador 3000\n");
 	printf("Antes de empezar, procede con la seleccion de usuario\n");
 	system("pause");
+	//la funcion system se usa en todo el programa para hacer una visualizacion mas dinamica
 	system("cls");
 	i=ingreso(&iz);
 	//esta funcion nos permite almacenar el usuario en la variable iz
+	//y devuelve el valor que ocupa dentro del vector de estructuras 
+	//que está dentro de la funcion ingreso
 	sleep(1);
 	system("cls");
 	printf("Muy bien %s, como habras podido intuir, soy un bot que te ayudara a pasar el rato\n",iz.name);
@@ -57,6 +60,8 @@ void main()
 				break;
 			case 5:
 				questionary(iz.name);
+				//En este en particular, utiliza el nombre del usuario
+				//por eso vemos que toma la cadena de caracteres
 				iz.questionary++;
 				//aumenta en uno el contador del juego en concreto
 				break;		
@@ -107,7 +112,9 @@ void main()
 				printf("Lo siento, no te he entendedido\n");
 				printf("Quieres elegir otro programa(o), o quieres salir del programa(s)?(o/s)\n");
 				res='q';
-			}	
+			}
+			//permite al usuario volver a dar una respuesta 
+			//ya que la que ha dado no es valida	
 		}while(res=='q');
 	}while(res=='r');
 }

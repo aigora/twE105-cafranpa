@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<math.h>
 #include<stdlib.h>
 #include<string.h>
 #include<time.h>
@@ -11,6 +10,11 @@ int ingreso(usuario *iz)
 	int i,j;char aux[20], res;
 	p=fopen("usuarios.txt","r");
 	//abre el fichero que contiene la informacion de los usuarios
+	if(p==NULL)
+	{
+		printf("Error: No se ha podido abrir el fichero\n");
+		exit(-1);
+	}
 	for(i=0;i<4;i++)
 	{
 		fscanf(p,"%s\t%i\t%i\t%i\t%i\t%i\t%i\t%i\n", 
@@ -62,6 +66,9 @@ int ingreso(usuario *iz)
 				printf("Seguro que desea eleminar el usuario: %s para siempre?(s/n)\n",usuario[i].name);
 				scanf(" %c",&res);
 				res=mins(res);
+				//El programa hace que el usuario replantee bien
+				//su decision ya que todos los datos que 
+				//estaban guardados desapareceran
 			}
 			while(res!='s');
 			printf("seleccione el nombre que quiera tener:\n");
@@ -93,6 +100,11 @@ void registro(usuario iz, int io)//esta funcion tambien se usa en otros programa
 	char aux[20]; int i;
 	p=fopen("usuarios.txt","r");
 	//abre el fichero que contiene los usuarios
+	if(p==NULL)
+	{
+		printf("Error: no se ha podido abrir el fichero\n");
+		exit(-1);
+	}
 	for(i=0;i<4;i++)
 	{
 		fscanf(p,"%s\t%i\t%i\t%i\t%i\t%i\t%i\t%i\n", 
